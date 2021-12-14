@@ -1,0 +1,53 @@
+﻿
+@if (!IsTable)
+{
+    <div class="row text-center alert alert-info">
+        <div class="col">
+            <p>@Serials.SerialName</p>
+            <p>@Serials.Seasons</p>
+            <p>@Serials.Year</p>
+        </div>
+    </div>
+
+    @if (DisplayButtons)
+    {
+        <div class="row">
+            <div class="col offset-3">
+                <input type="checkbox" @onchange="FromBlazorToDB" />
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    }
+}
+else
+{
+    <tr>
+        <td><a href="Counter">@Serials.SerialName</a></td>
+        <td>@Serials.Seasons</td>
+        <td>@Serials.Year</td>
+        <td>
+            @if (DisplayButtons)
+            {
+                <input type="checkbox" @onchange="Add"/>
+            }
+        </td>
+    </tr>
+}
+
+
+@code {
+    [Parameter] public Serials Serials { get; set; }
+    [Parameter] public bool IsTable { get; set; }
+    [Parameter] public bool DisplayButtons { get; set; } = false;
+
+    private void FromBlazorToDB()
+    {
+        Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
+    }
+    private void Add()
+    {
+        Serials.AddToFile(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
+    }
+}
