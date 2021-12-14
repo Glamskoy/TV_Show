@@ -6,23 +6,17 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<br />
+
 
 
 
 @code {
     private int currentCount = 0;
     List<Serials> serials;
-    //[Parameter] public Serials Serials { get; set; }
 
     private void IncrementCount()
     {
         currentCount++;
     }
-
-
-
-    //private void GetFromDb()
-    //{
-    //    Serials.GetSerialsFromDb(Serials.SerialName);
-    //}
 }

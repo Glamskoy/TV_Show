@@ -1,4 +1,5 @@
-﻿
+﻿@using System.IO;
+
 @if (!IsTable)
 {
     <div class="row text-center alert alert-info">
@@ -24,13 +25,13 @@
 else
 {
     <tr>
-        <td><a href="Counter">@Serials.SerialName</a></td>
+        <td><a href="SerialPage">@Serials.SerialName</a></td>
         <td>@Serials.Seasons</td>
         <td>@Serials.Year</td>
         <td>
             @if (DisplayButtons)
             {
-                <input type="checkbox" @onchange="Add"/>
+                <input type="checkbox" @onchange="FromBlazorToDB"/>
             }
         </td>
     </tr>
@@ -42,12 +43,17 @@ else
     [Parameter] public bool IsTable { get; set; }
     [Parameter] public bool DisplayButtons { get; set; } = false;
 
+    //private void AddToFIle()
+    //{
+    //    FileInfo newFile = new FileInfo("serials.txt");
+    //    newFile.Create();
+    //}
+
     private void FromBlazorToDB()
     {
         Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
+        //AddToFIle();
     }
-    private void Add()
-    {
-        Serials.AddToFile(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
-    }
+
+    
 }

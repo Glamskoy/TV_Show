@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace TV_Show
+namespace TV_Show.Shared
 {
     #line hidden
     using System;
@@ -82,13 +82,22 @@ using TV_Show.Models;
 #line default
 #line hidden
 #nullable disable
-    public partial class _Imports : System.Object
+    [Microsoft.AspNetCore.Components.RouteAttribute("/SerialPage")]
+    public partial class SerialPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected void Execute()
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 30 "C:\Users\01\Desktop\TV_Show\TV_Show\Shared\SerialPage.razor"
+       
+    [Parameter] public Serials Serials { get; set; }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

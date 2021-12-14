@@ -52,7 +52,7 @@ namespace TV_Show.Models
 
         public static void AddToFile(Serials ser)
         {
-            //FileInfo newFile = new FileInfo("D:/Projects/TV_Show/TV_Show/Db/Serials.txt");
+            //FileInfo newFile = new FileInfo("Serials.txt");
             //newFile.Refresh();
 
             var connectionString = "mongodb://localhost";
@@ -84,13 +84,13 @@ namespace TV_Show.Models
         //    collection.InsertOne(series);
         //}
 
-        //public static void GetSerialsFromDb(string serialName)
-        //{
-        //    var connectionString = "mongodb://localhost";
-        //    var client = new MongoClient(connectionString);
-        //    var db = client.GetDatabase("TV_Shows");
-        //    var collection = db.GetCollection<Serials>("Serials");
-        //    Serials serials = collection.Find(filter => filter.SerialName == serialName).FirstOrDefault();
-        //}
+        public static void GetSerialsFromDb(string serialName)
+        {
+            var connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase("TV_Shows");
+            var collection = db.GetCollection<Serials>("Serials");
+            Serials serials = collection.Find(filter => filter.SerialName == serialName).FirstOrDefault();
+        }
     }
 }

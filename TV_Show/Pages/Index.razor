@@ -41,42 +41,15 @@
 
 <br />
 
-@*<SerialListTable Serials="serials" />*@
+<SerialListTable Serials="serials" />
 
 
 
 
 
 @code {
-    //List<Serials> serials;
+    List<Serials> serials;
 
-    //protected async override Task OnInitializedAsync()
-    //{
-    //    serials = new List<Serials>()
-    //    {
-    //            new Serials()
-    //            {
-    //                SerialName = "Game of Thrones",
-    //                Seasons = 8,
-    //                Year = 2010
-    //            },
-    //            new Serials()
-    //            {
-    //                SerialName = "The Big Bang Theory",
-    //                Seasons = 12,
-    //                Year = 2007
-    //            },
-    //            new Serials()
-    //            {
-    //                SerialName = "Supernatural",
-    //                Seasons = 15,
-    //                Year = 2005
-
-
-    //            },
-    //        };
-
-    //}
 
     string firstSlide = "active";
     string secondSlide = "";
@@ -93,6 +66,28 @@
         cts = new CancellationTokenSource();
         ct = cts.Token;
         Walkthrough(ct);
+
+        serials = new List<Serials>()
+        {
+                new Serials()
+                {
+                    SerialName = "Game of Thrones",
+                    Seasons = 8,
+                    Year = 2010
+                },
+                new Serials()
+                {
+                    SerialName = "The Big Bang Theory",
+                    Seasons = 12,
+                    Year = 2007
+                },
+                new Serials()
+                {
+                    SerialName = "Supernatural",
+                    Seasons = 15,
+                    Year = 2005
+                },
+            };
     }
 
     public async Task Walkthrough(CancellationToken ct)
