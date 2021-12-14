@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KNIivSgP2pavlLLmvVcMsv9dJR+oKr2JvWzPVrheF778aIbLSsm43IHVjS5c6sVyYjJlUktdY4wZne7fi0Rr7g==",
+  "dgSpecHash": "Br0C00OxevDGatv+zSv1W1V7Rx+cOMyThgVJZJPVCAYjihkK8xoEtaZnewglSz6epZ57Gl1JrIxU3TXrsAXyTw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\TV_Show\\TV_Show\\TV_Show.csproj",
+  "projectFilePath": "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\TV_Show.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\story\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\story\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",

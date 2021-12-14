@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\TV_Show\\TV_Show\\TV_Show.csproj": {}
+    "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\TV_Show.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\TV_Show\\TV_Show\\TV_Show.csproj": {
+    "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\TV_Show.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\TV_Show\\TV_Show\\TV_Show.csproj",
+        "projectUniqueName": "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\TV_Show.csproj",
         "projectName": "TV_Show",
-        "projectPath": "D:\\Projects\\TV_Show\\TV_Show\\TV_Show.csproj",
+        "projectPath": "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\TV_Show.csproj",
         "packagesPath": "C:\\Users\\story\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\TV_Show\\TV_Show\\obj\\",
+        "outputPath": "D:\\Projects\\TV_Show\\TV_Show.git\\TV_Show\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
