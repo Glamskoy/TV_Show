@@ -17,7 +17,9 @@ namespace TV_Show.Models
 
         private string _serieslName;
         private int _serieslNumber;
-        
+        private int _serialSeason;
+
+
 
         public Serials()
         {
@@ -30,6 +32,14 @@ namespace TV_Show.Models
             Year = year;
         }
 
+        public Serials(string serialName, int serialSeasons, int serieslNumber, string serieslName)
+        {
+            SerialName = serialName;
+            SerialSeason = serialSeasons;
+            SerieslNumber = serieslNumber;
+            SerieslName = serieslName;
+        }
+
         [BsonId]
         [BsonIgnoreIfDefault]
         ObjectId _id { get; set; }
@@ -38,9 +48,9 @@ namespace TV_Show.Models
         public int Year { get => _year; set => _year = value; }
         public string SerieslName { get => _serieslName; set => _serieslName = value; }
         public int SerieslNumber { get => _serieslNumber; set => _serieslNumber = value; }
-        
+        public int SerialSeason { get => _serialSeason; set => _serialSeason = value; }
 
-        public static async Task AddSerialsToDb(Serials serial)
+        public static void AddSerialsToDb(Serials serial)
         {
             var connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
@@ -75,14 +85,14 @@ namespace TV_Show.Models
             //StreamReader str = new StreamReader("D:/Projects/TV_Show/TV_Show/Db/Serials.xtx");
             //str.ReadToEnd();
         }
-        //public static void AddSeriesToDb(Serials series)
-        //{
-        //    var connectionString = "mongodb://localhost";
-        //    var client = new MongoClient(connectionString);
-        //    var db = client.GetDatabase("TV_Shows");
-        //    var collection = db.GetCollection<Serials>("Series");
-        //    collection.InsertOne(series);
-        //}
+        public static void AddSeriesToDb(Serials series)
+        {
+            var connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase("TV_Shows");
+            var collection = db.GetCollection<Serials>("Series");
+            collection.InsertOne(series);
+        }
 
         public static void GetSerialsFromDb(string serialName)
         {

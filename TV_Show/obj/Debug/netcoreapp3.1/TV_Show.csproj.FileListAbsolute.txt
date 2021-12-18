@@ -215,3 +215,5 @@ C:\Users\01\Desktop\TV_Show\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.pdb
 C:\Users\01\Desktop\TV_Show\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.genruntimeconfig.cache
 C:\Users\01\Desktop\TV_Show\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SerialPage.razor.g.cs
 C:\Users\01\Desktop\TV_Show\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SerialPage.razor.g.cs
+D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SerialPage.razor.g.cs
+D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SerialPage.razor.g.cs

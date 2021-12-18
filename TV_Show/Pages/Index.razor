@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using System.Threading;
+@using System.IO;
 
 <div class="row">
     <div class="col text-center">
@@ -9,23 +10,29 @@
 
 <br />
 
-<div class="container" style="margin-left: auto; margin-right: auto; position: relative; height: 600px; background-color: rebeccapurple ">
-    
-    <div id="recommendationCarousel" class="carousel slide" data-ride="carousel" style="height:inherit">
+<div class="container" style="margin-left: auto; margin-right: auto; position: relative; height: 600px; width: 1000px; background-color: rebeccapurple ">
+
+    <div id="recommendationCarousel" class="carousel slide" data-ride="carousel" style="height: inherit;">
         <ol class="carousel-indicators">
             <li data-target="#recommendationCarousel" data-slide-to="0" class="@currentSlide"></li>
             <li data-target="#recommendationCarousel" data-slide-to="1" class="@secondSlide"></li>
             <li data-target="#recommendationCarousel" data-slide-to="2" class="@thirdSlide"></li>
         </ol>
-        <div class="carousel-inner" style="height:inherit;">
-            <div class="carousel-item @firstSlide" style=" height: inherit;">
-                <img class="d-block w-100" src="/got.jpg" alt="First slide" style="height:inherit;" />
+        <div class="carousel-inner" style="height: inherit;">
+            <div class="carousel-item @firstSlide" style="height: inherit;">
+                <a class="" href="/SerialPage" style="height: inherit">
+                    <img class="d-block w-100" src="/got.jpg" alt="First slide" style="height: inherit;" />
+                </a>
             </div>
-            <div class="carousel-item @secondSlide" style="height: inherit; ">
-                <img class="d-block w-100" src="/supernatural.jpg" alt="Second slide" style="height:inherit;" />
+            <div class="carousel-item @secondSlide" style="height: inherit; width: inherit;">
+                <a class="" href="/SerialPage" style="height: inherit; width: inherit;">
+                    <img class="d-block w-100" src="/supernatural.jpg" alt="Second slide" style="height: inherit; width: inherit;" />
+                </a>
             </div>
             <div class="carousel-item @thirdSlide" style="height: inherit;">
-                <img class="d-block w-100" src="/tbbt.jpg" alt="Third slide" style="height:inherit;" />
+                <a class="" href="/SerialPage" style="height:inherit">
+                    <img class="d-block w-100" src="/tbbt.jpg" alt="Third slide" style="height:inherit;" />
+                </a>
             </div>
         </div>
         <a class="carousel-control-prev" href="" role="button" data-slide="prev" @onclick="()=>Manually(true)">
@@ -43,7 +50,18 @@
 
 <SerialListTable Serials="serials" />
 
-
+@*<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Выполнить
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Действие 1</a>
+        <a class="dropdown-item" href="#">Действие 2</a>
+        <a class="dropdown-item" href="#">Действие 3</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Действие 4</a>
+    </div>
+</div>*@
 
 
 
@@ -67,27 +85,42 @@
         ct = cts.Token;
         Walkthrough(ct);
 
-        serials = new List<Serials>()
+
+        StreamReader r = File.OpenText("D:/Projects/TV_Show/TV_Show.git/TV_Show/wwwroot/spn.txt");
+        //serials.Clear();
+        string s = null;
+        while ((s = r.ReadLine()) != null)
         {
-                new Serials()
-                {
-                    SerialName = "Game of Thrones",
-                    Seasons = 8,
-                    Year = 2010
-                },
-                new Serials()
-                {
-                    SerialName = "The Big Bang Theory",
-                    Seasons = 12,
-                    Year = 2007
-                },
-                new Serials()
-                {
-                    SerialName = "Supernatural",
-                    Seasons = 15,
-                    Year = 2005
-                },
-            };
+            serials = new List<Serials>();
+            Serials x = new Serials();
+            x.SerialName = s;
+            x.Seasons = int.Parse(r.ReadLine());
+            x.Year = int.Parse(r.ReadLine());
+            serials.Add(x);
+        }
+        r.Close();
+
+        //serials = new List<Serials>()
+        //{
+        //        new Serials()
+        //        {
+        //            SerialName = "Game of Thrones",
+        //            Seasons = 8,
+        //            Year = 2010
+        //        },
+        //        new Serials()
+        //        {
+        //            SerialName = "The Big Bang Theory",
+        //            Seasons = 12,
+        //            Year = 2007
+        //        },
+        //        new Serials()
+        //        {
+        //            SerialName = "Supernatural",
+        //            Seasons = 15,
+        //            Year = 2005
+        //        },
+        //};
     }
 
     public async Task Walkthrough(CancellationToken ct)

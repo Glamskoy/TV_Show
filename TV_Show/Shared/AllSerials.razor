@@ -43,6 +43,8 @@ else
     [Parameter] public bool IsTable { get; set; }
     [Parameter] public bool DisplayButtons { get; set; } = false;
 
+    
+
     //private void AddToFIle()
     //{
     //    FileInfo newFile = new FileInfo("serials.txt");
@@ -52,8 +54,7 @@ else
     private void FromBlazorToDB()
     {
         Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
-        //AddToFIle();
     }
 
-    
+
 }
