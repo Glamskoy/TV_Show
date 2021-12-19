@@ -50,24 +50,14 @@
 
 <SerialListTable Serials="serials" />
 
-@*<div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Выполнить
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Действие 1</a>
-        <a class="dropdown-item" href="#">Действие 2</a>
-        <a class="dropdown-item" href="#">Действие 3</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Действие 4</a>
-    </div>
-</div>*@
+
 
 
 
 @code {
     List<Serials> serials;
 
+    List<GoT> got;
 
     string firstSlide = "active";
     string secondSlide = "";
@@ -86,41 +76,52 @@
         Walkthrough(ct);
 
 
-        StreamReader r = File.OpenText("D:/Projects/TV_Show/TV_Show.git/TV_Show/wwwroot/spn.txt");
-        //serials.Clear();
-        string s = null;
-        while ((s = r.ReadLine()) != null)
-        {
-            serials = new List<Serials>();
-            Serials x = new Serials();
-            x.SerialName = s;
-            x.Seasons = int.Parse(r.ReadLine());
-            x.Year = int.Parse(r.ReadLine());
-            serials.Add(x);
-        }
-        r.Close();
-
-        //serials = new List<Serials>()
+        ////StreamReader r = File.OpenText("D:/Projects/TV_Show/TV_Show.git/TV_Show/wwwroot/spn.txt");
+        //StreamReader r = File.OpenText("C:/Users/01/Desktop/TV_Show/TV_Show/wwwroot/spn.txt");
+        ////serials.Clear();
+        //string s = null;
+        //while ((s = r.ReadLine()) != null)
         //{
-        //        new Serials()
-        //        {
-        //            SerialName = "Game of Thrones",
-        //            Seasons = 8,
-        //            Year = 2010
-        //        },
-        //        new Serials()
-        //        {
-        //            SerialName = "The Big Bang Theory",
-        //            Seasons = 12,
-        //            Year = 2007
-        //        },
-        //        new Serials()
-        //        {
-        //            SerialName = "Supernatural",
-        //            Seasons = 15,
-        //            Year = 2005
-        //        },
-        //};
+        //    serials = new List<Serials>();
+        //    Serials x = new Serials();
+        //    x.SerialName = s;
+        //    x.Seasons = int.Parse(r.ReadLine());
+        //    x.Year = int.Parse(r.ReadLine());
+        //    serials.Add(x);
+        //}
+        //r.Close();
+
+        serials = new List<Serials>()
+        {
+                new Serials()
+                {
+                    SerialName = "Game of Thrones",
+                    Seasons = 8,
+                    Year = 2010
+                },
+                new Serials()
+                {
+                    SerialName = "The Big Bang Theory",
+                    Seasons = 12,
+                    Year = 2007
+                },
+                new Serials()
+                {
+                    SerialName = "Supernatural",
+                    Seasons = 15,
+                    Year = 2005
+                },
+        };
+
+        got = new List<GoT>()
+        {
+                new GoT()
+                {
+                    SerialSeason = 1,
+                    SerieslNumber = 1,
+                    SerieslName = "Winter is Coming"
+                },
+        };
     }
 
     public async Task Walkthrough(CancellationToken ct)

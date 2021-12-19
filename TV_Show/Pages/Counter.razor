@@ -8,7 +8,7 @@
 
 <br />
 
-<button class="btn btn-primary" @onclick="FromBlazorToDB1">Add Series</button>
+@*<button class="btn btn-primary" @onclick="FromBlazorToDB1">Add Series</button>*@
 
 
 @code {
@@ -20,8 +20,8 @@
     {
         currentCount++;
     }
-    private void FromBlazorToDB1()
-    {
-        Serials.AddSeriesToDb(new Serials(Serials.SerialName, Serials.SerialSeason, Serials.SerieslNumber, Serials.SerieslName));
-    }
+    //private void FromBlazorToDB1()
+    //{
+    //    Serials.AddSeriesToDb(new Serials(Serials.SerialName, Serials.SerialSeason, Serials.SerieslNumber, Serials.SerieslName));
+    //}
 }

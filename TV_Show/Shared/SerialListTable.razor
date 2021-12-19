@@ -21,11 +21,6 @@
             {
                 @foreach (var item in Serials)
                 {
-                    @*<tr>
-                            <td>@item.Name</td>
-                            <td>@item.Genre</td>
-                            <td>@item.ReleaseDate.ToString("dd.MM.yyyy")</td>
-                        </tr>*@
                     <AllSerials Serials="item" IsTable="true" DisplayButtons="displayButtons"/>
                 }
             }
@@ -34,9 +29,13 @@
     </table>
 </div>
 
+
+
 @code {
     [Parameter] public List<Serials> Serials { get; set; }
 
+
     bool displayButtons = false;
+
 
 }

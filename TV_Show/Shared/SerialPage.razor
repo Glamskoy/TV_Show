@@ -23,30 +23,41 @@
                 
             </thead>
             <tbody>
-                
+                <tr>
+                    <td>@GoT.SerialSeason</td>
+                    <td>@GoT.SerieslNumber</td>
+                    <td>@GoT.SerieslName</td>
+                    <td>
+                        <input type="checkbox" @onchange="FromBlazorToDBToSerial" />
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
 </div>
     
+@*<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</div>*@
 
 
 
 
 @code {
-    List<Serials> serial;
+    [Parameter] public GoT GoT { get; set; }
+    List<GoT> got;
 
-    protected override async Task OnInitializedAsync()
+   
+
+    private void FromBlazorToDBToSerial()
     {
-        //serial = new List<Serials>()
-        //{
-        //        new Serials()
-        //        {
-        //            SerialName = "Game of Thrones",
-        //            SerialSeason = 1,
-        //            SerieslNumber = 1,
-        //            SerieslName = "Winter is Coming"
-        //        },
-        //};
+        GoT.AddSeriesToDb(new GoT(GoT.SerialSeason, GoT.SerieslNumber, GoT.SerieslName));
     }
 }

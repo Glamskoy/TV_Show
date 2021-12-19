@@ -16,9 +16,6 @@
             <div class="col offset-3">
                 <input type="checkbox" @onchange="FromBlazorToDB" />
             </div>
-            <div class="col">
-
-            </div>
         </div>
     }
 }
@@ -31,11 +28,12 @@ else
         <td>
             @if (DisplayButtons)
             {
-                <input type="checkbox" @onchange="FromBlazorToDB"/>
+                <input type="checkbox" @onchange="FromBlazorToDB" />
             }
         </td>
     </tr>
 }
+
 
 
 @code {
@@ -56,5 +54,5 @@ else
         Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
     }
 
-
+    
 }
