@@ -15,6 +15,7 @@ namespace TV_Show.Models
         private int _seasons;
         private int _year;
 
+
         public Serials()
         {
         }
@@ -42,15 +43,6 @@ namespace TV_Show.Models
             var db = client.GetDatabase("TV_Shows");
             var collection = db.GetCollection<Serials>("Serials");
             collection.InsertOne(serial);
-
-        }
-        public static void GetSerialsFromDb(string serialName)
-        {
-            var connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var db = client.GetDatabase("TV_Shows");
-            var collection = db.GetCollection<Serials>("Serials");
-            Serials serials = collection.Find(filter => filter.SerialName == serialName).FirstOrDefault();
         }
 
         //public static void AddToFile(Serials ser)

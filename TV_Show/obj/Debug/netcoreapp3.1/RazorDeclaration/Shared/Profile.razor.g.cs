@@ -13,77 +13,77 @@ namespace TV_Show.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 1 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 2 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 3 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 4 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 5 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 6 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 7 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 8 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using TV_Show;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 9 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using TV_Show.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\01\Desktop\TV_Show\TV_Show\_Imports.razor"
+#line 10 "D:\Projects\TV_Show\TV_Show.git\TV_Show\_Imports.razor"
 using TV_Show.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/SerialPage")]
-    public partial class SerialPage : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Profile")]
+    public partial class Profile : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -91,21 +91,18 @@ using TV_Show.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Users\01\Desktop\TV_Show\TV_Show\Shared\SerialPage.razor"
+#line 14 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
-    [Parameter] public GoT GoT { get; set; }
-    List<GoT> got;
-
-   
-
-    private void FromBlazorToDBToSerial()
+    public User currentUser { get; set; }
+    protected override async Task OnInitializedAsync()
     {
-        GoT.AddSeriesToDb(new GoT(GoT.SerialSeason, GoT.SerieslNumber, GoT.SerieslName));
+        currentUser = await storage.GetItemAsync<User>("CurrentUser");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
 #pragma warning restore 1591

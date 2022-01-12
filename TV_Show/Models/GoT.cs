@@ -7,17 +7,19 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace TV_Show.Models {
-    public class GoT : Serials 
+    public class GoT
     {
-        private string _serieslName;
-        private int _serieslNumber;
+        private string _serialName;
         private int _serialSeason;
+        private int _seriesNumber;
+        private string _seriesName;
 
-        public GoT(int serialSeason, int serieslNumber, string serieslName)
+        public GoT(string serialName, int serialSeason, int seriesNumber, string seriesName)
         {
+            SerialName = serialName;
             SerialSeason = serialSeason;
-            SerieslNumber = serieslNumber;
-            SerieslName = serieslName;
+            SeriesNumber = seriesNumber;
+            SeriesName = seriesName;
         }
 
         public GoT()
@@ -27,11 +29,12 @@ namespace TV_Show.Models {
         [BsonId]
         [BsonIgnoreIfDefault]
         ObjectId _id { get; set; }
-        public string SerieslName { get => _serieslName; set => _serieslName = value; }
-        public int SerieslNumber { get => _serieslNumber; set => _serieslNumber = value; }
+        public string SerialName { get => _serialName; set => _serialName = value; }
         public int SerialSeason { get => _serialSeason; set => _serialSeason = value; }
+        public int SeriesNumber { get => _seriesNumber; set => _seriesNumber = value; }
+        public string SeriesName { get => _seriesName; set => _seriesName = value; }
 
-        public static void AddSeriesToDb(GoT got)
+        public static void AddSeriesGoTToDb(GoT got)
         {
             var connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);

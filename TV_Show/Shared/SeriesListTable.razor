@@ -1,0 +1,52 @@
+﻿@inject Blazored.LocalStorage.ILocalStorageService storage
+@inject NavigationManager manager
+
+<div class="row" style="background-color:antiquewhite; margin-bottom:10px;">
+    <div class="col">
+        <p class="text-left">s @SerialSeason ep @SeriesNumber</p>
+    </div>
+    <div class="col">
+        <p class="text-left">@SeriesName</p>
+    </div>
+    <div class="col">
+        <p class="text-right">
+            @if (IsUserLogged)
+            {
+                <input type="checkbox" @onchange="FromBlazorToDB" />
+            }
+        </p>
+    </div>
+</div>
+
+
+
+
+@code {
+    [Parameter] public User User { get; set; }
+    public bool IsUserLogged { get; set; }
+
+    [Parameter] public string CurrentUserLogin { get; set; }
+    [Parameter] public string CurrentUserPassword { get; set; }
+    [Parameter] public string SerialName { get; set; }
+    [Parameter] public int SerialSeason { get; set; }
+    [Parameter] public int SeriesNumber { get; set; }
+    [Parameter] public string SeriesName { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //await storage.SetItemAsync<bool>("IsUserLogged", false);
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+    }
+
+    private void FromBlazorToDB()
+    {
+        User.AddUserSerialsToDb(new User(CurrentUserLogin, CurrentUserPassword, SerialName, SerialSeason,
+            SeriesNumber, SeriesName));
+        if(SerialName == "Game of Thrones")
+            manager.NavigateTo("/GameofThrones", true);
+        else if(SerialName == "Supernatural")
+            manager.NavigateTo("/Supernatural", true);
+        else
+            manager.NavigateTo("/TheBigBangTheory", true);
+    }
+}

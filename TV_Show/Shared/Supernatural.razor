@@ -1,0 +1,496 @@
+﻿@page "/Supernatural"
+@using MongoDB.Driver;
+@using System.IO;
+
+
+
+<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <img src="/spn.jpg" class="card-img-top" alt="Supernatural">
+        </div>
+        <div class="col" style="margin-right: auto; top: 15px;">
+            <p>Serial: Supernatural</p>
+            <p>Year: 2005</p>
+            <p>Seasons: 15</p>
+            <p>Information: Supernatural is an American dark fantasy drama television series created by Eric Kripke. It was first broadcast on September 13, 2005, on The WB, and subsequently became part of successor The CW's lineup. Starring Jared Padalecki as Sam Winchester and Jensen Ackles as Dean Winchester, the series follows the two brothers as they hunt demons, ghosts, monsters, and other supernatural beings. The series was produced by Warner Bros. Television, in association with Wonderland Sound and Vision. Along with Kripke, executive producers have been McG, Robert Singer, Phil Sgriccia, Sera Gamble, Jeremy Carver, John Shiban, Ben Edlund and Adam Glass. Former executive producer and director Kim Manners died of lung cancer during production of the fourth season.</p>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="accordion" id="accordionPanelsStayOpen">
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 1</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                 aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 1)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 2</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 2)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 3</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 3)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 4</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 4)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 5</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFive">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 5)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 6</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingSix">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 6)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 7</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingSeven">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 7)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 8</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingEight">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 8)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingNine">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseNine" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 9</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingNine">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 9)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingTen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTen" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 10</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingTen">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 10)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingEleven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEleven" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 11</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingEleven">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 11)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingTwelve">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwelve" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 12</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingTwelve">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 12)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingThirteen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThirteen" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 13</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingThirteen">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 13)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFourteen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFourteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFourteen" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 14</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFourteen" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFourteen">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 14)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFifteen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFifteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFifteen" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 15</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFifteen" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFifteen">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in spn)
+                                {
+                                    @if (item.SerialSeason == 15)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public Spn Spn { get; set; }
+    List<Spn> spn = new List<Spn>();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        StreamReader rr = new StreamReader(Path.GetFullPath("spn.txt"));
+        string ss = null;
+        while ((ss = rr.ReadLine()) != null)
+        {
+            Spn x = new Spn();
+            x.SerialName = ss;
+            x.SerialSeason = int.Parse(rr.ReadLine());
+            x.SeriesNumber = int.Parse(rr.ReadLine());
+            x.SeriesName = rr.ReadLine();
+            spn.Add(x);
+        }
+        rr.Close();
+        //FromBlazorToDBToSerial();
+
+
+    }
+
+    private void FromBlazorToDBToSerial()
+    {
+        foreach (var item in spn)
+        {
+            Spn.AddSeriesSpnToDb(new Spn(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+        }
+    }
+}
+

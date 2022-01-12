@@ -1,0 +1,42 @@
+﻿@page "/Registration"
+@inject Blazored.LocalStorage.ILocalStorageService storage
+@inject NavigationManager manager
+@using MongoDB.Driver;
+
+<div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registration in TV-Show</h5>
+            </div>
+            <div class="modal-body" style="margin-bottom: 15px;">
+                <p style="width:100%; margin-bottom: inherit;">Username or email address</p>
+                <input style="width: 100%; margin-bottom: inherit;" @bind-value="CurrentUserLogin" />
+                <p style="width: 100%; margin-bottom: inherit;">Password</p>
+                <input style="width: 100%; margin-bottom: inherit;" @bind-value="CurrentUserPassword" />
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        style="height: 40px; width: 100%; margin-top: 15px;" @onclick="SignUp">
+                    Registration
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] public User User { get; set; }
+    public string CurrentUserLogin { get; set; }
+    public string CurrentUserPassword { get; set; }
+
+    private void SignUp()
+    {
+        User user = new User(CurrentUserLogin, CurrentUserPassword);
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<User>("Users");
+        collection.InsertOne(user);
+        //User.AddUserToDb(new User(CurrentUserLogin, CurrentUserPassword));
+    }
+}

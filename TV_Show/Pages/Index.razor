@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using System.Threading;
+@using MongoDB.Driver;
 @using System.IO;
 
 <div class="row">
@@ -20,18 +21,18 @@
         </ol>
         <div class="carousel-inner" style="height: inherit;">
             <div class="carousel-item @firstSlide" style="height: inherit;">
-                <a class="" href="/SerialPage" style="height: inherit">
-                    <img class="d-block w-100" src="/got.jpg" alt="First slide" style="height: inherit;" />
+                <a href="/GameofThrones" style="height: inherit">
+                    <img class="d-block w-100" src="/got.jpg" alt="Game of Thrones" style="height: inherit;" />
                 </a>
             </div>
             <div class="carousel-item @secondSlide" style="height: inherit; width: inherit;">
-                <a class="" href="/SerialPage" style="height: inherit; width: inherit;">
-                    <img class="d-block w-100" src="/supernatural.jpg" alt="Second slide" style="height: inherit; width: inherit;" />
+                <a href="/Supernatural" style="height: inherit; width: inherit;">
+                    <img class="d-block w-100" src="/spn.jpg" alt="Supernatural" style="height: inherit; width: inherit;" />
                 </a>
             </div>
             <div class="carousel-item @thirdSlide" style="height: inherit;">
-                <a class="" href="/SerialPage" style="height:inherit">
-                    <img class="d-block w-100" src="/tbbt.jpg" alt="Third slide" style="height:inherit;" />
+                <a href="/TheBigBangTheory" style="height:inherit">
+                    <img class="d-block w-100" src="/tbbt.jpg" alt="The Big Bang Theory" style="height:inherit;" />
                 </a>
             </div>
         </div>
@@ -50,14 +51,24 @@
 
 <SerialListTable Serials="serials" />
 
+<button class="btn btn-primary" @onclick="FromBlazorToDBToUser">sss</button>
+@if(test != null)
+            {
+                <h3>@test.SerialName</h3>
+                <h3>@test.SerialSeason</h3>
+                <h3>@test.SeriesNumber</h3>
+                <h3>@test.SeriesName</h3>
 
+            }
 
 
 
 @code {
-    List<Serials> serials;
+    GoT test;
 
-    List<GoT> got;
+    List<Serials> serials = new List<Serials>();
+
+    [Parameter] public GoT GoT { get; set; }
 
     string firstSlide = "active";
     string secondSlide = "";
@@ -75,53 +86,30 @@
         ct = cts.Token;
         Walkthrough(ct);
 
+        StreamReader r = new StreamReader(Path.GetFullPath("serials.txt"));
+        string s = null;
+        while ((s = r.ReadLine()) != null)
+        {
+            Serials x = new Serials();
+            x.SerialName = s;
+            x.Seasons = int.Parse(r.ReadLine());
+            x.Year = int.Parse(r.ReadLine());
+            serials.Add(x);
+        }
+        r.Close();
 
-        ////StreamReader r = File.OpenText("D:/Projects/TV_Show/TV_Show.git/TV_Show/wwwroot/spn.txt");
-        //StreamReader r = File.OpenText("C:/Users/01/Desktop/TV_Show/TV_Show/wwwroot/spn.txt");
-        ////serials.Clear();
-        //string s = null;
-        //while ((s = r.ReadLine()) != null)
+
+
+        //var connectionString = "mongodb://localhost";
+        //var client = new MongoClient(connectionString);
+        //var db = client.GetDatabase("TV_Shows");
+        //var collection = db.GetCollection<Serials>("Serials").AsQueryable();
+        //foreach (var item in collection)
         //{
-        //    serials = new List<Serials>();
-        //    Serials x = new Serials();
-        //    x.SerialName = s;
-        //    x.Seasons = int.Parse(r.ReadLine());
-        //    x.Year = int.Parse(r.ReadLine());
-        //    serials.Add(x);
+        //    Serials ser = new Serials(item.SerialName, item.Seasons, item.Year);
+        //    serials.Add(ser);
         //}
-        //r.Close();
 
-        serials = new List<Serials>()
-        {
-                new Serials()
-                {
-                    SerialName = "Game of Thrones",
-                    Seasons = 8,
-                    Year = 2010
-                },
-                new Serials()
-                {
-                    SerialName = "The Big Bang Theory",
-                    Seasons = 12,
-                    Year = 2007
-                },
-                new Serials()
-                {
-                    SerialName = "Supernatural",
-                    Seasons = 15,
-                    Year = 2005
-                },
-        };
-
-        got = new List<GoT>()
-        {
-                new GoT()
-                {
-                    SerialSeason = 1,
-                    SerieslNumber = 1,
-                    SerieslName = "Winter is Coming"
-                },
-        };
     }
 
     public async Task Walkthrough(CancellationToken ct)
@@ -173,5 +161,16 @@
         }
     }
 
-
+    private void FromBlazorToDBToUser()
+    {
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<GoT>("GameofThrones");
+        test = collection.Find(x => x.SeriesName == "Winter is Coming").FirstOrDefault();
+        //foreach (var item in collection)
+        //{
+        //    User.AddUserSerialsToDb(new User(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+        //}
+    }
 }

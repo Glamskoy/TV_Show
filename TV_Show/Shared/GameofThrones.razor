@@ -1,0 +1,293 @@
+﻿@page "/GameofThrones"
+@using MongoDB.Driver;
+@using System.IO;
+
+
+
+<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <img src="/got.jpg" class="card-img-top" alt="Game of Thrones">
+        </div>
+        <div class="col" style="margin-right: auto; top: 15px;">
+            <p>Serial: Game of Thrones</p>
+            <p>Year: 2011</p>
+            <p>Seasons: 8</p>
+            <p>Information: Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, a series of fantasy novels by George R. R. Martin, the first of which is A Game of Thrones. The show was shot in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, and Spain. It premiered on HBO in the United States on April 17, 2011, and concluded on May 19, 2019, with 73 episodes broadcast over eight seasons.</p>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="accordion" id="accordionPanelsStayOpen">
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 1</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                 aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 1)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 2</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 2)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 3</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 3)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 4</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 4)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 5</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingFive">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 5)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 6</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingSix">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 6)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 7</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingSeven">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 7)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="panelsStayOpen-headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 15px;
+                        background-color: aquamarine; width: 100%;">
+                    <div class="text-left">Season 8</div>
+                </button>
+            </h3>
+            <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
+                 aria-labelledby="panelsStayOpen-headingEight">
+                <div class="accordion-body">
+                    <div class="container px-4">
+                        <div class="row gx-5">
+                            <div class="col" style="margin-left: auto;">
+                                @foreach (var item in got)
+                                {
+                                    @if (item.SerialSeason == 8)
+                                    {
+                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName"/>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public GoT GoT { get; set; }
+    List<GoT> got = new List<GoT>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        StreamReader rr = new StreamReader(Path.GetFullPath("got.txt"));
+        string ss = null;
+        while ((ss = rr.ReadLine()) != null)
+        {
+            GoT x = new GoT();
+            x.SerialName = ss;
+            x.SerialSeason = int.Parse(rr.ReadLine());
+            x.SeriesNumber = int.Parse(rr.ReadLine());
+            x.SeriesName = rr.ReadLine();
+            got.Add(x);
+        }
+        rr.Close();
+        //FromBlazorToDBToSerial();
+
+
+    }
+
+    private void FromBlazorToDBToSerial()
+    {
+        foreach (var item in got)
+        {
+            GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+        }
+    }
+}
+
