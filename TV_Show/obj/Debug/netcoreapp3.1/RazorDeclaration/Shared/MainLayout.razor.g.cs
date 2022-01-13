@@ -82,6 +82,13 @@ using TV_Show.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
+using MongoDB.Driver;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998
@@ -90,9 +97,14 @@ using TV_Show.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
+#line 100 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
  
+    public string CurrentUserLogin { get; set; }
+    public string CurrentUserPassword { get; set; }
+
     public bool IsUserLogged { get; set; }
+
+    bool userIsAuthorised = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -101,16 +113,42 @@ using TV_Show.Models;
 
     }
 
-    async Task LogIn()
+    async Task SignUp()
     {
+        User.AddUserSerialsToDb(new User(CurrentUserLogin, CurrentUserPassword));
+        await storage.SetItemAsync<bool>("CurrentUser", true);
         await storage.SetItemAsync<bool>("IsUserLogged", true);
-        IsUserLogged = true;
+        manager.NavigateTo("/", true);
+        userIsAuthorised = true;
     }
 
-    async Task Registration()
+    async Task SignIn()
     {
-        await storage.SetItemAsync<bool>("IsUserLogged", true);
-        IsUserLogged = true;
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<User>("Users");
+
+        if(CurrentUserLogin != null && CurrentUserPassword != null)
+        {
+            if (collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
+                    x.CurrentUserPassword == CurrentUserPassword).CountDocuments() > 0)
+            {
+                User user = collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
+                x.CurrentUserPassword == CurrentUserPassword).Single();
+                await storage.SetItemAsync<User>("CurrentUser", user);
+                await storage.SetItemAsync<bool>("IsUserLogged", true);
+                manager.NavigateTo("/", true);
+                userIsAuthorised = true;
+            }
+            else
+            {
+                userIsAuthorised = false;
+                await storage.SetItemAsync<bool>("IsUserLogged", false);
+                manager.NavigateTo("/", false);
+            }
+        }
+
     }
 
     async Task LogOut()
@@ -123,6 +161,7 @@ using TV_Show.Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager manager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }

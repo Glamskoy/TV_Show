@@ -58,13 +58,5 @@ namespace TV_Show.Models
             var collection = db.GetCollection<User>("Users");
             collection.InsertOne(user);
         }
-        public static void AddUserToDb(User user)
-        {
-            var connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var db = client.GetDatabase("TV_Shows");
-            var collection = db.GetCollection<User>("Users");
-            collection.InsertOne(user);
-        }
     }
 }

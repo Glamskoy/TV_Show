@@ -239,5 +239,3 @@ D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SeriesListTable.razor.g.cs
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SignIn.razor.g.cs
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SignIn.razor.g.cs
-D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Registration.razor.g.cs
-D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\Registration.razor.g.cs
