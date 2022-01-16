@@ -94,6 +94,8 @@ using TV_Show.Models;
        
     private bool collapseNavMenu = true;
 
+    public bool IsUserLogged { get; set; }
+
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
@@ -101,9 +103,15 @@ using TV_Show.Models;
         collapseNavMenu = !collapseNavMenu;
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
 #pragma warning restore 1591

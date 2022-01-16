@@ -1,8 +1,9 @@
 ﻿@page "/TheBigBangTheory"
+
+@inject Blazored.LocalStorage.ILocalStorageService storage
+@inject NavigationManager manager
 @using MongoDB.Driver;
 @using System.IO;
-
-
 
 <div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
     <div class="row">
@@ -41,7 +42,9 @@
                                 {
                                     @if (item.SerialSeason == 1)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -70,7 +73,9 @@
                                 {
                                     @if (item.SerialSeason == 2)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -99,7 +104,9 @@
                                 {
                                     @if (item.SerialSeason == 3)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -128,7 +135,9 @@
                                 {
                                     @if (item.SerialSeason == 4)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -157,7 +166,9 @@
                                 {
                                     @if (item.SerialSeason == 5)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -186,7 +197,9 @@
                                 {
                                     @if (item.SerialSeason == 6)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -215,7 +228,9 @@
                                 {
                                     @if (item.SerialSeason == 7)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -244,7 +259,9 @@
                                 {
                                     @if (item.SerialSeason == 8)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -273,7 +290,9 @@
                                 {
                                     @if (item.SerialSeason == 9)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -302,7 +321,9 @@
                                 {
                                     @if (item.SerialSeason == 10)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -331,7 +352,9 @@
                                 {
                                     @if (item.SerialSeason == 11)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -360,7 +383,9 @@
                                 {
                                     @if (item.SerialSeason == 12)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -374,6 +399,15 @@
 </div>
 
 @code {
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
+    public bool IsUserLogged { get; set; }
+
+    public int TBBTSeriesCount { get; set; }
+    int tbbtSeriesCount = 0;
+    public int TBBTTimeCount { get; set; }
+    int tbbtTimeCount = 0;
 
     [Parameter] public TBBT TBBT { get; set; }
     List<TBBT> tbbt = new List<TBBT>();
@@ -391,9 +425,15 @@
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             tbbt.Add(x);
+            tbbtSeriesCount++;
         }
         rr.Close();
         //FromBlazorToDBToSerial();
+
+        tbbtTimeCount = 22 * tbbtSeriesCount;
+
+        await storage.SetItemAsync<int>("TBBTSeriesCount", tbbtSeriesCount);
+        await storage.SetItemAsync<int>("TBBTTimeCount", tbbtTimeCount);
     }
 
     private void FromBlazorToDBToSerial()

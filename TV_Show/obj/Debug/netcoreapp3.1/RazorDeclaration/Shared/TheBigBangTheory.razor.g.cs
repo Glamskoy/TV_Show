@@ -83,14 +83,14 @@ using TV_Show.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
+#line 5 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
 using MongoDB.Driver;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
+#line 6 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
 using System.IO;
 
 #line default
@@ -105,8 +105,17 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 376 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
+#line 401 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
        
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
+    public bool IsUserLogged { get; set; }
+
+    public int TBBTSeriesCount { get; set; }
+    int tbbtSeriesCount = 0;
+    public int TBBTTimeCount { get; set; }
+    int tbbtTimeCount = 0;
 
     [Parameter] public TBBT TBBT { get; set; }
     List<TBBT> tbbt = new List<TBBT>();
@@ -124,9 +133,15 @@ using System.IO;
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             tbbt.Add(x);
+            tbbtSeriesCount++;
         }
         rr.Close();
         //FromBlazorToDBToSerial();
+
+        tbbtTimeCount = 22 * tbbtSeriesCount;
+
+        await storage.SetItemAsync<int>("TBBTSeriesCount", tbbtSeriesCount);
+        await storage.SetItemAsync<int>("TBBTTimeCount", tbbtTimeCount);
     }
 
     private void FromBlazorToDBToSerial()
@@ -140,6 +155,8 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager manager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
 #pragma warning restore 1591

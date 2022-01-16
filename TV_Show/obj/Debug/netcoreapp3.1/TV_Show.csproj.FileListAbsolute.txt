@@ -237,5 +237,3 @@ D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\Microsoft.Extens
 D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SeriesListTable.razor.g.cs
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SeriesListTable.razor.g.cs
-D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SignIn.razor.g.cs
-D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SignIn.razor.g.cs

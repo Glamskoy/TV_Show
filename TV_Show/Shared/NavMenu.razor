@@ -1,4 +1,6 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿@inject Blazored.LocalStorage.ILocalStorageService storage
+
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">TV_Show</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -7,32 +9,37 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="profile">
-                <span class="oi oi-home" aria-hidden="true"></span> MyProfile
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> MySerials
-            </NavLink>
-        </li>
+        @if(IsUserLogged)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="/Profile">
+                    <span class="oi oi-person" aria-hidden="true"></span> MyProfile
+                </NavLink>
+            </li>
+        }
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Recommendations
+                <span class="oi oi-star" aria-hidden="true"></span> Recommendations
             </NavLink>
         </li>
-        
+
     </ul>
 </div>
 
 @code {
     private bool collapseNavMenu = true;
 
+    public bool IsUserLogged { get; set; }
+
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
     }
 }

@@ -82,6 +82,13 @@ using TV_Show.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
+using MongoDB.Driver;
+
+#line default
+#line hidden
+#nullable disable
     public partial class SeriesListTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,13 +97,17 @@ using TV_Show.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
+#line 25 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
        
-    [Parameter] public User User { get; set; }
+    [Parameter] public UserSeries UserSeries { get; set; }
     public bool IsUserLogged { get; set; }
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+    public string SerialIsSelected { get; set; }
 
-    [Parameter] public string CurrentUserLogin { get; set; }
-    [Parameter] public string CurrentUserPassword { get; set; }
+
+    [Parameter] public string UserSeriesLogin { get; set; }
+    [Parameter] public string UserSeriesPassword { get; set; }
     [Parameter] public string SerialName { get; set; }
     [Parameter] public int SerialSeason { get; set; }
     [Parameter] public int SeriesNumber { get; set; }
@@ -106,18 +117,25 @@ using TV_Show.Models;
     {
         //await storage.SetItemAsync<bool>("IsUserLogged", false);
         IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+        await storage.SetItemAsync<string>("SerialIsSelected", SerialName);
     }
 
     private void FromBlazorToDB()
     {
-        User.AddUserSerialsToDb(new User(CurrentUserLogin, CurrentUserPassword, SerialName, SerialSeason,
-            SeriesNumber, SeriesName));
-        if(SerialName == "Game of Thrones")
-            manager.NavigateTo("/GameofThrones", true);
-        else if(SerialName == "Supernatural")
-            manager.NavigateTo("/Supernatural", true);
-        else
-            manager.NavigateTo("/TheBigBangTheory", true);
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries");
+
+        if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
+                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() == 0)
+        {
+            UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialSeason,
+                SeriesNumber, SeriesName));
+        }
     }
 
 #line default

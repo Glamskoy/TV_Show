@@ -1,7 +1,9 @@
 ﻿@page "/GameofThrones"
+
+@inject Blazored.LocalStorage.ILocalStorageService storage
+@inject NavigationManager manager
 @using MongoDB.Driver;
 @using System.IO;
-
 
 
 <div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
@@ -41,7 +43,9 @@
                                 {
                                     @if (item.SerialSeason == 1)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -70,7 +74,9 @@
                                 {
                                     @if (item.SerialSeason == 2)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -99,7 +105,9 @@
                                 {
                                     @if (item.SerialSeason == 3)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -128,7 +136,9 @@
                                 {
                                     @if (item.SerialSeason == 4)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -157,7 +167,9 @@
                                 {
                                     @if (item.SerialSeason == 5)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -186,7 +198,9 @@
                                 {
                                     @if (item.SerialSeason == 6)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -215,7 +229,9 @@
                                 {
                                     @if (item.SerialSeason == 7)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
                                                          SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -244,8 +260,10 @@
                                 {
                                     @if (item.SerialSeason == 8)
                                     {
-                                        <SeriesListTable SerialName="@item.SerialName" SerialSeason="item.SerialSeason" 
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName"/>
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
+                                                         UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
+                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -258,6 +276,15 @@
 </div>
 
 @code {
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
+    public bool IsUserLogged { get; set; }
+
+    public int GoTSeriesCount { get; set; }
+    int goTSeriesCount = 0;
+    public int GoTTimeCount { get; set; }
+    int goTTimeCount = 0;
 
     [Parameter] public GoT GoT { get; set; }
     List<GoT> got = new List<GoT>();
@@ -275,20 +302,17 @@
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             got.Add(x);
+            goTSeriesCount++;
         }
         rr.Close();
 
-        //var connectionString = "mongodb://localhost";
-        //var client = new MongoClient(connectionString);
-        //var db = client.GetDatabase("TV_Shows");
-        //var collection = db.GetCollection<GoT>("GameofThrones");
-        //if(collection.Find(x => x.SeriesName == GoT.SeriesName).CountDocuments() == 0)
-        //{
+        //if (IsUserLogged)
         //    FromBlazorToDBToSerial();
-        //}
-        //FromBlazorToDBToSerial();
 
+        goTTimeCount = 57 * goTSeriesCount;
 
+        await storage.SetItemAsync<int>("GoTSeriesCount", goTSeriesCount);
+        await storage.SetItemAsync<int>("GoTTimeCount", goTTimeCount);
     }
 
     private void FromBlazorToDBToSerial()
@@ -298,5 +322,7 @@
             GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
         }
     }
+
+
 }
 

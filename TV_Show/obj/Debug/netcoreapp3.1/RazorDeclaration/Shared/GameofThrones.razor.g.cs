@@ -83,14 +83,14 @@ using TV_Show.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 5 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
 using MongoDB.Driver;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 6 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
 using System.IO;
 
 #line default
@@ -105,8 +105,17 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 260 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 278 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
        
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
+    public bool IsUserLogged { get; set; }
+
+    public int GoTSeriesCount { get; set; }
+    int goTSeriesCount = 0;
+    public int GoTTimeCount { get; set; }
+    int goTTimeCount = 0;
 
     [Parameter] public GoT GoT { get; set; }
     List<GoT> got = new List<GoT>();
@@ -124,20 +133,17 @@ using System.IO;
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             got.Add(x);
+            goTSeriesCount++;
         }
         rr.Close();
 
-        //var connectionString = "mongodb://localhost";
-        //var client = new MongoClient(connectionString);
-        //var db = client.GetDatabase("TV_Shows");
-        //var collection = db.GetCollection<GoT>("GameofThrones");
-        //if(collection.Find(x => x.SeriesName == GoT.SeriesName).CountDocuments() == 0)
-        //{
+        //if (IsUserLogged)
         //    FromBlazorToDBToSerial();
-        //}
-        //FromBlazorToDBToSerial();
 
+        goTTimeCount = 57 * goTSeriesCount;
 
+        await storage.SetItemAsync<int>("GoTSeriesCount", goTSeriesCount);
+        await storage.SetItemAsync<int>("GoTTimeCount", goTTimeCount);
     }
 
     private void FromBlazorToDBToSerial()
@@ -148,9 +154,13 @@ using System.IO;
         }
     }
 
+
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager manager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
 #pragma warning restore 1591

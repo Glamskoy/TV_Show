@@ -83,14 +83,14 @@ using TV_Show.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
+#line 5 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
 using MongoDB.Driver;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
+#line 6 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
 using System.IO;
 
 #line default
@@ -105,8 +105,17 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 463 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
+#line 496 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Supernatural.razor"
        
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
+    public bool IsUserLogged { get; set; }
+
+    public int SpnSeriesCount { get; set; }
+    int spnSeriesCount = 0;
+    public int SpnTimeCount { get; set; }
+    int spnTimeCount = 0;
 
     [Parameter] public Spn Spn { get; set; }
     List<Spn> spn = new List<Spn>();
@@ -124,11 +133,17 @@ using System.IO;
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             spn.Add(x);
+            spnSeriesCount++;
         }
         rr.Close();
-        //FromBlazorToDBToSerial();
 
+        //if (IsUserLogged)
+        //    FromBlazorToDBToSerial();
 
+        spnTimeCount = 43 * spnSeriesCount;
+
+        await storage.SetItemAsync<int>("SpnSeriesCount", spnSeriesCount);
+        await storage.SetItemAsync<int>("SpnTimeCount", spnTimeCount);
     }
 
     private void FromBlazorToDBToSerial()
@@ -142,6 +157,8 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager manager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
 #pragma warning restore 1591

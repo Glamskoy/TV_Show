@@ -9,23 +9,22 @@
 
 <div class="main">
 
-    <div class="top-row px-4">
+    <div class="top-row px-4" style="z-index: 3">
         @if (IsUserLogged)
         {
             <button type="button" class="btn btn-primary" data-bs-toggle="modal2" data-bs-target="#modal"
                     @onclick="LogOut">
-                Sign out
+                Sign Out
             </button>
         }
         else
         {
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal"
                     style="margin-right:15px;">
-                Sign in
+                Sign In
             </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1"
-                    style="margin-left:15px;">
-                Registration
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
+                Sign Up
             </button>
         }
     </div>
@@ -37,34 +36,22 @@
                     <h5 class="modal-title">Sign in to TV-Show</h5>
                 </div>
                 <div class="modal-body" style="margin-bottom: 15px;">
+                    @if(!userIsAuthorised)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            The user is not authorized yet!
+                            Please, check your login and password!
+                        </div>
+                    }
                     <p style="width:100%; margin-bottom: inherit;">Username or email address</p>
                     <input style="width: 100%; margin-bottom: inherit;" @bind="CurrentUserLogin" />
                     <p style="width: 100%; margin-bottom: inherit;">Password</p>
                     <input style="width: 100%; margin-bottom: inherit;" @bind="CurrentUserPassword" />
-                    @if (!userIsAuthorised)
-                    {
-                        <button type="button" data-bs-dismiss="modal"
+                    <button type="button"
                                 style="height: 40px; width: 100%; margin-top: 15px;"
                                 @onclick="SignIn">
                             Sign in
                         </button>
-
-                        <div class="container" style="width:auto; background-color:darkgray;">
-                            <p style="width:100%; margin-bottom: 15px;">
-                                The user is not authorized yet!
-                                Please, check your login and password!
-                            </p>
-                        </div>
-                    }
-                    else
-                    {
-
-                        <button type="button" data-bs-dismiss="modal"
-                                style="height: 40px; width: 100%; margin-top: 15px;"
-                                @onclick="SignIn">
-                            Sign in
-                        </button>
-                    }
                 </div>
             </div>
         </div>
@@ -77,11 +64,18 @@
                     <h5 class="modal-title">Registration in TV-Show</h5>
                 </div>
                 <div class="modal-body" style="margin-bottom: 15px;">
+                    @if (!userIsAuthorised)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            The user is authorized yet!
+                            Please, choose new login!
+                        </div>
+                    }
                     <p style="width:100%; margin-bottom: inherit;">Username or email address</p>
                     <input style="width: 100%; margin-bottom: inherit;" @bind-value="CurrentUserLogin" />
                     <p style="width: 100%; margin-bottom: inherit;">Password</p>
                     <input style="width: 100%; margin-bottom: inherit;" @bind-value="CurrentUserPassword" />
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    <button type="button"
                             style="height: 40px; width: 100%; margin-top: 15px;" @onclick="SignUp">
                         Registration
                     </button>
@@ -101,6 +95,9 @@
     public string CurrentUserLogin { get; set; }
     public string CurrentUserPassword { get; set; }
 
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+
     public bool IsUserLogged { get; set; }
 
     bool userIsAuthorised = true;
@@ -114,11 +111,34 @@
 
     async Task SignUp()
     {
-        User.AddUserSerialsToDb(new User(CurrentUserLogin, CurrentUserPassword));
-        await storage.SetItemAsync<bool>("CurrentUser", true);
-        await storage.SetItemAsync<bool>("IsUserLogged", true);
-        manager.NavigateTo("/", true);
-        userIsAuthorised = true;
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<User>("Users");
+
+        if (CurrentUserLogin != null && CurrentUserPassword != null)
+        {
+            if (collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
+                    x.CurrentUserPassword == CurrentUserPassword).CountDocuments() == 0)
+            {
+                await storage.SetItemAsync<bool>("CurrentUser", true);
+                await storage.SetItemAsync<bool>("IsUserLogged", true);
+                await storage.SetItemAsync<string>("UserLogin", CurrentUserLogin);
+                await storage.SetItemAsync<string>("UserPassword", CurrentUserPassword);
+                User.AddUserToDb(new User(CurrentUserLogin, CurrentUserPassword));
+                manager.NavigateTo("/", true);
+                userIsAuthorised = true;
+            }
+            else
+            {
+                userIsAuthorised = false;
+                await storage.SetItemAsync<bool>("IsUserLogged", false);
+                CurrentUserLogin = "";
+                CurrentUserPassword = "";
+                //await storage.RemoveItemAsync("UserLogin");
+                //await storage.RemoveItemAsync("UserPassword");
+            }
+        }
     }
 
     async Task SignIn()
@@ -134,9 +154,11 @@
                     x.CurrentUserPassword == CurrentUserPassword).CountDocuments() > 0)
             {
                 User user = collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
-                x.CurrentUserPassword == CurrentUserPassword).Single();
+                x.CurrentUserPassword == CurrentUserPassword).First();
                 await storage.SetItemAsync<User>("CurrentUser", user);
                 await storage.SetItemAsync<bool>("IsUserLogged", true);
+                await storage.SetItemAsync<string>("UserLogin", CurrentUserLogin);
+                await storage.SetItemAsync<string>("UserPassword", CurrentUserPassword);
                 manager.NavigateTo("/", true);
                 userIsAuthorised = true;
             }
@@ -144,7 +166,10 @@
             {
                 userIsAuthorised = false;
                 await storage.SetItemAsync<bool>("IsUserLogged", false);
-                manager.NavigateTo("/", false);
+                CurrentUserLogin = "";
+                CurrentUserPassword = "";
+                //await storage.RemoveItemAsync("UserLogin");
+                //await storage.RemoveItemAsync("UserPassword");
             }
         }
 
@@ -153,7 +178,10 @@
     async Task LogOut()
     {
         await storage.SetItemAsync<bool>("IsUserLogged", false);
-        IsUserLogged = false;
+        userIsAuthorised = false;
+        manager.NavigateTo("/", true);
+        //await storage.RemoveItemAsync("UserLogin");
+        //await storage.RemoveItemAsync("UserPassword");
     }
 
 }

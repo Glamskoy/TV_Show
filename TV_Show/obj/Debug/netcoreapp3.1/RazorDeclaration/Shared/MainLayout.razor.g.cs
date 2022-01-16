@@ -97,10 +97,13 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 100 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
+#line 94 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
  
     public string CurrentUserLogin { get; set; }
     public string CurrentUserPassword { get; set; }
+
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
 
     public bool IsUserLogged { get; set; }
 
@@ -115,11 +118,34 @@ using MongoDB.Driver;
 
     async Task SignUp()
     {
-        User.AddUserSerialsToDb(new User(CurrentUserLogin, CurrentUserPassword));
-        await storage.SetItemAsync<bool>("CurrentUser", true);
-        await storage.SetItemAsync<bool>("IsUserLogged", true);
-        manager.NavigateTo("/", true);
-        userIsAuthorised = true;
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<User>("Users");
+
+        if (CurrentUserLogin != null && CurrentUserPassword != null)
+        {
+            if (collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
+                    x.CurrentUserPassword == CurrentUserPassword).CountDocuments() == 0)
+            {
+                await storage.SetItemAsync<bool>("CurrentUser", true);
+                await storage.SetItemAsync<bool>("IsUserLogged", true);
+                await storage.SetItemAsync<string>("UserLogin", CurrentUserLogin);
+                await storage.SetItemAsync<string>("UserPassword", CurrentUserPassword);
+                User.AddUserToDb(new User(CurrentUserLogin, CurrentUserPassword));
+                manager.NavigateTo("/", true);
+                userIsAuthorised = true;
+            }
+            else
+            {
+                userIsAuthorised = false;
+                await storage.SetItemAsync<bool>("IsUserLogged", false);
+                CurrentUserLogin = "";
+                CurrentUserPassword = "";
+                //await storage.RemoveItemAsync("UserLogin");
+                //await storage.RemoveItemAsync("UserPassword");
+            }
+        }
     }
 
     async Task SignIn()
@@ -135,9 +161,11 @@ using MongoDB.Driver;
                     x.CurrentUserPassword == CurrentUserPassword).CountDocuments() > 0)
             {
                 User user = collection.Find(x => x.CurrentUserLogin == CurrentUserLogin &&
-                x.CurrentUserPassword == CurrentUserPassword).Single();
+                x.CurrentUserPassword == CurrentUserPassword).First();
                 await storage.SetItemAsync<User>("CurrentUser", user);
                 await storage.SetItemAsync<bool>("IsUserLogged", true);
+                await storage.SetItemAsync<string>("UserLogin", CurrentUserLogin);
+                await storage.SetItemAsync<string>("UserPassword", CurrentUserPassword);
                 manager.NavigateTo("/", true);
                 userIsAuthorised = true;
             }
@@ -145,7 +173,10 @@ using MongoDB.Driver;
             {
                 userIsAuthorised = false;
                 await storage.SetItemAsync<bool>("IsUserLogged", false);
-                manager.NavigateTo("/", false);
+                CurrentUserLogin = "";
+                CurrentUserPassword = "";
+                //await storage.RemoveItemAsync("UserLogin");
+                //await storage.RemoveItemAsync("UserPassword");
             }
         }
 
@@ -154,7 +185,10 @@ using MongoDB.Driver;
     async Task LogOut()
     {
         await storage.SetItemAsync<bool>("IsUserLogged", false);
-        IsUserLogged = false;
+        userIsAuthorised = false;
+        manager.NavigateTo("/", true);
+        //await storage.RemoveItemAsync("UserLogin");
+        //await storage.RemoveItemAsync("UserPassword");
     }
 
 

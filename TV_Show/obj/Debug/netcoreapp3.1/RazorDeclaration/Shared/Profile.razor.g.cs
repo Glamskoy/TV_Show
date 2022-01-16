@@ -82,6 +82,13 @@ using TV_Show.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+using MongoDB.Driver;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Profile")]
     public partial class Profile : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,17 +98,121 @@ using TV_Show.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+#line 208 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
-    public User currentUser { get; set; }
+    public bool IsUserLogged { get; set; }
+    public string UserLogin { get; set; }
+    public string UserPassword { get; set; }
+    public string SerialIsSelected { get; set; }
+
+    public int GoTSeriesCount { get; set; }
+    public int SpnSeriesCount { get; set; }
+    public int TBBTSeriesCount { get; set; }
+
+    public int GoTTimeCount { get; set; }
+    public int SpnTimeCount { get; set; }
+    public int TBBTTimeCount { get; set; }
+
+    //User user1 = new User();
+
+    List<UserSeries> user = new List<UserSeries>();
+    List<UserSeries> user1 = new List<UserSeries>();
+
+    int allEpisodsCount;
+    int allTimeCount;
+    int allHoursCount;
+
+    int episodsCount = 0;
+    int minutsCount = 0;
+    int hoursCount = 0;
+
+    bool userIsAuthorised = true;
+
+
     protected override async Task OnInitializedAsync()
     {
-        currentUser = await storage.GetItemAsync<User>("CurrentUser");
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+        SerialIsSelected = await storage.GetItemAsync<string>("SerialIsSelected");
+
+        GoTSeriesCount = await storage.GetItemAsync<int>("GoTSeriesCount");
+        SpnSeriesCount = await storage.GetItemAsync<int>("SpnSeriesCount");
+        TBBTSeriesCount = await storage.GetItemAsync<int>("TBBTSeriesCount");
+
+        GoTTimeCount = await storage.GetItemAsync<int>("GoTTimeCount");
+        SpnTimeCount = await storage.GetItemAsync<int>("SpnTimeCount");
+        TBBTTimeCount = await storage.GetItemAsync<int>("TBBTTimeCount");
+
+        allEpisodsCount = GoTSeriesCount + SpnSeriesCount + TBBTSeriesCount;
+        allTimeCount = GoTTimeCount + SpnTimeCount + TBBTTimeCount;
+
+        if (allTimeCount >= 60)
+            allHoursCount = allTimeCount / 60;
+
+        var connectionString1 = "mongodb://localhost";
+        var client1 = new MongoClient(connectionString1);
+        var db1 = client1.GetDatabase("TV_Shows");
+        var collection1 = db1.GetCollection<UserSeries>("UserSeries");
+
+        episodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword).CountDocuments());
+
+        minutsCount += 57 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+
+        minutsCount += 43 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+
+        minutsCount += 22 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+        
+        if (minutsCount >= 60)
+            hoursCount = minutsCount / 60;
+
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries").AsQueryable();
+        foreach (var item in collection)
+        {
+            UserSeries x = new UserSeries();
+            x.UserSeriesLogin = item.UserSeriesLogin;
+            x.UserSeriesPassword = item.UserSeriesPassword;
+            x.SerialName = item.SerialName;
+            user.Add(x);
+            //if (!IsUserLogged)
+            //    user.Clear();
+        }
+        foreach (var item in collection)
+        {
+            UserSeries x = new UserSeries();
+            x.UserSeriesLogin = item.UserSeriesLogin;
+            x.UserSeriesPassword = item.UserSeriesPassword;
+            x.SerialName = item.SerialName;
+            x.SerialSeason = item.SerialSeason;
+            x.SeriesNumber = item.SeriesNumber;
+            x.SeriesName = item.SeriesName;
+            user1.Add(x);
+
+            //episodsCount++;
+            //if (x.SerialName == "Game of Thrones")
+            //    minutsCount += 57;
+            //if (x.SerialName == "Supernatural")
+            //    minutsCount += 43;
+            //if (x.SerialName == "The Big Bang Theory")
+            //    minutsCount += 22;
+            //if (minutsCount >= 60)
+            //    hoursCount = minutsCount / 60;
+        }
     }
+
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager manager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService storage { get; set; }
     }
 }
