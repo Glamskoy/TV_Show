@@ -4,36 +4,30 @@
 @inject NavigationManager manager
 @using MongoDB.Driver
 
-<!-- GOT accordion-->
-<!-- TBBT-->
 
-<div class="row">
-    <div>
-        <div calss="col" style="margin-top: 50px; margin-left: 100px;">
-            <div>
-                <div class="card border-info mb-3" style="max-width: 18rem; border-radius:10px;">
-                    <h3 style="text-align: center;">@UserLogin</h3>
-                    <div class="card-body">
-                        <img src="/profile.png" class="card-img-top" alt="Profile">
-                    </div>
-                </div>
+<div class="row" style="margin-right: auto; margin-left: auto;">
+    <div calss="col" style="margin-left: 50px; margin-top: 50px; margin-bottom: 50px;">
+        <div class="card border-info mb-3" style="max-width: 18rem; border-radius:10px;">
+            <h3 style="text-align: center;">@UserLogin</h3>
+            <div class="card-body">
+                <img src="/profile.png" class="card-img-top" alt="Profile">
             </div>
         </div>
     </div>
-    <div class="col" style="margin-left:100px; margin-top: 50px;">
-        <h3 style="text-align:left">My Episodes: @episodsCount @allEpisodsCount</h3>
+    <div class="col" style="margin-right: 50px; margin-left: 10px; margin-top: 50px; margin-bottom: 50px;">
+        <h3 style="text-align:left">My Episodes: @episodsCount</h3>
         <div class="progress">
-            <div class="progress-bar progress-bar-striped" role="progressbar" 
-                 style="width: 10%" aria-valuenow="@episodsCount" aria-valuemin="0" aria-valuemax="@allEpisodsCount"></div>
+            <div class="progress-bar" role="progressbar"
+                 aria-valuenow="@episodsCount" aria-valuemin="0" aria-valuemax="@allEpisodsCount"></div>
         </div>
-        <h3 style="text-align:left">Minuts: @minutsCount @allTimeCount</h3>
+        <h3 style="text-align:left">Minuts: @minutsCount</h3>
         <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+            <div class="progress-bar bg-success" role="progressbar"
                  style="width: 10%" aria-valuenow="@minutsCount" aria-valuemin="0" aria-valuemax="@allTimeCount"></div>
         </div>
-        <h3 style="text-align:left">Hours: @hoursCount @allHoursCount</h3>
+        <h3 style="text-align:left">Hours: @hoursCount</h3>
         <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" 
+            <div class="progress-bar bg-danger" role="progressbar"
                  style="width: 10%" aria-valuenow="@hoursCount" aria-valuemin="0" aria-valuemax="@allHoursCount"></div>
         </div>
     </div>
@@ -161,48 +155,6 @@
         </div>
     </div>
 }
-@*@foreach (var item in user)
-    {*@
-
-<!--<div class="container">
-    <div class="accordion" id="accordionPanelsStayOpen">
-        <div class="accordion-item">
-            <h3 class="accordion-header" id="panelsStayOpen-headingOne">
-
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
-                        background-color: aquamarine; width: 100%;">
-                    <div class="text-left">item.SerialName</div>
-                </button>
-            </h3>-->
-@*@foreach (var item1 in user1)
-    {
-        @if (item.SerialName == item1.SerialName)
-        {*@
-<!--<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-     aria-labelledby="panelsStayOpen-headingOne">
-    <div class="accordion-body">
-        <div class="container px-4">
-            <div class="row gx-5">
-                <div class="col" style="margin-left: auto;">
-                    <SeriesListTable CurrentUserLogin="UserLogin"
-                                     CurrentUserPassword="UserPassword"
-                                     SerialName="item.SerialName" SerialSeason="item.SerialSeason"
-                                     SeriesNumber="item.SeriesNumber" SeriesName="item.SeriesName" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-@*}
-    }*@
-<!--</div>
-    </div>
-</div>-->
-@*}
-    }*@
-
 
 
 @code {
@@ -224,13 +176,15 @@
     List<UserSeries> user = new List<UserSeries>();
     List<UserSeries> user1 = new List<UserSeries>();
 
-    int allEpisodsCount;
-    int allTimeCount;
+    int allEpisodsCount = 0;
+    int allTimeCount = 0;
     int allHoursCount;
 
     int episodsCount = 0;
     int minutsCount = 0;
     int hoursCount = 0;
+
+    int episodString;
 
     bool userIsAuthorised = true;
 
@@ -250,12 +204,6 @@
         SpnTimeCount = await storage.GetItemAsync<int>("SpnTimeCount");
         TBBTTimeCount = await storage.GetItemAsync<int>("TBBTTimeCount");
 
-        allEpisodsCount = GoTSeriesCount + SpnSeriesCount + TBBTSeriesCount;
-        allTimeCount = GoTTimeCount + SpnTimeCount + TBBTTimeCount;
-
-        if (allTimeCount >= 60)
-            allHoursCount = allTimeCount / 60;
-
         var connectionString1 = "mongodb://localhost";
         var client1 = new MongoClient(connectionString1);
         var db1 = client1.GetDatabase("TV_Shows");
@@ -264,17 +212,46 @@
         episodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
         x.UserSeriesPassword == UserPassword).CountDocuments());
 
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+         x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+        {
+            allEpisodsCount += GoTSeriesCount;
+            allTimeCount += GoTTimeCount;
+            if (allTimeCount >= 60)
+                allHoursCount = allTimeCount / 60;
+        }
+
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments() > 0)
+        {
+            allEpisodsCount += TBBTSeriesCount;
+            allTimeCount += TBBTTimeCount;
+            if (allTimeCount >= 60)
+                allHoursCount = allTimeCount / 60;
+        }
+
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+        x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments() > 0)
+        {
+            allEpisodsCount += SpnSeriesCount;
+            allTimeCount += SpnTimeCount;
+            if (allTimeCount >= 60)
+                allHoursCount = allTimeCount / 60;
+        }
+
         minutsCount += 57 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+    x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
 
         minutsCount += 43 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
         x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
 
         minutsCount += 22 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
         x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
-        
+
         if (minutsCount >= 60)
             hoursCount = minutsCount / 60;
+
+        episodString = episodsCount * 100 / allEpisodsCount;
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);

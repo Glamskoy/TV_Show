@@ -98,7 +98,6 @@ D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\runtimes\win\nat
 D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
 D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
 D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
-D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.csproj.AssemblyReference.cache
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.GeneratedMSBuildEditorConfig.editorconfig
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.AssemblyInfoInputs.cache
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.AssemblyInfo.cs
@@ -237,3 +236,4 @@ D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\Microsoft.Extens
 D:\Projects\TV_Show\TV_Show.git\TV_Show\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SeriesListTable.razor.g.cs
 D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\Razor\Shared\SeriesListTable.razor.g.cs
+D:\Projects\TV_Show\TV_Show.git\TV_Show\obj\Debug\netcoreapp3.1\TV_Show.csproj.AssemblyReference.cache

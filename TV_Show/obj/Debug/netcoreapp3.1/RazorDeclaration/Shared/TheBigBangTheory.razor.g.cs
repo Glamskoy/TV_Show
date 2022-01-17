@@ -133,6 +133,7 @@ using System.IO;
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             tbbt.Add(x);
+
             tbbtSeriesCount++;
         }
         rr.Close();
@@ -142,6 +143,7 @@ using System.IO;
 
         await storage.SetItemAsync<int>("TBBTSeriesCount", tbbtSeriesCount);
         await storage.SetItemAsync<int>("TBBTTimeCount", tbbtTimeCount);
+
     }
 
     private void FromBlazorToDBToSerial()
