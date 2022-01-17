@@ -98,7 +98,7 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 160 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+#line 193 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
@@ -122,11 +122,13 @@ using MongoDB.Driver;
     int allTimeCount = 0;
     int allHoursCount;
 
-    int episodsCount = 0;
+    int episodsCount;
     int minutsCount = 0;
     int hoursCount = 0;
 
     int episodString;
+    int timeString;
+    int hourString;
 
     bool userIsAuthorised = true;
 
@@ -151,11 +153,8 @@ using MongoDB.Driver;
         var db1 = client1.GetDatabase("TV_Shows");
         var collection1 = db1.GetCollection<UserSeries>("UserSeries");
 
-        episodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword).CountDocuments());
-
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-         x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+     x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
         {
             allEpisodsCount += GoTSeriesCount;
             allTimeCount += GoTTimeCount;
@@ -181,19 +180,24 @@ using MongoDB.Driver;
                 allHoursCount = allTimeCount / 60;
         }
 
+        episodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword).CountDocuments());
+
         minutsCount += 57 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-    x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
 
         minutsCount += 43 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
 
         minutsCount += 22 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
 
         if (minutsCount >= 60)
             hoursCount = minutsCount / 60;
 
         episodString = episodsCount * 100 / allEpisodsCount;
+        timeString = minutsCount * 100 / allTimeCount;
+        hourString = hoursCount * 100 / allHoursCount;
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
@@ -206,8 +210,6 @@ using MongoDB.Driver;
             x.UserSeriesPassword = item.UserSeriesPassword;
             x.SerialName = item.SerialName;
             user.Add(x);
-            //if (!IsUserLogged)
-            //    user.Clear();
         }
         foreach (var item in collection)
         {
@@ -219,20 +221,8 @@ using MongoDB.Driver;
             x.SeriesNumber = item.SeriesNumber;
             x.SeriesName = item.SeriesName;
             user1.Add(x);
-
-            //episodsCount++;
-            //if (x.SerialName == "Game of Thrones")
-            //    minutsCount += 57;
-            //if (x.SerialName == "Supernatural")
-            //    minutsCount += 43;
-            //if (x.SerialName == "The Big Bang Theory")
-            //    minutsCount += 22;
-            //if (minutsCount >= 60)
-            //    hoursCount = minutsCount / 60;
         }
     }
-
-
 
 #line default
 #line hidden
