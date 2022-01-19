@@ -98,7 +98,7 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 193 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+#line 261 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
@@ -129,6 +129,18 @@ using MongoDB.Driver;
     int episodString;
     int timeString;
     int hourString;
+
+    int gotEpisodsCount;
+    int gotEpisodsString;
+    bool gotIsSelected = false;
+
+    int spnEpisodsCount;
+    int spnEpisodsString;
+    bool spnIsSelected = false;
+
+    int tbbtEpisodsCount;
+    int tbbtEpisodsString;
+    bool tbbtIsSelected = false;
 
     bool userIsAuthorised = true;
 
@@ -198,6 +210,27 @@ using MongoDB.Driver;
         episodString = episodsCount * 100 / allEpisodsCount;
         timeString = minutsCount * 100 / allTimeCount;
         hourString = hoursCount * 100 / allHoursCount;
+
+        gotEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+        gotEpisodsString = gotEpisodsCount * 100 / GoTSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+            gotIsSelected = true;
+
+        spnEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+        spnEpisodsString = spnEpisodsCount * 100 / SpnSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments() > 0)
+            spnIsSelected = true;
+
+        tbbtEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+        tbbtEpisodsString = tbbtEpisodsCount * 100 / TBBTSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments() > 0)
+            tbbtIsSelected = true;
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);

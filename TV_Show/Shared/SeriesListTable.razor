@@ -13,7 +13,14 @@
         <p class="text-right">
             @if (IsUserLogged)
             {
-                <input type="checkbox" @onchange="FromBlazorToDB" />
+                @if (serialIsSelected)
+                {
+                    <input type="checkbox" @onchange="DeleteSeriesFromDB" checked/>
+                }
+                else
+                {
+                    <input type="checkbox" @onchange="FromBlazorToDB" />
+                }
             }
         </p>
     </div>
@@ -37,6 +44,9 @@
     [Parameter] public int SeriesNumber { get; set; }
     [Parameter] public string SeriesName { get; set; }
 
+    bool serialIsSelected;
+
+
     protected override async Task OnInitializedAsync()
     {
         //await storage.SetItemAsync<bool>("IsUserLogged", false);
@@ -44,6 +54,18 @@
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
         await storage.SetItemAsync<string>("SerialIsSelected", SerialName);
+
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries");
+
+        if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
+                     x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() > 0)
+            serialIsSelected = true;
+        else
+            serialIsSelected = false;
     }
 
     private void FromBlazorToDB()
@@ -60,5 +82,22 @@
             UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialSeason,
                 SeriesNumber, SeriesName));
         }
+        else
+            DeleteSeriesFromDB();
+    }
+
+    private void DeleteSeriesFromDB()
+    {
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries");
+
+        collection.DeleteOne(x => x.UserSeriesLogin == UserLogin &&
+                    x.UserSeriesPassword == UserPassword &&
+                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName);
+
+        serialIsSelected = false;
     }
 }

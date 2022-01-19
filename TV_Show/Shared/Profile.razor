@@ -46,149 +46,217 @@
 </div>
 
 @*@if (IsUserLogged)
-{
-    <div class="container">
-        <div class="accordion" id="accordionPanelsStayOpen">
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+    {
+        <div class="container">
+            <div class="accordion" id="accordionPanelsStayOpen">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="panelsStayOpen-headingOne">
 
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                            aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
-                                background-color: aquamarine; width: 100%;">
-                        <div class="text-left">Game Of Thrones</div>
-                    </button>
-                </h3>
-                @foreach (var item1 in user1)
-                {
-                    @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "Game of Thrones")
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                                    background-color: aquamarine; width: 100%;">
+                            <div class="text-left">Game Of Thrones</div>
+                        </button>
+                    </h3>
+                    @foreach (var item1 in user1)
                     {
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                             aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <div class="container px-4">
-                                    <div class="row gx-5">
-                                        <div class="col" style="margin-left: auto;">
-                                            <SeriesListTable UserSeriesLogin="@UserLogin"
-                                                             UserSeriesPassword="@UserPassword"
-                                                             SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
-                                                             SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
+                        @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "Game of Thrones")
+                        {
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col" style="margin-left: auto;">
+                                                <SeriesListTable UserSeriesLogin="@UserLogin"
+                                                                 UserSeriesPassword="@UserPassword"
+                                                                 SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
+                                                                 SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
+                </div>
+            </div>
+        </div>
+    }
+    @if (IsUserLogged)
+    {
+        <div class="container">
+            <div class="accordion" id="accordionPanelsStayOpen">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                                    background-color: aquamarine; width: 100%;">
+                            <div class="text-left">Supernatural</div>
+                        </button>
+                    </h3>
+                    @foreach (var item1 in user1)
+                    {
+                        @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "Supernatural")
+                        {
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col" style="margin-left: auto;">
+                                                <SeriesListTable UserSeriesLogin="@UserLogin"
+                                                                 UserSeriesPassword="@UserPassword"
+                                                                 SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
+                                                                 SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    @if (IsUserLogged)
+    {
+        <div class="container">
+            <div class="accordion" id="accordionPanelsStayOpen">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                                    background-color: aquamarine; width: 100%;">
+                            <div class="text-left">The Big Bang Theory</div>
+                        </button>
+                    </h3>
+                    @foreach (var item1 in user1)
+                    {
+                        @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "The Big Bang Theory")
+                        {
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <div class="container px-4">
+                                        <div class="row gx-5">
+                                            <div class="col" style="margin-left: auto;">
+                                                <SeriesListTable UserSeriesLogin="@UserLogin"
+                                                                 UserSeriesPassword="@UserPassword"
+                                                                 SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
+                                                                 SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }*@
+
+
+@if (gotIsSelected)
+{
+    <div class="row" style="margin-right: auto; margin-left: auto;">
+        <div class="col-3" style="margin-top: 10px;background-color: bisque; ">
+            <a href="/GameofThrones">
+                <img src="/got.jpg" alt="Game of Thrones" style="width: 280px; height: 180px;" />
+            </a>
+        </div>
+        <div class="col" style="margin-top: 10px;margin-left: 10px; background-color: aqua; ">
+            <div>
+                <h3>
+                    <a href="/GameofThrones">Game of Thrones</a>
+                </h3>
+            </div>
+            <div class="row" style="margin-left:auto; margin-right:auto;">
+                <div class="col text-right">@gotEpisodsCount / @GoTSeriesCount</div>
+            </div>
+            <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar"
+                     style="width: @gotEpisodsString%" aria-valuenow="@gotEpisodsCount" aria-valuemin="0"
+                     aria-valuemax="@GoTSeriesCount"></div>
             </div>
         </div>
     </div>
 }
-@if (IsUserLogged)
+@if (spnIsSelected)
 {
-    <div class="container">
-        <div class="accordion" id="accordionPanelsStayOpen">
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="panelsStayOpen-headingOne">
-
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                            aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
-                                background-color: aquamarine; width: 100%;">
-                        <div class="text-left">Supernatural</div>
-                    </button>
+    <div class="row" style="margin-right: auto; margin-left: auto;">
+        <div class="col-3" style="margin-top: 10px; background-color: bisque; ">
+            <a href="/Supernatural">
+                <img src="/spn.jpg" alt="Supernatural" style="width: 280px; height: 180px;" />
+            </a>
+        </div>
+        <div class="col" style="margin-top: 10px; margin-left: 10px; background-color: aqua; ">
+            <div>
+                <h3>
+                    <a href="/Supernatural">Supernatural</a>
                 </h3>
-                @foreach (var item1 in user1)
-                {
-                    @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "Supernatural")
-                    {
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                             aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <div class="container px-4">
-                                    <div class="row gx-5">
-                                        <div class="col" style="margin-left: auto;">
-                                            <SeriesListTable UserSeriesLogin="@UserLogin"
-                                                             UserSeriesPassword="@UserPassword"
-                                                             SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
-                                                             SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
+            </div>
+            <div class="row" style="margin-left:auto; margin-right:auto;">
+                <div class="col text-right">@spnEpisodsCount / @SpnSeriesCount</div>
+            </div>
+            <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar"
+                     style="width: @spnEpisodsString%" aria-valuenow="@spnEpisodsCount" aria-valuemin="0"
+                     aria-valuemax="@SpnSeriesCount"></div>
             </div>
         </div>
     </div>
 }
-@if (IsUserLogged)
+@if (tbbtIsSelected)
 {
-    <div class="container">
-        <div class="accordion" id="accordionPanelsStayOpen">
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="panelsStayOpen-headingOne">
-
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                            aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
-                                background-color: aquamarine; width: 100%;">
-                        <div class="text-left">The Big Bang Theory</div>
-                    </button>
+    <div class="row" style="margin-right: auto; margin-left: auto;">
+        <div class="col-3" style="margin-top: 10px; background-color: bisque; ">
+            <a href="/TheBigBangTheory">
+                <img src="/tbbt.jpg" alt="The Big Bang Theory" style="width: 280px; height: 180px;" />
+            </a>
+        </div>
+        <div class="col" style="margin-top: 10px; margin-left: 10px; background-color: aqua; ">
+            <div>
+                <h3>
+                    <a href="/TheBigBangTheory">The Big Bang Theory</a>
                 </h3>
-                @foreach (var item1 in user1)
-                {
-                    @if (item1.UserSeriesLogin == UserLogin && item1.SerialName == "The Big Bang Theory")
-                    {
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                             aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <div class="container px-4">
-                                    <div class="row gx-5">
-                                        <div class="col" style="margin-left: auto;">
-                                            <SeriesListTable UserSeriesLogin="@UserLogin"
-                                                             UserSeriesPassword="@UserPassword"
-                                                             SerialName="@item1.SerialName" SerialSeason="@item1.SerialSeason"
-                                                             SeriesNumber="@item1.SeriesNumber" SeriesName="@item1.SeriesName" />
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
+            </div>
+            <div class="row" style="margin-left:auto; margin-right:auto;">
+                <div class="col text-right">@tbbtEpisodsCount / @TBBTSeriesCount</div>
+            </div>
+            <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar"
+                     style="width: @tbbtEpisodsString%" aria-valuenow="@tbbtEpisodsCount" aria-valuemin="0"
+                     aria-valuemax="@TBBTSeriesCount"></div>
             </div>
         </div>
     </div>
-}*@
+}
 
-<div class="row" style="margin-right: auto; margin-left: auto;">
-    <div class="col-3" style="margin-top: 50px; margin-bottom: 50px; background-color: bisque; ">
-        <a href="/GameofThrones">
-            <img src="/got.jpg" alt="Game of Thrones" style="width: 280px; height: 180px;"/>
-        </a>
-    </div>
-    <div class="col" style="margin-left: 10px; margin-top: 50px; margin-bottom: 50px; background-color: aqua; ">
-        <div>
-            <h3>
-                <a href="/GameofThrones">Game of Thrones</a>
-            </h3>
-        </div>
-        <div class="row" style="margin-left:auto; margin-right:auto;">
-            <div class="col text-right">@episodsCount / @allEpisodsCount</div>
-        </div>
-        <div class="progress" style="height: 5px;">
-            <div class="progress-bar" role="progressbar"
-                 style="width: @episodString%" aria-valuenow="@episodsCount" aria-valuemin="0" aria-valuemax="@allEpisodsCount"></div>
-        </div>
+<div class="container" style="background-color: burlywood">
+    <div class="rate">
+        <input type="radio" id="star5" name="rate" value="5" />
+        <label for="star5" title="text">5 stars</label>
+        <input type="radio" id="star4" name="rate" value="4" />
+        <label for="star4" title="text">4 stars</label>
+        <input type="radio" id="star3" name="rate" value="3" />
+        <label for="star3" title="text">3 stars</label>
+        <input type="radio" id="star2" name="rate" value="2" />
+        <label for="star2" title="text">2 stars</label>
+        <input type="radio" id="star1" name="rate" value="1" />
+        <label for="star1" title="text">1 star</label>
     </div>
 </div>
-
-
 
 @code {
     public bool IsUserLogged { get; set; }
@@ -220,6 +288,18 @@
     int episodString;
     int timeString;
     int hourString;
+
+    int gotEpisodsCount;
+    int gotEpisodsString;
+    bool gotIsSelected = false;
+
+    int spnEpisodsCount;
+    int spnEpisodsString;
+    bool spnIsSelected = false;
+
+    int tbbtEpisodsCount;
+    int tbbtEpisodsString;
+    bool tbbtIsSelected = false;
 
     bool userIsAuthorised = true;
 
@@ -289,6 +369,27 @@
         episodString = episodsCount * 100 / allEpisodsCount;
         timeString = minutsCount * 100 / allTimeCount;
         hourString = hoursCount * 100 / allHoursCount;
+
+        gotEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+        gotEpisodsString = gotEpisodsCount * 100 / GoTSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+            gotIsSelected = true;
+
+        spnEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+        spnEpisodsString = spnEpisodsCount * 100 / SpnSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments() > 0)
+            spnIsSelected = true;
+
+        tbbtEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+        tbbtEpisodsString = tbbtEpisodsCount * 100 / TBBTSeriesCount;
+        if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
+            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments() > 0)
+            tbbtIsSelected = true;
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);

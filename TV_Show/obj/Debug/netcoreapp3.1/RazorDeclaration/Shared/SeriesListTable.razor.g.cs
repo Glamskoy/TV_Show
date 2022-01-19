@@ -97,7 +97,7 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
+#line 32 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
        
     [Parameter] public UserSeries UserSeries { get; set; }
     public bool IsUserLogged { get; set; }
@@ -113,6 +113,9 @@ using MongoDB.Driver;
     [Parameter] public int SeriesNumber { get; set; }
     [Parameter] public string SeriesName { get; set; }
 
+    bool serialIsSelected;
+
+
     protected override async Task OnInitializedAsync()
     {
         //await storage.SetItemAsync<bool>("IsUserLogged", false);
@@ -120,6 +123,18 @@ using MongoDB.Driver;
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
         await storage.SetItemAsync<string>("SerialIsSelected", SerialName);
+
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries");
+
+        if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
+                     x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() > 0)
+            serialIsSelected = true;
+        else
+            serialIsSelected = false;
     }
 
     private void FromBlazorToDB()
@@ -136,6 +151,23 @@ using MongoDB.Driver;
             UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialSeason,
                 SeriesNumber, SeriesName));
         }
+        else
+            DeleteSeriesFromDB();
+    }
+
+    private void DeleteSeriesFromDB()
+    {
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<UserSeries>("UserSeries");
+
+        collection.DeleteOne(x => x.UserSeriesLogin == UserLogin &&
+                    x.UserSeriesPassword == UserPassword &&
+                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName);
+
+        serialIsSelected = false;
     }
 
 #line default
