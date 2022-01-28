@@ -105,7 +105,7 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 506 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 531 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
        
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
@@ -118,6 +118,7 @@ using System.IO;
     public bool UserDoesntWatch { get; set; }
 
     public int CurrentUserRating { get; set; }
+    int currentUserRating;
     int rating = 0;
     public double AllUsersRating { get; set; }
     double allUsersRating = 0;
@@ -156,6 +157,7 @@ using System.IO;
 
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
 
         var connectionStringGoT = "mongodb://localhost";
         var clientGoT = new MongoClient(connectionStringGoT);
@@ -190,15 +192,16 @@ using System.IO;
             information = ser.About;
         }
 
-        //var connectionStringUserRating = "mongodb://localhost";
-        //var clientUserRating = new MongoClient(connectionStringUserRating);
-        //var dbUserRating = clientUserRating.GetDatabase("TV_Show");
-        //var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
-        //if(collectionUserRating.Find(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
-        //    x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
-        //{
-        //    await storage.SetItemAsync<int>("CurrentUserRating", rating);
-        //}
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Show");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().SingleUserRating;
+            currentUserRating = ur.SingleUserRating;
+        }
 
         CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
 
@@ -206,13 +209,13 @@ using System.IO;
         var clientUserSeries = new MongoClient(connectionStringUserSeries);
         var dbUserSeries = clientUserSeries.GetDatabase("TV_Shows");
         var collectionUserSeries = dbUserSeries.GetCollection<UserSeries>("UserSeries");
-        if(collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        if (collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
         {
-            if(CurrentUserRating != 0)
+            if (CurrentUserRating != 0)
             {
                 userCount++;
-                allUsersRating += CurrentUserRating;
-                await storage.SetItemAsync<double>("AllUsersRating", (allUsersRating / userCount) + (allUsersRating % userCount));
+                allUsersRating += currentUserRating;
+                await storage.SetItemAsync<double>("AllUsersRating", allUsersRating / userCount + allUsersRating % userCount);
                 await storage.SetItemAsync<int>("UserCount", userCount);
                 AllUsersRating = await storage.GetItemAsync<double>("AllUsersRating");
                 UserCount = await storage.GetItemAsync<int>("UserCount");
@@ -291,7 +294,8 @@ using System.IO;
         var clientUserRating = new MongoClient(connectionStringUserRating);
         var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
         var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
-        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
         {
             UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
         }
@@ -299,8 +303,9 @@ using System.IO;
         {
             if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRating).CountDocuments() > 0)
             {
-                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
-                x.SerialNameEng == "Game of Thrones" && x.SingleUserRating == CurrentUserRating);
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones" &&
+                x.SingleUserRating != CurrentUserRating);
 
                 UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
             }

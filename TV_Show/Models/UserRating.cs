@@ -24,7 +24,7 @@ namespace TV_Show.Models
             UserRatingLogin = userRatingLogin;
             UserRatingPassword = userRatingPassword;
             SerialNameEng = serialNameEng;
-            SingleUserRating = _singleUserRating;
+            SingleUserRating = singleUserRating;
         }
 
         [BsonId]
