@@ -5,8 +5,10 @@
     <div class="row text-center alert alert-info">
         <div class="col">
             <p>@Serials.SerialName</p>
+            <p>@Serials.ReleaseDate - @Serials.FinishDate</p>
+            <p>@Serials.SeriesTime</p>
             <p>@Serials.Seasons</p>
-            <p>@Serials.Year</p>
+            <p>@Serials.About</p>
         </div>
     </div>
 
@@ -21,44 +23,19 @@
 }
 else
 {
-    <tr>
-        @if (Serials.SerialName == "Game of Thrones")
+<tr>
+    <td><a href="/@Serials.SerialNameEng.ToString().Replace(" ", "")">@Serials.SerialName</a></td>
+    <td>@Serials.ReleaseDate - @Serials.FinishDate</td>
+    <td>@Serials.SeriesTime</td>
+    <td>@Serials.Seasons</td>
+    <td>@Serials.About</td>
+    <td>
+        @if (DisplayButtons)
         {
-            <td><a href="/GameofThrones">@Serials.SerialName</a></td>
-            <td>@Serials.Seasons</td>
-            <td>@Serials.Year</td>
-            <td>
-                @if (DisplayButtons)
-                {
-                    <input type="checkbox" @onchange="FromBlazorToDB" />
-                }
-            </td>
+            <input type="checkbox" @onchange="FromBlazorToDB" />
         }
-        @if (Serials.SerialName == "Supernatural")
-        {
-            <td><a href="/Supernatural">@Serials.SerialName</a></td>
-            <td>@Serials.Seasons</td>
-            <td>@Serials.Year</td>
-            <td>
-                @if (DisplayButtons)
-                {
-                    <input type="checkbox" @onchange="FromBlazorToDB" />
-                }
-            </td>
-        }
-        @if (Serials.SerialName == "The Big Bang Theory")
-        {
-            <td><a href="/TheBigBangTheory">@Serials.SerialName</a></td>
-            <td>@Serials.Seasons</td>
-            <td>@Serials.Year</td>
-            <td>
-                @if (DisplayButtons)
-                {
-                    <input type="checkbox" @onchange="FromBlazorToDB" />
-                }
-            </td>
-        }
-    </tr>
+    </td>
+</tr>
 }
 
 
@@ -77,7 +54,8 @@ else
 
     private void FromBlazorToDB()
     {
-        Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
+        Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.SerialNameEng, Serials.ReleaseDate, 
+            Serials.FinishDate, Serials.SeriesTime, Serials.Seasons, Serials.About));
     }
 
 

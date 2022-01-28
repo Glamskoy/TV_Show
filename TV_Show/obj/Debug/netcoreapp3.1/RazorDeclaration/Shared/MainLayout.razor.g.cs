@@ -97,13 +97,15 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 94 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
+#line 95 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\MainLayout.razor"
  
     public string CurrentUserLogin { get; set; }
     public string CurrentUserPassword { get; set; }
 
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
+
+
 
     public bool IsUserLogged { get; set; }
 

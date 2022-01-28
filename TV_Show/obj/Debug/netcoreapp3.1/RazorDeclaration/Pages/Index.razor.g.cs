@@ -112,13 +112,10 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Pages\Index.razor"
+#line 57 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Pages\Index.razor"
        
-    GoT test;
 
     List<Serials> serials = new List<Serials>();
-
-    [Parameter] public GoT GoT { get; set; }
 
     string firstSlide = "active";
     string secondSlide = "";
@@ -142,12 +139,15 @@ using System.IO;
         {
             Serials x = new Serials();
             x.SerialName = s;
+            x.SerialNameEng = r.ReadLine();
+            x.ReleaseDate = r.ReadLine();
+            x.FinishDate = r.ReadLine();
+            x.SeriesTime = int.Parse(r.ReadLine());
             x.Seasons = int.Parse(r.ReadLine());
-            x.Year = int.Parse(r.ReadLine());
+            x.About = r.ReadLine();
             serials.Add(x);
         }
         r.Close();
-
 
 
         //var connectionString = "mongodb://localhost";
@@ -209,19 +209,6 @@ using System.IO;
             default:
                 break;
         }
-    }
-
-    private void FromBlazorToDBToUser()
-    {
-        var connectionString = "mongodb://localhost";
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase("TV_Shows");
-        var collection = db.GetCollection<GoT>("GameofThrones");
-        test = collection.Find(x => x.SeriesName == "Winter is Coming").FirstOrDefault();
-        //foreach (var item in collection)
-        //{
-        //    User.AddUserSerialsToDb(new User(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
-        //}
     }
 
 #line default

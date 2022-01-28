@@ -2,10 +2,12 @@
     <table class="table" table-striped>
         <thead class="thead-light">
             <tr>
-                <th>Serial Name</th>
-                <th>Count of Seasons</th>
-                <th>Year</th>
-                <th>Add Serial To Your Checklist <input type="checkbox" @bind="displayButtons" /></th>
+                <th>Название сериала:</th>
+                <th>Дата выхода:</th>
+                <th>Длительность серии:</th>
+                <th>Количество сезонов:</th>
+                <th>Информация:</th>
+                <th>Добать сериал в список<input type="checkbox" @bind="displayButtons" /></th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +26,6 @@
                     <AllSerials Serials="item" IsTable="true" DisplayButtons="displayButtons"/>
                 }
             }
-
         </tbody>
     </table>
 </div>

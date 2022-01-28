@@ -129,6 +129,7 @@ using System.IO;
         {
             Spn x = new Spn();
             x.SerialName = ss;
+            x.SerialNameEng = rr.ReadLine();
             x.SerialSeason = int.Parse(rr.ReadLine());
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
@@ -137,8 +138,12 @@ using System.IO;
         }
         rr.Close();
 
-        //if (IsUserLogged)
-        //    FromBlazorToDBToSerial();
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<Spn>("Supernatural");
+        if (collection.Find(x => x.SerialNameEng == "Supernatural").CountDocuments() == 0)
+            FromBlazorToDBToSerial();
 
         spnTimeCount = 43 * spnSeriesCount;
 
@@ -150,7 +155,8 @@ using System.IO;
     {
         foreach (var item in spn)
         {
-            Spn.AddSeriesSpnToDb(new Spn(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+            Spn.AddSeriesSpnToDb(new Spn(item.SerialName, item.SerialNameEng, item.SerialSeason, item.SeriesNumber,
+                item.SeriesName));
         }
     }
 

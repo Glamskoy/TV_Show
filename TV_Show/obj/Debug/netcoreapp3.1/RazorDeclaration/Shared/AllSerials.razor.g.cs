@@ -97,7 +97,7 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\AllSerials.razor"
+#line 43 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\AllSerials.razor"
        
     [Parameter] public Serials Serials { get; set; }
     [Parameter] public bool IsTable { get; set; }
@@ -112,7 +112,8 @@ using System.IO;
 
     private void FromBlazorToDB()
     {
-        Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.Seasons, Serials.Year));
+        Serials.AddSerialsToDb(new Serials(Serials.SerialName, Serials.SerialNameEng, Serials.ReleaseDate, 
+            Serials.FinishDate, Serials.SeriesTime, Serials.Seasons, Serials.About));
     }
 
 

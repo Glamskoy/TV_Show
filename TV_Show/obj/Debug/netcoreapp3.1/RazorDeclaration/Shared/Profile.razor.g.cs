@@ -98,12 +98,16 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 261 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+#line 123 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
-    public string SerialIsSelected { get; set; }
+
+    public bool UserWatch { get; set; }
+    public bool UserWillWatch { get; set; }
+    public bool UserStopWatch { get; set; }
+    public bool UserDoesntWatch { get; set; }
 
     public int GoTSeriesCount { get; set; }
     public int SpnSeriesCount { get; set; }
@@ -150,7 +154,6 @@ using MongoDB.Driver;
         IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
-        SerialIsSelected = await storage.GetItemAsync<string>("SerialIsSelected");
 
         GoTSeriesCount = await storage.GetItemAsync<int>("GoTSeriesCount");
         SpnSeriesCount = await storage.GetItemAsync<int>("SpnSeriesCount");

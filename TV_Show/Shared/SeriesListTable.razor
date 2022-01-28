@@ -2,29 +2,32 @@
 @inject NavigationManager manager
 @using MongoDB.Driver
 
-<div class="row" style="background-color:antiquewhite; margin-bottom:10px;">
-    <div class="col">
-        <p class="text-left">s @SerialSeason ep @SeriesNumber</p>
-    </div>
-    <div class="col">
-        <p class="text-left">@SeriesName</p>
-    </div>
-    <div class="col">
-        <p class="text-right">
-            @if (IsUserLogged)
-            {
-                @if (serialIsSelected)
+<div class="container" style="margin-top: 2px; margin-bottom: 2px;">
+    <div class="row">
+        <div class="col">
+            <p class="text-left">@SerialSeason х @SeriesNumber</p>
+        </div>
+        <div class="col">
+            <p class="text-left">@SeriesName</p>
+        </div>
+        <div class="col">
+            <p class="text-right">
+                @if (IsUserLogged)
                 {
-                    <input type="checkbox" @onchange="DeleteSeriesFromDB" checked/>
+                    @if (serialIsSelected)
+                    {
+                        <input type="checkbox" @onchange="DeleteSeriesFromDB" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" @onchange="FromBlazorToDB" />
+                    }
                 }
-                else
-                {
-                    <input type="checkbox" @onchange="FromBlazorToDB" />
-                }
-            }
-        </p>
+            </p>
+        </div>
     </div>
 </div>
+
 
 
 
@@ -34,18 +37,16 @@
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
-    public string SerialIsSelected { get; set; }
-
 
     [Parameter] public string UserSeriesLogin { get; set; }
     [Parameter] public string UserSeriesPassword { get; set; }
     [Parameter] public string SerialName { get; set; }
+    [Parameter] public string SerialNameEng { get; set; }
     [Parameter] public int SerialSeason { get; set; }
     [Parameter] public int SeriesNumber { get; set; }
     [Parameter] public string SeriesName { get; set; }
 
     bool serialIsSelected;
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -53,7 +54,6 @@
         IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
-        await storage.SetItemAsync<string>("SerialIsSelected", SerialName);
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
@@ -61,7 +61,7 @@
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
-                     x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                     x.SerialName == SerialName && x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                      x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() > 0)
             serialIsSelected = true;
         else
@@ -76,10 +76,10 @@
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
-                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.SerialName == SerialName && x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() == 0)
         {
-            UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialSeason,
+            UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialNameEng, SerialSeason,
                 SeriesNumber, SeriesName));
         }
         else
@@ -94,8 +94,8 @@
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         collection.DeleteOne(x => x.UserSeriesLogin == UserLogin &&
-                    x.UserSeriesPassword == UserPassword &&
-                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.UserSeriesPassword == UserPassword && x.SerialName == SerialName &&
+                    x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName);
 
         serialIsSelected = false;

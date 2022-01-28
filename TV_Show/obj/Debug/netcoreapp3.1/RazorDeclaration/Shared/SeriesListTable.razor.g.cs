@@ -97,24 +97,22 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
+#line 35 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SeriesListTable.razor"
        
     [Parameter] public UserSeries UserSeries { get; set; }
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
-    public string SerialIsSelected { get; set; }
-
 
     [Parameter] public string UserSeriesLogin { get; set; }
     [Parameter] public string UserSeriesPassword { get; set; }
     [Parameter] public string SerialName { get; set; }
+    [Parameter] public string SerialNameEng { get; set; }
     [Parameter] public int SerialSeason { get; set; }
     [Parameter] public int SeriesNumber { get; set; }
     [Parameter] public string SeriesName { get; set; }
 
     bool serialIsSelected;
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -122,7 +120,6 @@ using MongoDB.Driver;
         IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
-        await storage.SetItemAsync<string>("SerialIsSelected", SerialName);
 
         var connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
@@ -130,7 +127,7 @@ using MongoDB.Driver;
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
-                     x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                     x.SerialName == SerialName && x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                      x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() > 0)
             serialIsSelected = true;
         else
@@ -145,10 +142,10 @@ using MongoDB.Driver;
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         if (collection.Find(x => x.UserSeriesLogin == UserLogin && x.UserSeriesPassword == UserPassword &&
-                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.SerialName == SerialName && x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName).CountDocuments() == 0)
         {
-            UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialSeason,
+            UserSeries.AddUserSeriesToDb(new UserSeries(UserLogin, UserPassword, SerialName, SerialNameEng, SerialSeason,
                 SeriesNumber, SeriesName));
         }
         else
@@ -163,8 +160,8 @@ using MongoDB.Driver;
         var collection = db.GetCollection<UserSeries>("UserSeries");
 
         collection.DeleteOne(x => x.UserSeriesLogin == UserLogin &&
-                    x.UserSeriesPassword == UserPassword &&
-                    x.SerialName == SerialName && x.SerialSeason == SerialSeason &&
+                    x.UserSeriesPassword == UserPassword && x.SerialName == SerialName &&
+                    x.SerialNameEng == SerialNameEng && x.SerialSeason == SerialSeason &&
                     x.SeriesNumber == SeriesNumber && x.SeriesName == SeriesName);
 
         serialIsSelected = false;

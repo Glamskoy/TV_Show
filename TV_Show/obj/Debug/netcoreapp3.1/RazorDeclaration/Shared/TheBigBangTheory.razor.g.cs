@@ -129,6 +129,7 @@ using System.IO;
         {
             TBBT x = new TBBT();
             x.SerialName = ss;
+            x.SerialNameEng = rr.ReadLine();
             x.SerialSeason = int.Parse(rr.ReadLine());
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
@@ -137,7 +138,13 @@ using System.IO;
             tbbtSeriesCount++;
         }
         rr.Close();
-        //FromBlazorToDBToSerial();
+
+        var connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("TV_Shows");
+        var collection = db.GetCollection<TBBT>("TheBigBangTheory");
+        if (collection.Find(x => x.SerialNameEng == "The Big Bang Theory").CountDocuments() == 0)
+            FromBlazorToDBToSerial();
 
         tbbtTimeCount = 22 * tbbtSeriesCount;
 
@@ -150,7 +157,8 @@ using System.IO;
     {
         foreach (var item in tbbt)
         {
-            TBBT.AddSeriesTBBTToDb(new TBBT(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+            TBBT.AddSeriesTBBTToDb(new TBBT(item.SerialName, item.SerialNameEng, item.SerialSeason, item.SeriesNumber,
+                item.SeriesName));
         }
     }
 

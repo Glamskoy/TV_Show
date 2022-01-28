@@ -12,19 +12,20 @@
     <div class="top-row px-4" style="z-index: 3">
         @if (IsUserLogged)
         {
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal2" data-bs-target="#modal"
+            <button type="button" class="btn btn-link" data-bs-toggle="modal2" data-bs-target="#modal"
                     @onclick="LogOut">
-                Sign Out
+                Выйти
             </button>
         }
         else
         {
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal"
-                    style="margin-right:15px;">
-                Sign In
+            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal"
+                    style="margin-right: 0;">
+                Войти
             </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
-                Sign Up
+            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal1"
+                    style="margin-left:0">
+                Зарегистрироваться
             </button>
         }
     </div>
@@ -39,8 +40,8 @@
                     @if(!userIsAuthorised)
                     {
                         <div class="alert alert-danger" role="alert">
-                            The user is not authorized yet!
-                            Please, check your login and password!
+                            Пользователь не найден!
+                            Пожалуйста, проверьте правильность вводимых данных!
                         </div>
                     }
                     <p style="width:100%; margin-bottom: inherit;">Username or email address</p>
@@ -51,7 +52,7 @@
                                 style="height: 40px; width: 100%; margin-top: 15px;"
                                 @onclick="SignIn">
                             Sign in
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -67,8 +68,8 @@
                     @if (!userIsAuthorised)
                     {
                         <div class="alert alert-danger" role="alert">
-                            The user is authorized yet!
-                            Please, choose new login!
+                            Пользователь с такими данными уже зарегистрирован!
+                            Пожалуйста, выберите другой логин и пароль!
                         </div>
                     }
                     <p style="width:100%; margin-bottom: inherit;">Username or email address</p>
@@ -97,6 +98,8 @@
 
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
+
+
 
     public bool IsUserLogged { get; set; }
 

@@ -10,13 +10,15 @@ namespace TV_Show.Models {
     public class GoT
     {
         private string _serialName;
+        private string _serialNameEng;
         private int _serialSeason;
         private int _seriesNumber;
         private string _seriesName;
 
-        public GoT(string serialName, int serialSeason, int seriesNumber, string seriesName)
+        public GoT(string serialName, string serialNameEng, int serialSeason, int seriesNumber, string seriesName)
         {
             SerialName = serialName;
+            SerialNameEng = serialNameEng;
             SerialSeason = serialSeason;
             SeriesNumber = seriesNumber;
             SeriesName = seriesName;
@@ -30,6 +32,7 @@ namespace TV_Show.Models {
         [BsonIgnoreIfDefault]
         ObjectId _id { get; set; }
         public string SerialName { get => _serialName; set => _serialName = value; }
+        public string SerialNameEng { get => _serialNameEng; set => _serialNameEng = value; }
         public int SerialSeason { get => _serialSeason; set => _serialSeason = value; }
         public int SeriesNumber { get => _seriesNumber; set => _seriesNumber = value; }
         public string SeriesName { get => _seriesName; set => _seriesName = value; }

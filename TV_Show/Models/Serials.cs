@@ -12,29 +12,39 @@ namespace TV_Show.Models
     public class Serials
     {
         private string _serialName;
+        private string _serialNameEng;
+        private string _releaseDate;
+        private string _finishDate;
+        private int _seriesTime;
         private int _seasons;
-        private int _year;
-
+        private string _about;
 
         public Serials()
         {
         }
 
-        public Serials(string serialName, int seasons, int year)
+        public Serials(string serialName, string serialNameEng, string releaseDate, string finishDate, 
+            int seriesTime, int seasons, string about)
         {
             SerialName = serialName;
+            SerialNameEng = serialNameEng;
+            ReleaseDate = releaseDate;
+            FinishDate = finishDate;
+            SeriesTime = seriesTime;
             Seasons = seasons;
-            Year = year;
+            About = about;
         }
-
-        
 
         [BsonId]
         [BsonIgnoreIfDefault]
         ObjectId _id { get; set; }
         public string SerialName { get => _serialName; set => _serialName = value; }
+        public string SerialNameEng { get => _serialNameEng; set => _serialNameEng = value; }
+        public string ReleaseDate { get => _releaseDate; set => _releaseDate = value; }
+        public string FinishDate { get => _finishDate; set => _finishDate = value; }
+        public int SeriesTime { get => _seriesTime; set => _seriesTime = value; }
         public int Seasons { get => _seasons; set => _seasons = value; }
-        public int Year { get => _year; set => _year = value; }
+        public string About { get => _about; set => _about = value; }
 
         public static void AddSerialsToDb(Serials serial)
         {
@@ -44,34 +54,5 @@ namespace TV_Show.Models
             var collection = db.GetCollection<Serials>("Serials");
             collection.InsertOne(serial);
         }
-
-        //public static void AddToFile(Serials ser)
-        //{
-            //FileInfo newFile = new FileInfo("Serials.txt");
-            //newFile.Refresh();
-
-            //var connectionString = "mongodb://localhost";
-            //var client = new MongoClient(connectionString);
-            //var db = client.GetDatabase("TV_Shows");
-            //var collection = db.GetCollection<Serials>("Serials").ToString();
-            //foreach (var item in collection)
-            //{
-            //    using (FileStream fs = new FileStream("D:/Projects/TV_Show/TV_Show/Db/Serials.txt", FileMode.OpenOrCreate))
-            //    {
-            //        fs.Write(((byte)item), 0, ((byte)item));
-            //    }
-
-            //}
-
-            //using (FileStream fs = new FileStream("D:/Projects/TV_Show/TV_Show/Db/Serials.txt", FileMode.OpenOrCreate))
-            //{
-            //    fs.Write();
-            //}
-            //StreamReader str = new StreamReader("D:/Projects/TV_Show/TV_Show/Db/Serials.xtx");
-            //str.ReadToEnd();
-        //}
-        
-
-        
     }
 }

@@ -105,12 +105,24 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 278 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 506 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
        
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
 
     public bool IsUserLogged { get; set; }
+
+    public bool UserWatch { get; set; }
+    public bool UserWillWatch { get; set; }
+    public bool UserStopWatch { get; set; }
+    public bool UserDoesntWatch { get; set; }
+
+    public int CurrentUserRating { get; set; }
+    int rating = 0;
+    public double AllUsersRating { get; set; }
+    double allUsersRating = 0;
+    public int UserCount { get; set; }
+    int userCount = 0;
 
     public int GoTSeriesCount { get; set; }
     int goTSeriesCount = 0;
@@ -120,6 +132,10 @@ using System.IO;
     [Parameter] public GoT GoT { get; set; }
     List<GoT> got = new List<GoT>();
 
+    string date;
+    string information;
+    int seasons;
+    int seriesTime = 57;
 
     protected override async Task OnInitializedAsync()
     {
@@ -129,6 +145,7 @@ using System.IO;
         {
             GoT x = new GoT();
             x.SerialName = ss;
+            x.SerialNameEng = rr.ReadLine();
             x.SerialSeason = int.Parse(rr.ReadLine());
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
@@ -137,24 +154,188 @@ using System.IO;
         }
         rr.Close();
 
-        //if (IsUserLogged)
-        //    FromBlazorToDBToSerial();
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+
+        var connectionStringGoT = "mongodb://localhost";
+        var clientGoT = new MongoClient(connectionStringGoT);
+        var dbGoT = clientGoT.GetDatabase("TV_Shows");
+        var collectionGoT = dbGoT.GetCollection<GoT>("GameofThrones");
+        if (collectionGoT.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+            FromBlazorToDBToSerial();
 
         goTTimeCount = 57 * goTSeriesCount;
 
         await storage.SetItemAsync<int>("GoTSeriesCount", goTSeriesCount);
         await storage.SetItemAsync<int>("GoTTimeCount", goTTimeCount);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+
+        var connectionStringSerials = "mongodb://localhost";
+        var clientSerials = new MongoClient(connectionStringSerials);
+        var dbSerials = clientSerials.GetDatabase("TV_Shows");
+        var collectionSerials = dbSerials.GetCollection<Serials>("Serials");
+        if (collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        {
+            Serials ser = new Serials();
+            ser.ReleaseDate = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().ReleaseDate;
+            ser.FinishDate = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().FinishDate;
+            ser.Seasons = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().Seasons;
+            ser.About = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().About;
+            date = ser.ReleaseDate + " - " + ser.FinishDate;
+            seasons = ser.Seasons;
+            information = ser.About;
+        }
+
+        //var connectionStringUserRating = "mongodb://localhost";
+        //var clientUserRating = new MongoClient(connectionStringUserRating);
+        //var dbUserRating = clientUserRating.GetDatabase("TV_Show");
+        //var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        //if(collectionUserRating.Find(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
+        //    x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        //{
+        //    await storage.SetItemAsync<int>("CurrentUserRating", rating);
+        //}
+
+        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+
+        var connectionStringUserSeries = "mongodb://localhost";
+        var clientUserSeries = new MongoClient(connectionStringUserSeries);
+        var dbUserSeries = clientUserSeries.GetDatabase("TV_Shows");
+        var collectionUserSeries = dbUserSeries.GetCollection<UserSeries>("UserSeries");
+        if(collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        {
+            if(CurrentUserRating != 0)
+            {
+                userCount++;
+                allUsersRating += CurrentUserRating;
+                await storage.SetItemAsync<double>("AllUsersRating", (allUsersRating / userCount) + (allUsersRating % userCount));
+                await storage.SetItemAsync<int>("UserCount", userCount);
+                AllUsersRating = await storage.GetItemAsync<double>("AllUsersRating");
+                UserCount = await storage.GetItemAsync<int>("UserCount");
+            }
+        }
     }
 
     private void FromBlazorToDBToSerial()
     {
         foreach (var item in got)
         {
-            GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+            GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialNameEng, item.SerialSeason, item.SeriesNumber,
+                item.SeriesName));
         }
     }
 
+    async Task UserIsWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", true);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
 
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserWillWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", true);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserStopWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", true);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserDontWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", true);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task Rating(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRating", rating);
+
+        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRating).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
+                x.SerialNameEng == "Game of Thrones" && x.SingleUserRating == CurrentUserRating);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+            }
+        }
+    }
+
+    private void Rating5()
+    {
+        rating = 5;
+        Rating(rating);
+    }
+
+    private void Rating4()
+    {
+        rating = 4;
+        Rating(rating);
+    }
+
+    private void Rating3()
+    {
+        rating = 3;
+        Rating(rating);
+    }
+
+    private void Rating2()
+    {
+        rating = 2;
+        Rating(rating);
+    }
+
+    private void Rating1()
+    {
+        rating = 1;
+        Rating(rating);
+    }
 
 #line default
 #line hidden

@@ -5,34 +5,260 @@
 @using MongoDB.Driver;
 @using System.IO;
 
+<div class="container" style="margin-left: auto; margin-right: auto;
+    width: 100%; height: auto;">
+    <div class="row" style="margin-left: auto; margin-right: auto;">
+        <div class="col" style="padding-left: 0">
+            <h2>Игра престолов</h2>
+            <h5>Game of Thrones</h5>
+        </div>
+    </div>
+    <img src="/got.jpg" class="img-fluid img-thumbnail" alt="Game of Thrones">
+    <div class="row" style="margin-left:auto; margin-right:auto; margin-top: 5px;">
+        @if (UserWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%;"
+                    @onclick="UserIsWatchingAsync">
+                Смотрю
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%;"
+                    @onclick="UserIsWatchingAsync">
+                Смотрю
+            </button>
+        }
+        @if (UserWillWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserWillWatchingAsync">
+                Буду
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserWillWatchingAsync">
+                Буду
+            </button>
+        }
+        @if (UserStopWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserStopWatchingAsync">
+                Перестал
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserStopWatchingAsync">
+                Перестал
+            </button>
+        }
+        @if (UserDoesntWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserDontWatchingAsync">
+                Не смотрю
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserDontWatchingAsync">
+                Не смотрю
+            </button>
+        }
+    </div>
+</div>
 
-<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
+<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; bottom: 15px;">
     <div class="row">
         <div class="col" style="margin-left: auto; top: 15px;">
-            <img src="/got.jpg" class="card-img-top" alt="Game of Thrones">
+            <div class="row" style="height: auto;">
+                @if (UserWatch || UserWillWatch || UserStopWatch)
+                {
+                    <p style="margin-left: 15px; margin-top: 12px;">Моя оценка:</p>
+                    <div class="rate" style="margin-left: auto; margin-right: auto;">
+                        @if (CurrentUserRating == 5)
+                        {
+                            <input type="radio" checked id="star5" name="rate" value="5" @onclick="Rating5" />
+                            <label for="star5" title="text">5 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star5" name="rate" value="5" @onclick="Rating5" />
+                            <label for="star5" title="text">5 stars</label>
+                        }
+                        @if (CurrentUserRating == 4)
+                        {
+                            <input type="radio" checked id="star4" name="rate" value="4" @onclick="Rating4" />
+                            <label for="star4" title="text">4 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star4" name="rate" value="4" @onclick="Rating4" />
+                            <label for="star4" title="text">4 stars</label>
+                        }
+                        @if (CurrentUserRating == 3)
+                        {
+                            <input type="radio" checked id="star3" name="rate" value="3" @onclick="Rating3" />
+                            <label for="star3" title="text">3 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star3" name="rate" value="3" @onclick="Rating3" />
+                            <label for="star3" title="text">3 stars</label>
+                        }
+                        @if (CurrentUserRating == 2)
+                        {
+                            <input type="radio" checked id="star2" name="rate" value="2" @onclick="Rating2" />
+                            <label for="star2" title="text">2 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star2" name="rate" value="2" @onclick="Rating2" />
+                            <label for="star2" title="text">2 stars</label>
+                        }
+                        @if (CurrentUserRating == 1)
+                        {
+                            <input type="radio" checked id="star1" name="rate" value="1" @onclick="Rating1" />
+                            <label for="star1" title="text">1 star</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star1" name="rate" value="1" @onclick="Rating1" />
+                            <label for="star1" title="text">1 star</label>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p style="margin-left: 15px; margin-top: 12px;">Рейтинг:</p>
+                }
+            </div>
         </div>
-        <div class="col" style="margin-right: auto; top: 15px;">
-            <p>Serial: Game of Thrones</p>
-            <p>Year: 2011</p>
-            <p>Seasons: 8</p>
-            <p>Information: Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, a series of fantasy novels by George R. R. Martin, the first of which is A Game of Thrones. The show was shot in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, and Spain. It premiered on HBO in the United States on April 17, 2011, and concluded on May 19, 2019, with 73 episodes broadcast over eight seasons.</p>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    @*<p style="margin-top: 12px;">пвпвык</p>*@
+                    @AllUsersRating из 5 <p>@UserCount</p>
+                    CurrentUserRating @CurrentUserRating
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Дата выхода:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Длительность серии:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@seriesTime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Общая длительность: </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    @if (goTTimeCount % 10 == 1 && goTTimeCount != 11 && goTTimeCount % 10 != 11)
+                    {
+                        <p style="margin-top: 12px;">@goTTimeCount час</p>
+                    }
+                    @if (goTTimeCount % 10 == 2 && goTTimeCount != 12)
+                    {
+                        <p style="margin-top: 12px;">@goTTimeCount часа</p>
+                    }
+                    @if (goTTimeCount % 10 == 3 && goTTimeCount != 13)
+                    {
+                        <p style="margin-top: 12px;">@goTTimeCount часа</p>
+                    }
+                    @if (goTTimeCount % 10 == 4 && goTTimeCount != 14)
+                    {
+                        <p style="margin-top: 12px;">@goTTimeCount часа</p>
+                    }
+                    @if (goTTimeCount % 10 == 0 || goTTimeCount % 10 == 5 || goTTimeCount % 10 == 6 ||
+                        goTTimeCount % 10 == 7 || goTTimeCount % 10 == 8 || goTTimeCount % 10 == 9 ||
+                        goTTimeCount == 11 || goTTimeCount == 12 || goTTimeCount == 13 ||
+                        goTTimeCount == 14 || goTTimeCount == 15 || goTTimeCount == 16 ||
+                        goTTimeCount == 17 || goTTimeCount == 18 || goTTimeCount == 19 ||
+                        goTTimeCount % 10 == 11 || goTTimeCount % 10 == 12 || goTTimeCount % 10 == 13 ||
+                        goTTimeCount % 10 == 14 || goTTimeCount % 10 == 15 || goTTimeCount % 10 == 16 ||
+                        goTTimeCount % 10 == 17 || goTTimeCount % 10 == 18 || goTTimeCount % 10 == 19)
+                    {
+                        <p style="margin-top: 12px;">@goTTimeCount часов</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Количество сезонов: </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@seasons</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<br />
+<div class="container" style="margin-left: auto; margin-right: auto;
+    padding-top: 15px; bottom: 15px;"> 
+    <h5>Информация о сериале:</h5>
+    <p text-justify>@information</p>
+</div>
 
 <div class="container">
     <div class="accordion" id="accordionPanelsStayOpen">
         <div class="accordion-item">
-            <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+            <h4 class="accordion-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 1</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 1</div>
                 </button>
-            </h3>
+            </h4>
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                  aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
@@ -43,10 +269,10 @@
                                 {
                                     @if (item.SerialSeason == 1)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber" 
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -59,9 +285,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 2</div>
+                    <div class="text-left">Сезон 2</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
@@ -74,10 +300,10 @@
                                 {
                                     @if (item.SerialSeason == 2)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -90,9 +316,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 3</div>
+                    <div class="text-left">Сезон 3</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
@@ -105,10 +331,10 @@
                                 {
                                     @if (item.SerialSeason == 3)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -121,9 +347,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 4</div>
+                    <div class="text-left">Сезон 4</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
@@ -136,10 +362,10 @@
                                 {
                                     @if (item.SerialSeason == 4)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -152,9 +378,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 5</div>
+                    <div class="text-left">Сезон 5</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
@@ -167,10 +393,10 @@
                                 {
                                     @if (item.SerialSeason == 5)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -183,9 +409,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 6</div>
+                    <div class="text-left">Сезон 6</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
@@ -198,10 +424,10 @@
                                 {
                                     @if (item.SerialSeason == 6)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -214,9 +440,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingSeven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 7</div>
+                    <div class="text-left">Сезон 7</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
@@ -229,10 +455,10 @@
                                 {
                                     @if (item.SerialSeason == 7)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -245,9 +471,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingEight">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 8</div>
+                    <div class="text-left">Сезон 8</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
@@ -260,10 +486,10 @@
                                 {
                                     @if (item.SerialSeason == 8)
                                     {
-                                        <SeriesListTable UserSeriesLogin="@UserLogin" 
-                                                         UserSeriesPassword="@UserPassword"
-                                                         SerialName="@item.SerialName" SerialSeason="item.SerialSeason"
-                                                         SeriesNumber="item.SeriesNumber" SeriesName="@item.SeriesName" />
+                                        <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
+                                                         SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
+                                                         SeriesName="@item.SeriesName" />
                                     }
                                 }
                             </div>
@@ -275,11 +501,25 @@
     </div>
 </div>
 
+
+
 @code {
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
 
     public bool IsUserLogged { get; set; }
+
+    public bool UserWatch { get; set; }
+    public bool UserWillWatch { get; set; }
+    public bool UserStopWatch { get; set; }
+    public bool UserDoesntWatch { get; set; }
+
+    public int CurrentUserRating { get; set; }
+    int rating = 0;
+    public double AllUsersRating { get; set; }
+    double allUsersRating = 0;
+    public int UserCount { get; set; }
+    int userCount = 0;
 
     public int GoTSeriesCount { get; set; }
     int goTSeriesCount = 0;
@@ -289,6 +529,10 @@
     [Parameter] public GoT GoT { get; set; }
     List<GoT> got = new List<GoT>();
 
+    string date;
+    string information;
+    int seasons;
+    int seriesTime = 57;
 
     protected override async Task OnInitializedAsync()
     {
@@ -298,6 +542,7 @@
         {
             GoT x = new GoT();
             x.SerialName = ss;
+            x.SerialNameEng = rr.ReadLine();
             x.SerialSeason = int.Parse(rr.ReadLine());
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
@@ -306,23 +551,187 @@
         }
         rr.Close();
 
-        //if (IsUserLogged)
-        //    FromBlazorToDBToSerial();
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+
+        var connectionStringGoT = "mongodb://localhost";
+        var clientGoT = new MongoClient(connectionStringGoT);
+        var dbGoT = clientGoT.GetDatabase("TV_Shows");
+        var collectionGoT = dbGoT.GetCollection<GoT>("GameofThrones");
+        if (collectionGoT.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+            FromBlazorToDBToSerial();
 
         goTTimeCount = 57 * goTSeriesCount;
 
         await storage.SetItemAsync<int>("GoTSeriesCount", goTSeriesCount);
         await storage.SetItemAsync<int>("GoTTimeCount", goTTimeCount);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+
+        var connectionStringSerials = "mongodb://localhost";
+        var clientSerials = new MongoClient(connectionStringSerials);
+        var dbSerials = clientSerials.GetDatabase("TV_Shows");
+        var collectionSerials = dbSerials.GetCollection<Serials>("Serials");
+        if (collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        {
+            Serials ser = new Serials();
+            ser.ReleaseDate = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().ReleaseDate;
+            ser.FinishDate = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().FinishDate;
+            ser.Seasons = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().Seasons;
+            ser.About = collectionSerials.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().About;
+            date = ser.ReleaseDate + " - " + ser.FinishDate;
+            seasons = ser.Seasons;
+            information = ser.About;
+        }
+
+        //var connectionStringUserRating = "mongodb://localhost";
+        //var clientUserRating = new MongoClient(connectionStringUserRating);
+        //var dbUserRating = clientUserRating.GetDatabase("TV_Show");
+        //var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        //if(collectionUserRating.Find(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
+        //    x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        //{
+        //    await storage.SetItemAsync<int>("CurrentUserRating", rating);
+        //}
+
+        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+
+        var connectionStringUserSeries = "mongodb://localhost";
+        var clientUserSeries = new MongoClient(connectionStringUserSeries);
+        var dbUserSeries = clientUserSeries.GetDatabase("TV_Shows");
+        var collectionUserSeries = dbUserSeries.GetCollection<UserSeries>("UserSeries");
+        if(collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        {
+            if(CurrentUserRating != 0)
+            {
+                userCount++;
+                allUsersRating += CurrentUserRating;
+                await storage.SetItemAsync<double>("AllUsersRating", (allUsersRating / userCount) + (allUsersRating % userCount));
+                await storage.SetItemAsync<int>("UserCount", userCount);
+                AllUsersRating = await storage.GetItemAsync<double>("AllUsersRating");
+                UserCount = await storage.GetItemAsync<int>("UserCount");
+            }
+        }
     }
 
     private void FromBlazorToDBToSerial()
     {
         foreach (var item in got)
         {
-            GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialSeason, item.SeriesNumber, item.SeriesName));
+            GoT.AddSeriesGoTToDb(new GoT(item.SerialName, item.SerialNameEng, item.SerialSeason, item.SeriesNumber,
+                item.SeriesName));
         }
     }
 
+    async Task UserIsWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", true);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
 
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserWillWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", true);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserStopWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", true);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserDontWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", true);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task Rating(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRating", rating);
+
+        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRating).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin && x.UserRatingPassword == UserPassword &&
+                x.SerialNameEng == "Game of Thrones" && x.SingleUserRating == CurrentUserRating);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+            }
+        }
+    }
+
+    private void Rating5()
+    {
+        rating = 5;
+        Rating(rating);
+    }
+
+    private void Rating4()
+    {
+        rating = 4;
+        Rating(rating);
+    }
+
+    private void Rating3()
+    {
+        rating = 3;
+        Rating(rating);
+    }
+
+    private void Rating2()
+    {
+        rating = 2;
+        Rating(rating);
+    }
+
+    private void Rating1()
+    {
+        rating = 1;
+        Rating(rating);
+    }
 }
 

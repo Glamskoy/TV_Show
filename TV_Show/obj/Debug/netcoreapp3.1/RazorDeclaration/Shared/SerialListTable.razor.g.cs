@@ -90,7 +90,7 @@ using TV_Show.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SerialListTable.razor"
+#line 35 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\SerialListTable.razor"
        
     [Parameter] public List<Serials> Serials { get; set; }
 
