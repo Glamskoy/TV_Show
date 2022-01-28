@@ -1,0 +1,658 @@
+[{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96a"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 1,
+  "SeriesName": "Winter is Coming"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96b"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 2,
+  "SeriesName": "The Kingsroad"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96c"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 3,
+  "SeriesName": "Lord Snow"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96d"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 4,
+  "SeriesName": "Cripples, Bastards, and Broken Things"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96e"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 5,
+  "SeriesName": "The Wolf and the Lion"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a96f"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 6,
+  "SeriesName": "A Golden Crown"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a970"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 7,
+  "SeriesName": "You Win or You Die"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a971"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 8,
+  "SeriesName": "The Pointy End"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a972"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 9,
+  "SeriesName": "Baelor"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a973"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 10,
+  "SeriesName": "Fire and Blood"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a974"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 1,
+  "SeriesName": "The North Remembers"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a975"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 2,
+  "SeriesName": "The Night Lands"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a976"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 3,
+  "SeriesName": "What is Dead May Never Die"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a977"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 4,
+  "SeriesName": "Garden of Bones"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a978"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 5,
+  "SeriesName": "The Ghost of Harrenhal"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a979"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 6,
+  "SeriesName": "The Old Gods and the New"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97a"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 7,
+  "SeriesName": "A Man Without Honor"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97b"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 8,
+  "SeriesName": "The Prince of Winterfell"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97c"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 9,
+  "SeriesName": "Blackwater"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97d"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 2,
+  "SeriesNumber": 10,
+  "SeriesName": "Valar Morghulis"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97e"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 1,
+  "SeriesName": "Valar Dohaeris"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a97f"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 2,
+  "SeriesName": "Dark Wings, Dark Words"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a980"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 3,
+  "SeriesName": "Walk of Punishment"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a981"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 4,
+  "SeriesName": "And Now His Watch is Ended"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a982"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 5,
+  "SeriesName": "Kissed by Fire"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a983"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 6,
+  "SeriesName": "The Climb"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a984"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 7,
+  "SeriesName": "The Bear and the Maiden Fair"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a985"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 8,
+  "SeriesName": "Second Sons"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a986"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 9,
+  "SeriesName": "The Rains of Castamere"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a987"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 3,
+  "SeriesNumber": 10,
+  "SeriesName": "Mhysa"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a988"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 1,
+  "SeriesName": "Two Swords"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a989"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 2,
+  "SeriesName": "The Lion and the Rose"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98a"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 3,
+  "SeriesName": "Breaker of Chains"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98b"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 4,
+  "SeriesName": "Oathkeeper"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98c"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 5,
+  "SeriesName": "First of His Name"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98d"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 6,
+  "SeriesName": "The Laws of Gods and Men"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98e"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 7,
+  "SeriesName": "Mockingbird"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a98f"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 8,
+  "SeriesName": "The Mountain and the Viper"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a990"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 9,
+  "SeriesName": "The Watchers on the Wall"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a991"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 4,
+  "SeriesNumber": 10,
+  "SeriesName": "The Children"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a992"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 1,
+  "SeriesName": "The Wars to Come"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a993"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 2,
+  "SeriesName": "The House of Black and White"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a994"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 3,
+  "SeriesName": "High Sparrow"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a995"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 4,
+  "SeriesName": "Sons of the Harpy"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a996"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 5,
+  "SeriesName": "Kill the Boy"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a997"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 6,
+  "SeriesName": "Unbowed, Unbent, Unbroken"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a998"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 7,
+  "SeriesName": "The Gift"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a999"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 8,
+  "SeriesName": "Hardhome"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99a"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 9,
+  "SeriesName": "The Dance of Dragons"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99b"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 5,
+  "SeriesNumber": 10,
+  "SeriesName": "Mother's Mercy"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99c"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 1,
+  "SeriesName": "The Red Woman"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99d"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 2,
+  "SeriesName": "Home"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99e"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 3,
+  "SeriesName": "Oathbreaker"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a99f"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 4,
+  "SeriesName": "Book of the Stranger"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a0"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 5,
+  "SeriesName": "The Door"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a1"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 6,
+  "SeriesName": "Blood of My Blood"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a2"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 7,
+  "SeriesName": "The Broken Man"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a3"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 8,
+  "SeriesName": "No One"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a4"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 9,
+  "SeriesName": "Battle of the Bastards"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a5"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 6,
+  "SeriesNumber": 10,
+  "SeriesName": "The Winds of Winter"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a6"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 1,
+  "SeriesName": "Dragonstone"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a7"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 2,
+  "SeriesName": "Stormborn"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a8"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 3,
+  "SeriesName": "The Queen's Justice"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9a9"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 4,
+  "SeriesName": "The Spoils of War"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9aa"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 5,
+  "SeriesName": "Eastwatch"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9ab"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 6,
+  "SeriesName": "Beyond the Wall"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9ac"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 7,
+  "SeriesNumber": 7,
+  "SeriesName": "The Dragon and the Wolf"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9ad"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 1,
+  "SeriesName": "Winterfell"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9ae"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 2,
+  "SeriesName": "A Knight of the Seven Kingdoms"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9af"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 3,
+  "SeriesName": "The Long Night"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9b0"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 4,
+  "SeriesName": "The Last of the Starks"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9b1"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 5,
+  "SeriesName": "The Bells"
+},{
+  "_id": {
+    "$oid": "61eedcc3ee3b746c0967a9b2"
+  },
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 8,
+  "SeriesNumber": 6,
+  "SeriesName": "The Iron Throne"
+}]

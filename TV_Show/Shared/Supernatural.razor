@@ -5,23 +5,269 @@
 @using MongoDB.Driver;
 @using System.IO;
 
+<div class="container" style="margin-left: auto; margin-right: auto;
+    width: 100%; height: auto;">
+    <div class="row" style="margin-left: auto; margin-right: auto;">
+        <div class="col" style="padding-left: 0">
+            <h2>Сверхъестественное</h2>
+            <h5>Supernatural</h5>
+        </div>
+    </div>
+    <img src="/spn.jpg" class="img-fluid img-thumbnail" alt="Supernatural">
+    <div class="row" style="margin-left:auto; margin-right:auto; margin-top: 5px;">
+        @if (UserWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%;"
+                    @onclick="UserIsWatchingAsync">
+                Смотрю
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%;"
+                    @onclick="UserIsWatchingAsync">
+                Смотрю
+            </button>
+        }
+        @if (UserWillWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserWillWatchingAsync">
+                Буду
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserWillWatchingAsync">
+                Буду
+            </button>
+        }
+        @if (UserStopWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserStopWatchingAsync">
+                Перестал
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserStopWatchingAsync">
+                Перестал
+            </button>
+        }
+        @if (UserDoesntWatch)
+        {
+            <button type="button" class="btn btn-success btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserDontWatchingAsync">
+                Не смотрю
+            </button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-light btn-block" style="width: 25%; margin-top: 0;"
+                    @onclick="UserDontWatchingAsync">
+                Не смотрю
+            </button>
+        }
+    </div>
+</div>
 
-
-<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; height: 400px; background-color: red;">
+<div class="container" style="margin-left: auto; margin-right: auto; top: 300px; bottom: 15px;">
     <div class="row">
         <div class="col" style="margin-left: auto; top: 15px;">
-            <img src="/spn.jpg" class="card-img-top" alt="Supernatural">
+            <div class="row" style="height: auto;">
+                @if (UserWatch || UserWillWatch || UserStopWatch)
+                {
+                    <p style="margin-left: 15px; margin-top: 12px;">Моя оценка:</p>
+                    <div class="rate" style="margin-left: auto; margin-right: auto;">
+                        @if (currentUserRating == 5 && IsUserLogged)
+                        {
+                            <input type="radio" checked id="star5" name="rate" value="5" @onclick="Rating5" />
+                            <label for="star5" title="text">5 stars</label>
+                        }
+                        else if (!IsUserLogged)
+                        {
+                            <input type="radio" id="star5" name="rate" value="5" disabled />
+                            <label for="star5" title="text">5 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star5" name="rate" value="5" @onclick="Rating5" />
+                            <label for="star5" title="text">5 stars</label>
+                        }
+                        @if (currentUserRating == 4 && IsUserLogged)
+                        {
+                            <input type="radio" checked id="star4" name="rate" value="4" @onclick="Rating4" />
+                            <label for="star4" title="text">4 stars</label>
+                        }
+                        else if (!IsUserLogged)
+                        {
+                            <input type="radio" id="star5" name="rate" value="4" disabled />
+                            <label for="star4" title="text">4 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star4" name="rate" value="4" @onclick="Rating4" />
+                            <label for="star4" title="text">4 stars</label>
+                        }
+                        @if (currentUserRating == 3 && IsUserLogged)
+                        {
+                            <input type="radio" checked id="star3" name="rate" value="3" @onclick="Rating3" />
+                            <label for="star3" title="text">3 stars</label>
+                        }
+                        else if (!IsUserLogged)
+                        {
+                            <input type="radio" id="star5" name="rate" value="3" disabled />
+                            <label for="star3" title="text">3 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star3" name="rate" value="3" @onclick="Rating3" />
+                            <label for="star3" title="text">3 stars</label>
+                        }
+                        @if (currentUserRating == 2 && IsUserLogged)
+                        {
+                            <input type="radio" checked id="star2" name="rate" value="2" @onclick="Rating2" />
+                            <label for="star2" title="text">2 stars</label>
+                        }
+                        else if (!IsUserLogged)
+                        {
+                            <input type="radio" id="star5" name="rate" value="2" disabled />
+                            <label for="star2" title="text">2 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star2" name="rate" value="2" @onclick="Rating2" />
+                            <label for="star2" title="text">2 stars</label>
+                        }
+                        @if (currentUserRating == 1 && IsUserLogged)
+                        {
+                            <input type="radio" checked id="star1" name="rate" value="1" @onclick="Rating1" />
+                            <label for="star1" title="text">1 star</label>
+                        }
+                        else if (!IsUserLogged)
+                        {
+                            <input type="radio" id="star1" name="rate" value="1" disabled />
+                            <label for="star5" title="text">1 stars</label>
+                        }
+                        else
+                        {
+                            <input type="radio" id="star1" name="rate" value="1" @onclick="Rating1" />
+                            <label for="star1" title="text">1 star</label>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p style="margin-left: 15px; margin-top: 12px;">Рейтинг:</p>
+                }
+            </div>
         </div>
-        <div class="col" style="margin-right: auto; top: 15px;">
-            <p>Serial: Supernatural</p>
-            <p>Year: 2005</p>
-            <p>Seasons: 15</p>
-            <p>Information: Supernatural is an American dark fantasy drama television series created by Eric Kripke. It was first broadcast on September 13, 2005, on The WB, and subsequently became part of successor The CW's lineup. Starring Jared Padalecki as Sam Winchester and Jensen Ackles as Dean Winchester, the series follows the two brothers as they hunt demons, ghosts, monsters, and other supernatural beings. The series was produced by Warner Bros. Television, in association with Wonderland Sound and Vision. Along with Kripke, executive producers have been McG, Robert Singer, Phil Sgriccia, Sera Gamble, Jeremy Carver, John Shiban, Ben Edlund and Adam Glass. Former executive producer and director Kim Manners died of lung cancer during production of the fourth season.</p>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="margin-left: 15px; margin-top: 12px; height: auto;">
+                @if (allUsersRating > 0)
+                {
+                    <p>@Math.Round(allUsersRating, 2) из 5 </p><span style="position: relative; top: -0.4em">@userCount</span>
+                }
+                else
+                {
+                    <p>0 из 5 </p><span style="position: relative; top: -0.4em">@userCount</span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Дата выхода:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Длительность серии:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@seriesTime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Общая длительность: </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    @if (spnTimeCount % 10 == 1 && spnTimeCount != 11 && spnTimeCount % 10 != 11)
+                    {
+                        <p style="margin-top: 12px;">@spnTimeCount час</p>
+                    }
+                    @if ((spnTimeCount % 10 == 2 || spnTimeCount % 10 == 3 || spnTimeCount % 10 == 4) &&
+                       spnTimeCount != 12 && spnTimeCount != 13 && spnTimeCount != 14)
+                    {
+                        <p style="margin-top: 12px;">@spnTimeCount часа</p>
+                    }
+                    @if (spnTimeCount % 10 == 0 || spnTimeCount % 10 == 5 || spnTimeCount % 10 == 6 ||
+                      spnTimeCount % 10 == 7 || spnTimeCount % 10 == 8 || spnTimeCount % 10 == 9 ||
+                      spnTimeCount == 11 || spnTimeCount == 12 || spnTimeCount == 13 ||
+                      spnTimeCount == 14 || spnTimeCount == 15 || spnTimeCount == 16 ||
+                      spnTimeCount == 17 || spnTimeCount == 18 || spnTimeCount == 19 ||
+                      spnTimeCount % 10 == 11 || spnTimeCount % 10 == 12 || spnTimeCount % 10 == 13 ||
+                      spnTimeCount % 10 == 14 || spnTimeCount % 10 == 15 || spnTimeCount % 10 == 16 ||
+                      spnTimeCount % 10 == 17 || spnTimeCount % 10 == 18 || spnTimeCount % 10 == 19)
+                    {
+                        <p style="margin-top: 12px;">@spnTimeCount часов</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="margin-left: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">Количество сезонов: </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="margin-right: auto; top: 15px;">
+            <div class="row" style="height: auto;">
+                <div class="col">
+                    <p style="margin-top: 12px;">@seasons</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<br />
+<div class="container" style="margin-left: auto; margin-right: auto;
+    padding-top: 15px; bottom: 15px;">
+    <h5>Информация о сериале:</h5>
+    <p text-justify>@information</p>
+</div>
 
 <div class="container">
     <div class="accordion" id="accordionPanelsStayOpen">
@@ -29,9 +275,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseOne" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 1</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 1</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -58,11 +304,11 @@
         </div>
         <div class="accordion-item">
             <h3 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseTwo" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 2</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 2</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
@@ -89,11 +335,11 @@
         </div>
         <div class="accordion-item">
             <h3 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseThree" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 3</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 3</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
@@ -120,11 +366,11 @@
         </div>
         <div class="accordion-item">
             <h3 class="accordion-header" id="panelsStayOpen-headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFour" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 4</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 4</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
@@ -151,11 +397,11 @@
         </div>
         <div class="accordion-item">
             <h3 class="accordion-header" id="panelsStayOpen-headingFive">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFive" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 5</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 5</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
@@ -184,9 +430,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseSix" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 6</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 6</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
@@ -215,9 +461,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingSeven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseSeven" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 7</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 7</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
@@ -246,9 +492,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingEight">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseEight" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 8</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 8</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
@@ -277,9 +523,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingNine">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseNine" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseNine" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 9</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 9</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse"
@@ -308,9 +554,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingTen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTen" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseTen" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 10</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 10</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse"
@@ -339,9 +585,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingEleven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseEleven" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseEleven" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 11</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 11</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse"
@@ -370,9 +616,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingTwelve">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwelve" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseTwelve" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 12</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 12</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse"
@@ -401,9 +647,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingThirteen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThirteen" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseThirteen" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 13</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 13</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse"
@@ -432,9 +678,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingFourteen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFourteen" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFourteen" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFourteen" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 14</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 14</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFourteen" class="accordion-collapse collapse"
@@ -463,9 +709,9 @@
             <h3 class="accordion-header" id="panelsStayOpen-headingFifteen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFifteen" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFifteen" style="border-radius: 15px;
+                        aria-controls="panelsStayOpen-collapseFifteen" style="border-radius: 5px;
                         background-color: aquamarine; width: 100%;">
-                    <div class="text-left">Season 15</div>
+                    <div class="text-left" style="margin-left: 5px;">Сезон 15</div>
                 </button>
             </h3>
             <div id="panelsStayOpen-collapseFifteen" class="accordion-collapse collapse"
@@ -480,7 +726,7 @@
                                     {
                                         <SeriesListTable UserSeriesLogin="@UserLogin" UserSeriesPassword="@UserPassword"
                                                          SerialName="@item.SerialName" SerialNameEng="@item.SerialNameEng"
-                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber" 
+                                                         SerialSeason="item.SerialSeason" SeriesNumber="item.SeriesNumber"
                                                          SeriesName="@item.SeriesName" />
                                     }
                                 }
@@ -493,11 +739,24 @@
     </div>
 </div>
 
+
+
 @code {
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
 
     public bool IsUserLogged { get; set; }
+
+    public bool UserWatch { get; set; }
+    public bool UserWillWatch { get; set; }
+    public bool UserStopWatch { get; set; }
+    public bool UserDoesntWatch { get; set; }
+
+    public int CurrentUserRatingSpn { get; set; }
+    int currentUserRating;
+    double allUsersRating = 0;
+    double usersRating = 0;
+    int userCount = 0;
 
     public int SpnSeriesCount { get; set; }
     int spnSeriesCount = 0;
@@ -507,9 +766,13 @@
     [Parameter] public Spn Spn { get; set; }
     List<Spn> spn = new List<Spn>();
 
+    string date;
+    string information;
+    int seasons;
+    int seriesTime = 43;
+
     protected override async Task OnInitializedAsync()
     {
-
         StreamReader rr = new StreamReader(Path.GetFullPath("spn.txt"));
         string ss = null;
         while ((ss = rr.ReadLine()) != null)
@@ -525,17 +788,69 @@
         }
         rr.Close();
 
-        var connectionString = "mongodb://localhost";
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase("TV_Shows");
-        var collection = db.GetCollection<Spn>("Supernatural");
-        if (collection.Find(x => x.SerialNameEng == "Supernatural").CountDocuments() == 0)
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+
+        var connectionStringSpn = "mongodb://localhost";
+        var clientSpn = new MongoClient(connectionStringSpn);
+        var dbSpn = clientSpn.GetDatabase("TV_Shows");
+        var collectionSpn = dbSpn.GetCollection<Spn>("Supernatural");
+        if (collectionSpn.Find(x => x.SerialNameEng == "Supernatural").CountDocuments() == 0)
             FromBlazorToDBToSerial();
 
         spnTimeCount = 43 * spnSeriesCount;
 
         await storage.SetItemAsync<int>("SpnSeriesCount", spnSeriesCount);
         await storage.SetItemAsync<int>("SpnTimeCount", spnTimeCount);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+
+        var connectionStringSerials = "mongodb://localhost";
+        var clientSerials = new MongoClient(connectionStringSerials);
+        var dbSerials = clientSerials.GetDatabase("TV_Shows");
+        var collectionSerials = dbSerials.GetCollection<Serials>("Serials");
+        if (collectionSerials.Find(x => x.SerialNameEng == "Supernatural").CountDocuments() > 0)
+        {
+            Serials ser = new Serials();
+            ser.ReleaseDate = collectionSerials.Find(x => x.SerialNameEng == "Supernatural").FirstOrDefault().ReleaseDate;
+            ser.FinishDate = collectionSerials.Find(x => x.SerialNameEng == "Supernatural").FirstOrDefault().FinishDate;
+            ser.Seasons = collectionSerials.Find(x => x.SerialNameEng == "Supernatural").FirstOrDefault().Seasons;
+            ser.About = collectionSerials.Find(x => x.SerialNameEng == "Supernatural").FirstOrDefault().About;
+            date = ser.ReleaseDate + " - " + ser.FinishDate;
+            seasons = ser.Seasons;
+            information = ser.About;
+        }
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating").AsQueryable();
+        foreach (var item in collectionUserRating)
+        {
+            if (item.SerialNameEng == "Supernatural")
+            {
+                userCount++;
+                usersRating += item.SingleUserRating;
+            }
+        }
+        allUsersRating = usersRating / userCount;
+
+        var collectionUserRating1 = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating1.Find(x => x.SerialNameEng == "Supernatural"
+            && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating1.Find(x => x.SerialNameEng == "Supernatural" &&
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRating = ur.SingleUserRating;
+
+        }
+        await storage.SetItemAsync<int>("CurrentUserRatingSpn", currentUserRating);
+        CurrentUserRatingSpn = await storage.GetItemAsync<int>("CurrentUserRatingSpn");
     }
 
     private void FromBlazorToDBToSerial()
@@ -546,5 +861,116 @@
                 item.SeriesName));
         }
     }
+
+    async Task UserIsWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", true);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserWillWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", true);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserStopWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", true);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserDontWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", true);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task Rating(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRatingSpn", rating);
+
+        CurrentUserRatingSpn = await storage.GetItemAsync<int>("CurrentUserRatingSpn");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Supernatural", CurrentUserRatingSpn));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingSpn).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Supernatural" &&
+                x.SingleUserRating != CurrentUserRatingSpn);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRatingSpn));
+            }
+        }
+    }
+
+    private void Rating5()
+    {
+        currentUserRating = 5;
+        Rating(currentUserRating);
+    }
+
+    private void Rating4()
+    {
+        currentUserRating = 4;
+        Rating(currentUserRating);
+    }
+
+    private void Rating3()
+    {
+        currentUserRating = 3;
+        Rating(currentUserRating);
+    }
+
+    private void Rating2()
+    {
+        currentUserRating = 2;
+        Rating(currentUserRating);
+    }
+
+    private void Rating1()
+    {
+        currentUserRating = 1;
+        Rating(currentUserRating);
+    }
 }
+
 

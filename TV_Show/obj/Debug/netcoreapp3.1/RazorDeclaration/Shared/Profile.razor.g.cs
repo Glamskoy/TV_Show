@@ -98,7 +98,7 @@ using MongoDB.Driver;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 123 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
+#line 351 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\Profile.razor"
        
     public bool IsUserLogged { get; set; }
     public string UserLogin { get; set; }
@@ -108,6 +108,13 @@ using MongoDB.Driver;
     public bool UserWillWatch { get; set; }
     public bool UserStopWatch { get; set; }
     public bool UserDoesntWatch { get; set; }
+
+    public int CurrentUserRatingGoT { get; set; }
+    public int CurrentUserRatingSpn { get; set; }
+    public int CurrentUserRatingTBBT { get; set; }
+    int currentUserRatingGoT;
+    int currentUserRatingSpn;
+    int currentUserRatingTBBT;
 
     public int GoTSeriesCount { get; set; }
     public int SpnSeriesCount { get; set; }
@@ -124,7 +131,7 @@ using MongoDB.Driver;
 
     int allEpisodsCount = 0;
     int allTimeCount = 0;
-    int allHoursCount;
+    int allHoursCount = 0;
 
     int episodsCount;
     int minutsCount = 0;
@@ -155,6 +162,11 @@ using MongoDB.Driver;
         UserLogin = await storage.GetItemAsync<string>("UserLogin");
         UserPassword = await storage.GetItemAsync<string>("UserPassword");
 
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+
         GoTSeriesCount = await storage.GetItemAsync<int>("GoTSeriesCount");
         SpnSeriesCount = await storage.GetItemAsync<int>("SpnSeriesCount");
         TBBTSeriesCount = await storage.GetItemAsync<int>("TBBTSeriesCount");
@@ -169,7 +181,7 @@ using MongoDB.Driver;
         var collection1 = db1.GetCollection<UserSeries>("UserSeries");
 
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-     x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
         {
             allEpisodsCount += GoTSeriesCount;
             allTimeCount += GoTTimeCount;
@@ -178,7 +190,7 @@ using MongoDB.Driver;
         }
 
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments() > 0)
         {
             allEpisodsCount += TBBTSeriesCount;
             allTimeCount += TBBTTimeCount;
@@ -187,7 +199,7 @@ using MongoDB.Driver;
         }
 
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-        x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments() > 0)
         {
             allEpisodsCount += SpnSeriesCount;
             allTimeCount += SpnTimeCount;
@@ -199,65 +211,267 @@ using MongoDB.Driver;
             x.UserSeriesPassword == UserPassword).CountDocuments());
 
         minutsCount += 57 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments());
 
         minutsCount += 43 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments());
 
         minutsCount += 22 * Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments());
 
         if (minutsCount >= 60)
             hoursCount = minutsCount / 60;
 
-        episodString = episodsCount * 100 / allEpisodsCount;
-        timeString = minutsCount * 100 / allTimeCount;
-        hourString = hoursCount * 100 / allHoursCount;
+        if (allEpisodsCount > 0)
+            episodString = episodsCount * 100 / allEpisodsCount;
+        else
+            episodString = 0;
+        if (allTimeCount > 0)
+            timeString = minutsCount * 100 / allTimeCount;
+        else
+            timeString = 0;
+        if (allHoursCount > 0)
+            hourString = hoursCount * 100 / allHoursCount;
+        else
+            hourString = 0;
 
         gotEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments());
+        x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments());
         gotEpisodsString = gotEpisodsCount * 100 / GoTSeriesCount;
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Game of Thrones").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
             gotIsSelected = true;
 
         spnEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments());
         spnEpisodsString = spnEpisodsCount * 100 / SpnSeriesCount;
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "Supernatural").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments() > 0)
             spnIsSelected = true;
 
         tbbtEpisodsCount = Convert.ToInt32(collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments());
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments());
         tbbtEpisodsString = tbbtEpisodsCount * 100 / TBBTSeriesCount;
         if (collection1.Find(x => x.UserSeriesLogin == UserLogin &&
-            x.UserSeriesPassword == UserPassword && x.SerialName == "The Big Bang Theory").CountDocuments() > 0)
+            x.UserSeriesPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments() > 0)
             tbbtIsSelected = true;
 
-        var connectionString = "mongodb://localhost";
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase("TV_Shows");
-        var collection = db.GetCollection<UserSeries>("UserSeries").AsQueryable();
-        foreach (var item in collection)
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones"
+            && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
         {
-            UserSeries x = new UserSeries();
-            x.UserSeriesLogin = item.UserSeriesLogin;
-            x.UserSeriesPassword = item.UserSeriesPassword;
-            x.SerialName = item.SerialName;
-            user.Add(x);
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones" &&
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRatingGoT = ur.SingleUserRating;
         }
-        foreach (var item in collection)
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", currentUserRatingGoT);
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
+
+        if (collectionUserRating.Find(x => x.SerialNameEng == "Supernatural"
+                    && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
         {
-            UserSeries x = new UserSeries();
-            x.UserSeriesLogin = item.UserSeriesLogin;
-            x.UserSeriesPassword = item.UserSeriesPassword;
-            x.SerialName = item.SerialName;
-            x.SerialSeason = item.SerialSeason;
-            x.SeriesNumber = item.SeriesNumber;
-            x.SeriesName = item.SeriesName;
-            user1.Add(x);
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating.Find(x => x.SerialNameEng == "Supernatural" &&
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRatingSpn = ur.SingleUserRating;
         }
+        await storage.SetItemAsync<int>("CurrentUserRatingSpn", currentUserRatingSpn);
+        CurrentUserRatingSpn = await storage.GetItemAsync<int>("CurrentUserRatingSpn");
+
+        if (collectionUserRating.Find(x => x.SerialNameEng == "The Big Bang Theory"
+        && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating.Find(x => x.SerialNameEng == "The Big Bang Theory" &&
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRatingTBBT = ur.SingleUserRating;
+        }
+        await storage.SetItemAsync<int>("CurrentUserRatingTBBT", currentUserRatingTBBT);
+        CurrentUserRatingTBBT = await storage.GetItemAsync<int>("CurrentUserRatingTBBT");
+    }
+
+    async Task RatingGoT(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", rating);
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones",
+                CurrentUserRatingGoT));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingGoT).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones" &&
+                x.SingleUserRating != CurrentUserRatingGoT);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones",
+                    CurrentUserRatingGoT));
+            }
+        }
+    }
+
+    private void Rating5GoT()
+    {
+        currentUserRatingGoT = 5;
+        RatingGoT(currentUserRatingGoT);
+    }
+
+    private void Rating4GoT()
+    {
+        currentUserRatingGoT = 4;
+        RatingGoT(currentUserRatingGoT);
+
+    }
+
+    private void Rating3GoT()
+    {
+        currentUserRatingGoT = 3;
+        RatingGoT(currentUserRatingGoT);
+    }
+
+    private void Rating2GoT()
+    {
+        currentUserRatingGoT = 2;
+        RatingGoT(currentUserRatingGoT);
+    }
+
+    private void Rating1GoT()
+    {
+        currentUserRatingGoT = 1;
+        RatingGoT(currentUserRatingGoT);
+    }
+
+    async Task RatingSpn(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRatingSpn", rating);
+        CurrentUserRatingSpn = await storage.GetItemAsync<int>("CurrentUserRatingSpn");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+            x.UserRatingPassword == UserPassword && x.SerialNameEng == "Supernatural").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Supernatural",
+                CurrentUserRatingSpn));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingSpn).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "Supernatural" &&
+                x.SingleUserRating != CurrentUserRatingSpn);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Supernatural",
+                    CurrentUserRatingSpn));
+            }
+        }
+    }
+
+    private void Rating5Spn()
+    {
+        currentUserRatingSpn = 5;
+        RatingSpn(currentUserRatingSpn);
+    }
+
+    private void Rating4Spn()
+    {
+        currentUserRatingSpn = 4;
+        RatingSpn(currentUserRatingSpn);
+    }
+
+    private void Rating3Spn()
+    {
+        currentUserRatingSpn = 3;
+        RatingSpn(currentUserRatingSpn);
+    }
+
+    private void Rating2Spn()
+    {
+        currentUserRatingSpn = 2;
+        RatingSpn(currentUserRatingSpn);
+    }
+
+    private void Rating1Spn()
+    {
+        currentUserRatingSpn = 1;
+        RatingSpn(currentUserRatingSpn);
+    }
+
+    async Task RatingTBBT(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRatingTBBT", rating);
+        CurrentUserRatingTBBT = await storage.GetItemAsync<int>("CurrentUserRatingTBBT");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+            x.UserRatingPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "The Big Bang Theory",
+              CurrentUserRatingTBBT));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingTBBT).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory" &&
+                x.SingleUserRating != CurrentUserRatingTBBT);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "The Big Bang Theory",
+                    CurrentUserRatingTBBT));
+            }
+        }
+    }
+
+    private void Rating5TBBT()
+    {
+        currentUserRatingTBBT = 5;
+        RatingTBBT(currentUserRatingTBBT);
+    }
+
+    private void Rating4TBBT()
+    {
+        currentUserRatingTBBT = 4;
+        RatingTBBT(currentUserRatingTBBT);
+    }
+
+    private void Rating3TBBT()
+    {
+        currentUserRatingTBBT = 3;
+        RatingTBBT(currentUserRatingTBBT);
+    }
+
+    private void Rating2TBBT()
+    {
+        currentUserRatingTBBT = 2;
+        RatingTBBT(currentUserRatingTBBT);
+    }
+
+    private void Rating1TBBT()
+    {
+        currentUserRatingTBBT = 1;
+        RatingTBBT(currentUserRatingTBBT);
     }
 
 #line default

@@ -105,12 +105,23 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 401 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
+#line 649 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\TheBigBangTheory.razor"
        
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
 
     public bool IsUserLogged { get; set; }
+
+    public bool UserWatch { get; set; }
+    public bool UserWillWatch { get; set; }
+    public bool UserStopWatch { get; set; }
+    public bool UserDoesntWatch { get; set; }
+
+    public int CurrentUserRatingTBBT { get; set; }
+    int currentUserRating;
+    double allUsersRating = 0;
+    double usersRating = 0;
+    int userCount = 0;
 
     public int TBBTSeriesCount { get; set; }
     int tbbtSeriesCount = 0;
@@ -120,9 +131,13 @@ using System.IO;
     [Parameter] public TBBT TBBT { get; set; }
     List<TBBT> tbbt = new List<TBBT>();
 
+    string date;
+    string information;
+    int seasons;
+    int seriesTime = 22;
+
     protected override async Task OnInitializedAsync()
     {
-
         StreamReader rr = new StreamReader(Path.GetFullPath("tbbt.txt"));
         string ss = null;
         while ((ss = rr.ReadLine()) != null)
@@ -134,16 +149,19 @@ using System.IO;
             x.SeriesNumber = int.Parse(rr.ReadLine());
             x.SeriesName = rr.ReadLine();
             tbbt.Add(x);
-
             tbbtSeriesCount++;
         }
         rr.Close();
 
-        var connectionString = "mongodb://localhost";
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase("TV_Shows");
-        var collection = db.GetCollection<TBBT>("TheBigBangTheory");
-        if (collection.Find(x => x.SerialNameEng == "The Big Bang Theory").CountDocuments() == 0)
+        UserLogin = await storage.GetItemAsync<string>("UserLogin");
+        UserPassword = await storage.GetItemAsync<string>("UserPassword");
+        IsUserLogged = await storage.GetItemAsync<bool>("IsUserLogged");
+
+        var connectionStringTBBT = "mongodb://localhost";
+        var clientTBBT = new MongoClient(connectionStringTBBT);
+        var dbTBBT = clientTBBT.GetDatabase("TV_Shows");
+        var collectionTBBT = dbTBBT.GetCollection<TBBT>("TheBigBangTheory");
+        if (collectionTBBT.Find(x => x.SerialNameEng == "The Big Bang Theory").CountDocuments() == 0)
             FromBlazorToDBToSerial();
 
         tbbtTimeCount = 22 * tbbtSeriesCount;
@@ -151,6 +169,53 @@ using System.IO;
         await storage.SetItemAsync<int>("TBBTSeriesCount", tbbtSeriesCount);
         await storage.SetItemAsync<int>("TBBTTimeCount", tbbtTimeCount);
 
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+
+        var connectionStringSerials = "mongodb://localhost";
+        var clientSerials = new MongoClient(connectionStringSerials);
+        var dbSerials = clientSerials.GetDatabase("TV_Shows");
+        var collectionSerials = dbSerials.GetCollection<Serials>("Serials");
+        if (collectionSerials.Find(x => x.SerialNameEng == "The Big Bang Theory").CountDocuments() > 0)
+        {
+            Serials ser = new Serials();
+            ser.ReleaseDate = collectionSerials.Find(x => x.SerialNameEng == "The Big Bang Theory").FirstOrDefault().ReleaseDate;
+            ser.FinishDate = collectionSerials.Find(x => x.SerialNameEng == "The Big Bang Theory").FirstOrDefault().FinishDate;
+            ser.Seasons = collectionSerials.Find(x => x.SerialNameEng == "The Big Bang Theory").FirstOrDefault().Seasons;
+            ser.About = collectionSerials.Find(x => x.SerialNameEng == "The Big Bang Theory").FirstOrDefault().About;
+            date = ser.ReleaseDate + " - " + ser.FinishDate;
+            seasons = ser.Seasons;
+            information = ser.About;
+        }
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating").AsQueryable();
+        foreach (var item in collectionUserRating)
+        {
+            if (item.SerialNameEng == "The Big Bang Theory")
+            {
+                userCount++;
+                usersRating += item.SingleUserRating;
+            }
+        }
+        allUsersRating = usersRating / userCount;
+
+        var collectionUserRating1 = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating1.Find(x => x.SerialNameEng == "The Big Bang Theory"
+            && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating1.Find(x => x.SerialNameEng == "The Big Bang Theory" &&
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRating = ur.SingleUserRating;
+
+        }
+        await storage.SetItemAsync<int>("CurrentUserRatingTBBT", currentUserRating);
+        CurrentUserRatingTBBT = await storage.GetItemAsync<int>("CurrentUserRatingTBBT");
     }
 
     private void FromBlazorToDBToSerial()
@@ -160,6 +225,118 @@ using System.IO;
             TBBT.AddSeriesTBBTToDb(new TBBT(item.SerialName, item.SerialNameEng, item.SerialSeason, item.SeriesNumber,
                 item.SeriesName));
         }
+    }
+
+    async Task UserIsWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", true);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserWillWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", true);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserStopWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", true);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", false);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task UserDontWatchingAsync()
+    {
+        await storage.SetItemAsync<bool>("UserWatch", false);
+        await storage.SetItemAsync<bool>("UserWillWatch", false);
+        await storage.SetItemAsync<bool>("UserStopWatch", false);
+        await storage.SetItemAsync<bool>("UserDoesntWatch", true);
+
+        UserWatch = await storage.GetItemAsync<bool>("UserWatch");
+        UserWillWatch = await storage.GetItemAsync<bool>("UserWillWatch");
+        UserStopWatch = await storage.GetItemAsync<bool>("UserStopWatch");
+        UserDoesntWatch = await storage.GetItemAsync<bool>("UserDoesntWatch");
+    }
+
+    async Task Rating(int rating)
+    {
+        await storage.SetItemAsync<int>("CurrentUserRatingTBBT", rating);
+
+        CurrentUserRatingTBBT = await storage.GetItemAsync<int>("CurrentUserRatingTBBT");
+
+        var connectionStringUserRating = "mongodb://localhost";
+        var clientUserRating = new MongoClient(connectionStringUserRating);
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory").CountDocuments() == 0)
+        {
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "The Big Bang Theory", 
+                CurrentUserRatingTBBT));
+        }
+        else
+        {
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingTBBT).CountDocuments() > 0)
+            {
+                collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
+                x.UserRatingPassword == UserPassword && x.SerialNameEng == "The Big Bang Theory" &&
+                x.SingleUserRating != CurrentUserRatingTBBT);
+
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "The Big Bang Theory", 
+                    CurrentUserRatingTBBT));
+            }
+        }
+    }
+
+    private void Rating5()
+    {
+        currentUserRating = 5;
+        Rating(currentUserRating);
+    }
+
+    private void Rating4()
+    {
+        currentUserRating = 4;
+        Rating(currentUserRating);
+    }
+
+    private void Rating3()
+    {
+        currentUserRating = 3;
+        Rating(currentUserRating);
+    }
+
+    private void Rating2()
+    {
+        currentUserRating = 2;
+        Rating(currentUserRating);
+    }
+
+    private void Rating1()
+    {
+        currentUserRating = 1;
+        Rating(currentUserRating);
     }
 
 #line default

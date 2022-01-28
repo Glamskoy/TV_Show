@@ -3,16 +3,13 @@
 @using MongoDB.Driver;
 @using System.IO;
 
-<div class="row">
+<div class="row" style="margin-left: auto; margin-right: auto;">
     <div class="col text-center">
-        <h1>Your recommendations</h1>
+        <h1>Рекомендации</h1>
     </div>
 </div>
 
-<br />
-
-<div class="container" style="margin-left: auto; margin-right: auto; position: relative; height: 600px; width: 1000px; background-color: rebeccapurple ">
-
+<div class="container" style="margin-left: auto; margin-right: auto; position: relative;">
     <div id="recommendationCarousel" class="carousel slide" data-ride="carousel" style="height: inherit;">
         <ol class="carousel-indicators">
             <li data-target="#recommendationCarousel" data-slide-to="0" class="@currentSlide"></li>
@@ -47,12 +44,7 @@
     </div>
 </div>
 
-<br />
-
 <SerialListTable Serials="serials" />
-
-
-
 
 @code {
 
@@ -89,18 +81,6 @@
             serials.Add(x);
         }
         r.Close();
-
-
-        //var connectionString = "mongodb://localhost";
-        //var client = new MongoClient(connectionString);
-        //var db = client.GetDatabase("TV_Shows");
-        //var collection = db.GetCollection<Serials>("Serials").AsQueryable();
-        //foreach (var item in collection)
-        //{
-        //    Serials ser = new Serials(item.SerialName, item.Seasons, item.Year);
-        //    serials.Add(ser);
-        //}
-
     }
 
     public async Task Walkthrough(CancellationToken ct)

@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "61f45a7ff91b46c989d146bb"
+  },
+  "UserRatingLogin": "qw",
+  "UserRatingPassword": "qw",
+  "SerialNameEng": "Supernatural",
+  "SingleUserRating": 3
+},{
+  "_id": {
+    "$oid": "61f45a93f91b46c989d146bc"
+  },
+  "UserRatingLogin": "qw",
+  "UserRatingPassword": "qw",
+  "SerialNameEng": "The Big Bang Theory",
+  "SingleUserRating": 5
+},{
+  "_id": {
+    "$oid": "61f4729b94082789d8ca11ca"
+  },
+  "UserRatingLogin": "qw",
+  "UserRatingPassword": "qw",
+  "SerialNameEng": "Game of Thrones",
+  "SingleUserRating": 4
+}]

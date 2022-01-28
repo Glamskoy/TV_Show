@@ -105,7 +105,7 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 531 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
+#line 527 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Shared\GameofThrones.razor"
        
     public string UserLogin { get; set; }
     public string UserPassword { get; set; }
@@ -117,12 +117,10 @@ using System.IO;
     public bool UserStopWatch { get; set; }
     public bool UserDoesntWatch { get; set; }
 
-    public int CurrentUserRating { get; set; }
+    public int CurrentUserRatingGoT { get; set; }
     int currentUserRating;
-    int rating = 0;
-    public double AllUsersRating { get; set; }
     double allUsersRating = 0;
-    public int UserCount { get; set; }
+    double usersRating = 0;
     int userCount = 0;
 
     public int GoTSeriesCount { get; set; }
@@ -194,33 +192,30 @@ using System.IO;
 
         var connectionStringUserRating = "mongodb://localhost";
         var clientUserRating = new MongoClient(connectionStringUserRating);
-        var dbUserRating = clientUserRating.GetDatabase("TV_Show");
-        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
-        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating").AsQueryable();
+        foreach(var item in collectionUserRating)
         {
-            UserRating ur = new UserRating();
-            ur.SingleUserRating = collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").FirstOrDefault().SingleUserRating;
-            currentUserRating = ur.SingleUserRating;
-        }
-
-        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
-
-        var connectionStringUserSeries = "mongodb://localhost";
-        var clientUserSeries = new MongoClient(connectionStringUserSeries);
-        var dbUserSeries = clientUserSeries.GetDatabase("TV_Shows");
-        var collectionUserSeries = dbUserSeries.GetCollection<UserSeries>("UserSeries");
-        if (collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
-        {
-            if (CurrentUserRating != 0)
+            if(item.SerialNameEng == "Game of Thrones")
             {
                 userCount++;
-                allUsersRating += currentUserRating;
-                await storage.SetItemAsync<double>("AllUsersRating", allUsersRating / userCount + allUsersRating % userCount);
-                await storage.SetItemAsync<int>("UserCount", userCount);
-                AllUsersRating = await storage.GetItemAsync<double>("AllUsersRating");
-                UserCount = await storage.GetItemAsync<int>("UserCount");
+                usersRating += item.SingleUserRating;
             }
         }
+        allUsersRating = usersRating / userCount;
+
+        var collectionUserRating1 = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating1.Find(x => x.SerialNameEng == "Game of Thrones" 
+            && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating1.Find(x => x.SerialNameEng == "Game of Thrones" && 
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRating = ur.SingleUserRating;
+
+        }
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", currentUserRating);
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
     }
 
     private void FromBlazorToDBToSerial()
@@ -286,9 +281,9 @@ using System.IO;
 
     async Task Rating(int rating)
     {
-        await storage.SetItemAsync<int>("CurrentUserRating", rating);
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", rating);
 
-        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
 
         var connectionStringUserRating = "mongodb://localhost";
         var clientUserRating = new MongoClient(connectionStringUserRating);
@@ -297,49 +292,49 @@ using System.IO;
         if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
                 x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
         {
-            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRatingGoT));
         }
         else
         {
-            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRating).CountDocuments() > 0)
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingGoT).CountDocuments() > 0)
             {
                 collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
                 x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones" &&
-                x.SingleUserRating != CurrentUserRating);
+                x.SingleUserRating != CurrentUserRatingGoT);
 
-                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRatingGoT));
             }
         }
     }
 
     private void Rating5()
     {
-        rating = 5;
-        Rating(rating);
+        currentUserRating = 5;
+        Rating(currentUserRating);
     }
 
     private void Rating4()
     {
-        rating = 4;
-        Rating(rating);
+        currentUserRating = 4;
+        Rating(currentUserRating);
     }
 
     private void Rating3()
     {
-        rating = 3;
-        Rating(rating);
+        currentUserRating = 3;
+        Rating(currentUserRating);
     }
 
     private void Rating2()
     {
-        rating = 2;
-        Rating(rating);
+        currentUserRating = 2;
+        Rating(currentUserRating);
     }
 
     private void Rating1()
     {
-        rating = 1;
-        Rating(rating);
+        currentUserRating = 1;
+        Rating(currentUserRating);
     }
 
 #line default

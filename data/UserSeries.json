@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "61f402110a773a5582c3e974"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 1,
+  "SeriesName": "Winter is Coming"
+},{
+  "_id": {
+    "$oid": "61f4021b0a773a5582c3e975"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 2,
+  "SeriesName": "The Kingsroad"
+},{
+  "_id": {
+    "$oid": "61f4021f0a773a5582c3e976"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 3,
+  "SeriesName": "Lord Snow"
+},{
+  "_id": {
+    "$oid": "61f402230a773a5582c3e977"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Игра престолов",
+  "SerialNameEng": "Game of Thrones",
+  "SerialSeason": 1,
+  "SeriesNumber": 4,
+  "SeriesName": "Cripples, Bastards, and Broken Things"
+},{
+  "_id": {
+    "$oid": "61f46d0f5b28ac7b271b8931"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 1,
+  "SeriesName": "Pilot"
+},{
+  "_id": {
+    "$oid": "61f46d195b28ac7b271b8932"
+  },
+  "UserSeriesLogin": "qw",
+  "UserSeriesPassword": "qw",
+  "SerialName": "Теория большого взрыва",
+  "SerialNameEng": "The Big Bang Theory",
+  "SerialSeason": 1,
+  "SeriesNumber": 1,
+  "SeriesName": "Pilot"
+}]

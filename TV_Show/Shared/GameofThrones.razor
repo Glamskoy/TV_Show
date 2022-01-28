@@ -82,7 +82,7 @@
                 {
                     <p style="margin-left: 15px; margin-top: 12px;">Моя оценка:</p>
                     <div class="rate" style="margin-left: auto; margin-right: auto;">
-                        @if (CurrentUserRating == 5 && IsUserLogged)
+                        @if (currentUserRating == 5 && IsUserLogged)
                         {
                             <input type="radio" checked id="star5" name="rate" value="5" @onclick="Rating5" />
                             <label for="star5" title="text">5 stars</label>
@@ -97,7 +97,7 @@
                             <input type="radio" id="star5" name="rate" value="5" @onclick="Rating5" />
                             <label for="star5" title="text">5 stars</label>
                         }
-                        @if (CurrentUserRating == 4 && IsUserLogged)
+                        @if (currentUserRating == 4 && IsUserLogged)
                         {
                             <input type="radio" checked id="star4" name="rate" value="4" @onclick="Rating4" />
                             <label for="star4" title="text">4 stars</label>
@@ -112,7 +112,7 @@
                             <input type="radio" id="star4" name="rate" value="4" @onclick="Rating4" />
                             <label for="star4" title="text">4 stars</label>
                         }
-                        @if (CurrentUserRating == 3 && IsUserLogged)
+                        @if (currentUserRating == 3 && IsUserLogged)
                         {
                             <input type="radio" checked id="star3" name="rate" value="3" @onclick="Rating3" />
                             <label for="star3" title="text">3 stars</label>
@@ -127,7 +127,7 @@
                             <input type="radio" id="star3" name="rate" value="3" @onclick="Rating3" />
                             <label for="star3" title="text">3 stars</label>
                         }
-                        @if (CurrentUserRating == 2 && IsUserLogged)
+                        @if (currentUserRating == 2 && IsUserLogged)
                         {
                             <input type="radio" checked id="star2" name="rate" value="2" @onclick="Rating2" />
                             <label for="star2" title="text">2 stars</label>
@@ -142,7 +142,7 @@
                             <input type="radio" id="star2" name="rate" value="2" @onclick="Rating2" />
                             <label for="star2" title="text">2 stars</label>
                         }
-                        @if (CurrentUserRating == 1 && IsUserLogged)
+                        @if (currentUserRating == 1 && IsUserLogged)
                         {
                             <input type="radio" checked id="star1" name="rate" value="1" @onclick="Rating1" />
                             <label for="star1" title="text">1 star</label>
@@ -166,12 +166,15 @@
             </div>
         </div>
         <div class="col-4" style="margin-right: auto; top: 15px;">
-            <div class="row" style="height: auto;">
-                <div class="col">
-                    @*<p style="margin-top: 12px;">пвпвык</p>*@
-                    @AllUsersRating из 5 <p>@UserCount</p>
-                    CurrentUserRating @currentUserRating
-                </div>
+            <div class="row" style="margin-left: 15px; margin-top: 12px; height: auto;">
+                @if (allUsersRating > 0)
+                {
+                    <p>@Math.Round(allUsersRating, 2) из 5 </p><span style="position: relative; top: -0.4em">@userCount</span>
+                }
+                else
+                {
+                    <p>0 из 5 </p><span style="position: relative; top: -0.4em">@userCount</span>
+                }
             </div>
         </div>
     </div>
@@ -222,15 +225,8 @@
                     {
                         <p style="margin-top: 12px;">@goTTimeCount час</p>
                     }
-                    @if (goTTimeCount % 10 == 2 && goTTimeCount != 12)
-                    {
-                        <p style="margin-top: 12px;">@goTTimeCount часа</p>
-                    }
-                    @if (goTTimeCount % 10 == 3 && goTTimeCount != 13)
-                    {
-                        <p style="margin-top: 12px;">@goTTimeCount часа</p>
-                    }
-                    @if (goTTimeCount % 10 == 4 && goTTimeCount != 14)
+                    @if ((goTTimeCount % 10 == 2 || goTTimeCount % 10 == 3 || goTTimeCount % 10 == 4) &&
+                        goTTimeCount != 12 && goTTimeCount != 13 && goTTimeCount != 14)
                     {
                         <p style="margin-top: 12px;">@goTTimeCount часа</p>
                     }
@@ -539,12 +535,10 @@
     public bool UserStopWatch { get; set; }
     public bool UserDoesntWatch { get; set; }
 
-    public int CurrentUserRating { get; set; }
+    public int CurrentUserRatingGoT { get; set; }
     int currentUserRating;
-    int rating = 0;
-    public double AllUsersRating { get; set; }
     double allUsersRating = 0;
-    public int UserCount { get; set; }
+    double usersRating = 0;
     int userCount = 0;
 
     public int GoTSeriesCount { get; set; }
@@ -614,36 +608,32 @@
             information = ser.About;
         }
 
-        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
-
         var connectionStringUserRating = "mongodb://localhost";
         var clientUserRating = new MongoClient(connectionStringUserRating);
-        var dbUserRating = clientUserRating.GetDatabase("TV_Show");
-        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating");
-        if (collectionUserRating.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
+        var dbUserRating = clientUserRating.GetDatabase("TV_Shows");
+        var collectionUserRating = dbUserRating.GetCollection<UserRating>("UserRating").AsQueryable();
+        foreach(var item in collectionUserRating)
         {
-            UserRating ur = new UserRating();
-            ur.SingleUserRating = collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
-                x.SerialNameEng == "Game of Thrones").FirstOrDefault().SingleUserRating;
-            currentUserRating = ur.SingleUserRating;
-        }
-
-        var connectionStringUserSeries = "mongodb://localhost";
-        var clientUserSeries = new MongoClient(connectionStringUserSeries);
-        var dbUserSeries = clientUserSeries.GetDatabase("TV_Shows");
-        var collectionUserSeries = dbUserSeries.GetCollection<UserSeries>("UserSeries");
-        if (collectionUserSeries.Find(x => x.SerialNameEng == "Game of Thrones").CountDocuments() > 0)
-        {
-            if (CurrentUserRating != 0)
+            if(item.SerialNameEng == "Game of Thrones")
             {
                 userCount++;
-                allUsersRating += currentUserRating;
-                await storage.SetItemAsync<double>("AllUsersRating", allUsersRating / userCount + allUsersRating % userCount);
-                await storage.SetItemAsync<int>("UserCount", userCount);
-                AllUsersRating = await storage.GetItemAsync<double>("AllUsersRating");
-                UserCount = await storage.GetItemAsync<int>("UserCount");
+                usersRating += item.SingleUserRating;
             }
         }
+        allUsersRating = usersRating / userCount;
+
+        var collectionUserRating1 = dbUserRating.GetCollection<UserRating>("UserRating");
+        if (collectionUserRating1.Find(x => x.SerialNameEng == "Game of Thrones" 
+            && x.UserRatingLogin == UserLogin).CountDocuments() > 0)
+        {
+            UserRating ur = new UserRating();
+            ur.SingleUserRating = collectionUserRating1.Find(x => x.SerialNameEng == "Game of Thrones" && 
+                x.UserRatingLogin == UserLogin).FirstOrDefault().SingleUserRating;
+            currentUserRating = ur.SingleUserRating;
+
+        }
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", currentUserRating);
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
     }
 
     private void FromBlazorToDBToSerial()
@@ -709,9 +699,9 @@
 
     async Task Rating(int rating)
     {
-        await storage.SetItemAsync<int>("CurrentUserRating", rating);
+        await storage.SetItemAsync<int>("CurrentUserRatingGoT", rating);
 
-        CurrentUserRating = await storage.GetItemAsync<int>("CurrentUserRating");
+        CurrentUserRatingGoT = await storage.GetItemAsync<int>("CurrentUserRatingGoT");
 
         var connectionStringUserRating = "mongodb://localhost";
         var clientUserRating = new MongoClient(connectionStringUserRating);
@@ -720,49 +710,49 @@
         if (collectionUserRating.Find(x => x.UserRatingLogin == UserLogin &&
                 x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones").CountDocuments() == 0)
         {
-            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+            UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRatingGoT));
         }
         else
         {
-            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRating).CountDocuments() > 0)
+            if (collectionUserRating.Find(x => x.SingleUserRating != CurrentUserRatingGoT).CountDocuments() > 0)
             {
                 collectionUserRating.DeleteOne(x => x.UserRatingLogin == UserLogin &&
                 x.UserRatingPassword == UserPassword && x.SerialNameEng == "Game of Thrones" &&
-                x.SingleUserRating != CurrentUserRating);
+                x.SingleUserRating != CurrentUserRatingGoT);
 
-                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRating));
+                UserRating.AddUserRatingToDb(new UserRating(UserLogin, UserPassword, "Game of Thrones", CurrentUserRatingGoT));
             }
         }
     }
 
     private void Rating5()
     {
-        rating = 5;
-        Rating(rating);
+        currentUserRating = 5;
+        Rating(currentUserRating);
     }
 
     private void Rating4()
     {
-        rating = 4;
-        Rating(rating);
+        currentUserRating = 4;
+        Rating(currentUserRating);
     }
 
     private void Rating3()
     {
-        rating = 3;
-        Rating(rating);
+        currentUserRating = 3;
+        Rating(currentUserRating);
     }
 
     private void Rating2()
     {
-        rating = 2;
-        Rating(rating);
+        currentUserRating = 2;
+        Rating(currentUserRating);
     }
 
     private void Rating1()
     {
-        rating = 1;
-        Rating(rating);
+        currentUserRating = 1;
+        Rating(currentUserRating);
     }
 }
 

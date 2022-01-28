@@ -112,7 +112,7 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Pages\Index.razor"
+#line 49 "D:\Projects\TV_Show\TV_Show.git\TV_Show\Pages\Index.razor"
        
 
     List<Serials> serials = new List<Serials>();
@@ -148,18 +148,6 @@ using System.IO;
             serials.Add(x);
         }
         r.Close();
-
-
-        //var connectionString = "mongodb://localhost";
-        //var client = new MongoClient(connectionString);
-        //var db = client.GetDatabase("TV_Shows");
-        //var collection = db.GetCollection<Serials>("Serials").AsQueryable();
-        //foreach (var item in collection)
-        //{
-        //    Serials ser = new Serials(item.SerialName, item.Seasons, item.Year);
-        //    serials.Add(ser);
-        //}
-
     }
 
     public async Task Walkthrough(CancellationToken ct)

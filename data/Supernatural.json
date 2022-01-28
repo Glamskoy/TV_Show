@@ -1,0 +1,2944 @@
+[{
+  "_id": {
+    "$oid": "61eede39cf2273f329697283"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 1,
+  "SeriesName": "Pilot"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697284"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 2,
+  "SeriesName": "Wendigo"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697285"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 3,
+  "SeriesName": "Dead in the Water"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697286"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 4,
+  "SeriesName": "Phantom Traveler"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697287"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 5,
+  "SeriesName": "Bloody Mary"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697288"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 6,
+  "SeriesName": "Skin"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697289"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 7,
+  "SeriesName": "Hook Man"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 8,
+  "SeriesName": "Bugs"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 9,
+  "SeriesName": "Home"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 10,
+  "SeriesName": "Asylum"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 11,
+  "SeriesName": "Scarecrow"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 12,
+  "SeriesName": "Faith"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969728f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 13,
+  "SeriesName": "Route 666"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697290"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 14,
+  "SeriesName": "Nightmare"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697291"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 15,
+  "SeriesName": "The Benders"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697292"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 16,
+  "SeriesName": "Shadow"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697293"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 17,
+  "SeriesName": "Hell House"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697294"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 18,
+  "SeriesName": "Something Wicked"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697295"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 19,
+  "SeriesName": "Provenance"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697296"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 20,
+  "SeriesName": "Dead Man's Blood"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697297"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 21,
+  "SeriesName": "Salvation"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697298"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 1,
+  "SeriesNumber": 22,
+  "SeriesName": "Devil's Trap"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697299"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 1,
+  "SeriesName": "In My Time of Dying"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 2,
+  "SeriesName": "Everybody Loves a Clown"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 3,
+  "SeriesName": "Bloodlust"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 4,
+  "SeriesName": "Children Shouldn't Play with Dead Things"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 5,
+  "SeriesName": "Simon Said"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 6,
+  "SeriesName": "No Exit"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969729f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 7,
+  "SeriesName": "The Usual Suspects"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 8,
+  "SeriesName": "Crossroad Blues"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 9,
+  "SeriesName": "Croatoan"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 10,
+  "SeriesName": "Hunted"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 11,
+  "SeriesName": "Playthings"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 12,
+  "SeriesName": "Nightshifter"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 13,
+  "SeriesName": "Houses of the Holy"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 14,
+  "SeriesName": "Born Under a Bad Sign"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 15,
+  "SeriesName": "Tall Tales"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 16,
+  "SeriesName": "Roadkill"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972a9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 17,
+  "SeriesName": "Heart"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972aa"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 18,
+  "SeriesName": "Hollywood Babylon"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ab"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 19,
+  "SeriesName": "Folsom Prison Blues"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ac"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 20,
+  "SeriesName": "What Is and What Should Never Be"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ad"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 21,
+  "SeriesName": "All Hell Breaks Loose (1)"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ae"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 2,
+  "SeriesNumber": 22,
+  "SeriesName": "All Hell Breaks Loose (2)"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972af"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 1,
+  "SeriesName": "The Magnificent Seven"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 2,
+  "SeriesName": "The Kids Are Alright"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 3,
+  "SeriesName": "Bad Day at Black Rock"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 4,
+  "SeriesName": "Sin City"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 5,
+  "SeriesName": "Bedtime Stories"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 6,
+  "SeriesName": "Red Sky at Morning"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 7,
+  "SeriesName": "Fresh Blood"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 8,
+  "SeriesName": "A Very Supernatural Christmas"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 9,
+  "SeriesName": "Malleus Maleficarum"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 10,
+  "SeriesName": "Dream a Little Dream of Me"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972b9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 11,
+  "SeriesName": "Mystery Spot"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ba"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 12,
+  "SeriesName": "Jus in Bello"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972bb"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 13,
+  "SeriesName": "Ghostfacers"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972bc"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 14,
+  "SeriesName": "Long Distance Call"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972bd"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 15,
+  "SeriesName": "Time is on My Side"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972be"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 3,
+  "SeriesNumber": 16,
+  "SeriesName": "No Rest for the Wicked"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972bf"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 1,
+  "SeriesName": "Lazarus Rising"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 2,
+  "SeriesName": "Are You There, God? It's Me, Dean Winchester"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 3,
+  "SeriesName": "In the Beginning"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 4,
+  "SeriesName": "Metamorphosis"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 5,
+  "SeriesName": "Monster Movie"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 6,
+  "SeriesName": "Yellow Fever"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 7,
+  "SeriesName": "It's the Great Pumpkin, Sam Winchester"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 8,
+  "SeriesName": "Wishful Thinking"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 9,
+  "SeriesName": "I Know What You Did Last Summer"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 10,
+  "SeriesName": "Heaven and Hell"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972c9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 11,
+  "SeriesName": "Family Remains"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ca"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 12,
+  "SeriesName": "Criss Angel is a Douchebag"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972cb"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 13,
+  "SeriesName": "After School Special"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972cc"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 14,
+  "SeriesName": "Sex and Violence"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972cd"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 15,
+  "SeriesName": "Death Takes a Holiday"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ce"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 16,
+  "SeriesName": "On the Head of a Pin"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972cf"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 17,
+  "SeriesName": "It's a Terrible Life"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 18,
+  "SeriesName": "The Monster at the End of This Book"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 19,
+  "SeriesName": "Jump the Shark"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 20,
+  "SeriesName": "The Rapture"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 21,
+  "SeriesName": "When the Levee Breaks"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 4,
+  "SeriesNumber": 22,
+  "SeriesName": "Lucifer Rising"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 1,
+  "SeriesName": "Sympathy for the Devil"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 2,
+  "SeriesName": "Good God, Y'all!"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 3,
+  "SeriesName": "Free to Be You and Me"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 4,
+  "SeriesName": "The End"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972d9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 5,
+  "SeriesName": "Fallen Idols"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972da"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 6,
+  "SeriesName": "I Believe the Children are Our Future"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972db"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 7,
+  "SeriesName": "The Curious Case of Dean Winchester"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972dc"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 8,
+  "SeriesName": "Changing Channels"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972dd"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 9,
+  "SeriesName": "The Real Ghostbusters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972de"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 10,
+  "SeriesName": "Abandon All Hope..."
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972df"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 11,
+  "SeriesName": "Sam, Interrupted"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 12,
+  "SeriesName": "Swap Meat"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 13,
+  "SeriesName": "The Song Remains the Same"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 14,
+  "SeriesName": "My Bloody Valentine"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 15,
+  "SeriesName": "Dead Men Don't Wear Plaid"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 16,
+  "SeriesName": "Dark Side of the Moon"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 17,
+  "SeriesName": "99 Problems"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 18,
+  "SeriesName": "Point of No Return"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 19,
+  "SeriesName": "Hammer of the Gods"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 20,
+  "SeriesName": "The Devil You Know"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972e9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 21,
+  "SeriesName": "Two Minutes to Midnight"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ea"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 5,
+  "SeriesNumber": 22,
+  "SeriesName": "Swan Song"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972eb"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 1,
+  "SeriesName": "Exile on Main St."
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ec"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 2,
+  "SeriesName": "Two and a Half Men"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ed"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 3,
+  "SeriesName": "The Third Man"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ee"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 4,
+  "SeriesName": "Weekend at Bobby's"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ef"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 5,
+  "SeriesName": "Live Free or Twi-hard"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 6,
+  "SeriesName": "You Can't Handle the Truth"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 7,
+  "SeriesName": "Family Matters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 8,
+  "SeriesName": "All Dogs Go to Heaven"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 9,
+  "SeriesName": "Clap Your Hands If You Believe"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 10,
+  "SeriesName": "Caged Heat"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 11,
+  "SeriesName": "Appointment in Samarra"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 12,
+  "SeriesName": "Like a Virgin"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 13,
+  "SeriesName": "Unforgiven"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 14,
+  "SeriesName": "Mannequin 3: The Reckoning"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972f9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 15,
+  "SeriesName": "The French Mistake"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972fa"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 16,
+  "SeriesName": "And Then There Were None"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972fb"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 17,
+  "SeriesName": "My Heart Will Go On"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972fc"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 18,
+  "SeriesName": "Frontierland"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972fd"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 19,
+  "SeriesName": "Mommy Dearest"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972fe"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 20,
+  "SeriesName": "The Man Who Would Be King"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296972ff"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 21,
+  "SeriesName": "Let It Bleed"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697300"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 6,
+  "SeriesNumber": 22,
+  "SeriesName": "The Man Who Knew Too Much"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697301"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 1,
+  "SeriesName": "Meet the New Boss"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697302"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 2,
+  "SeriesName": "Hello, Cruel World"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697303"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 3,
+  "SeriesName": "The Girl Next Door"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697304"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 4,
+  "SeriesName": "Defending Your Life"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697305"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 5,
+  "SeriesName": "Shut Up, Dr. Phil"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697306"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 6,
+  "SeriesName": "Slash Fiction"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697307"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 7,
+  "SeriesName": "The Mentalists"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697308"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 8,
+  "SeriesName": "Season 7, Time for a Wedding!"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697309"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 9,
+  "SeriesName": "How to Win Friends and Influence Monsters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 10,
+  "SeriesName": "Death's Door"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 11,
+  "SeriesName": "Adventures in Babysitting"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 12,
+  "SeriesName": "Time After Time"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 13,
+  "SeriesName": "The Slice Girls"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 14,
+  "SeriesName": "Plucky Pennywhistle's Magical Menagerie"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969730f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 15,
+  "SeriesName": "Repo Man"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697310"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 16,
+  "SeriesName": "Out with the Old"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697311"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 17,
+  "SeriesName": "The Born-Again Identity"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697312"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 18,
+  "SeriesName": "Party On, Garth"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697313"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 19,
+  "SeriesName": "Of Grave Importance"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697314"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 20,
+  "SeriesName": "The Girl with the Dungeons and Dragons Tattoo"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697315"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 21,
+  "SeriesName": "Reading is Fundamental"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697316"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 22,
+  "SeriesName": "There Will Be Blood"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697317"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 7,
+  "SeriesNumber": 23,
+  "SeriesName": "Survival of the Fittest"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697318"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 1,
+  "SeriesName": "We Need to Talk About Kevin"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697319"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 2,
+  "SeriesName": "What's Up, Tiger Mommy?"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 3,
+  "SeriesName": "Heartache"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 4,
+  "SeriesName": "Bitten"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 5,
+  "SeriesName": "Blood Brother"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 6,
+  "SeriesName": "Southern Comfort"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 7,
+  "SeriesName": "A Little Slice of Kevin"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969731f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 8,
+  "SeriesName": "Hunteri Heroici"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697320"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 9,
+  "SeriesName": "Citizen Fang"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697321"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 10,
+  "SeriesName": "Torn and Frayed"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697322"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 11,
+  "SeriesName": "LARP and the Real Girl"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697323"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 12,
+  "SeriesName": "As Time Goes By"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697324"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 13,
+  "SeriesName": "Everybody Hates Hitler"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697325"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 14,
+  "SeriesName": "Trial and Error"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697326"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 15,
+  "SeriesName": "Man's Best Friend with Benefits"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697327"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 16,
+  "SeriesName": "Remember the Titans"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697328"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 17,
+  "SeriesName": "Goodbye Stranger"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697329"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 18,
+  "SeriesName": "Freaks and Geeks"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 19,
+  "SeriesName": "Taxi Driver"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 20,
+  "SeriesName": "Pac-Man Fever"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 21,
+  "SeriesName": "The Great Escapist"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 22,
+  "SeriesName": "Clip Show"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 8,
+  "SeriesNumber": 23,
+  "SeriesName": "Sacrifice"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969732f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 1,
+  "SeriesName": "I Think I'm Gonna Like It Here"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697330"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 2,
+  "SeriesName": "Devil May Care"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697331"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 3,
+  "SeriesName": "I'm No Angel"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697332"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 4,
+  "SeriesName": "Slumber Party"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697333"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 5,
+  "SeriesName": "Dog Dean Afternoon"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697334"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 6,
+  "SeriesName": "Heaven Can't Wait"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697335"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 7,
+  "SeriesName": "Bad Boys"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697336"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 8,
+  "SeriesName": "Rock and a Hard Place"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697337"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 9,
+  "SeriesName": "Holy Terror"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697338"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 10,
+  "SeriesName": "Road Trip"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697339"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 11,
+  "SeriesName": "First Born"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 12,
+  "SeriesName": "Sharp Teeth"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 13,
+  "SeriesName": "The Purge"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 14,
+  "SeriesName": "Captives"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 15,
+  "SeriesName": "#thinman"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 16,
+  "SeriesName": "Blade Runners"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969733f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 17,
+  "SeriesName": "Mother's Little Helper"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697340"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 18,
+  "SeriesName": "Meta Fiction"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697341"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 19,
+  "SeriesName": "Alex Annie Alexis Ann"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697342"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 20,
+  "SeriesName": "Bloodlines"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697343"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 21,
+  "SeriesName": "King of the Damned"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697344"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 22,
+  "SeriesName": "Stairway to Heaven"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697345"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 9,
+  "SeriesNumber": 23,
+  "SeriesName": "Do You Believe in Miracles?"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697346"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 1,
+  "SeriesName": "Black"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697347"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 2,
+  "SeriesName": "Reichenbach"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697348"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 3,
+  "SeriesName": "Soul Survivor"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697349"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 4,
+  "SeriesName": "Paper Moon"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 5,
+  "SeriesName": "Fan Fiction"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 6,
+  "SeriesName": "Ask Jeeves"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 7,
+  "SeriesName": "Girls, Girls, Girls"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 8,
+  "SeriesName": "Hibbing 911"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 9,
+  "SeriesName": "The Things We Left Behind"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969734f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 10,
+  "SeriesName": "The Hunter Games"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697350"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 11,
+  "SeriesName": "There's No Place Like Home"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697351"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 12,
+  "SeriesName": "About a Boy"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697352"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 13,
+  "SeriesName": "Halt & Catch Fire"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697353"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 14,
+  "SeriesName": "The Executioner's Song"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697354"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 15,
+  "SeriesName": "The Things They Carried"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697355"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 16,
+  "SeriesName": "Paint It Black"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697356"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 17,
+  "SeriesName": "Inside Man"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697357"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 18,
+  "SeriesName": "Book of the Damned"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697358"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 19,
+  "SeriesName": "The Werther Project"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697359"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 20,
+  "SeriesName": "Angel Heart"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 21,
+  "SeriesName": "Dark Dynasty"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 22,
+  "SeriesName": "The Prisoner"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 10,
+  "SeriesNumber": 23,
+  "SeriesName": "Brother's Keeper"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 1,
+  "SeriesName": "Out of the Darkness, Into the Fire"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 2,
+  "SeriesName": "Form and Void"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969735f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 3,
+  "SeriesName": "The Bad Seed"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697360"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 4,
+  "SeriesName": "Baby"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697361"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 5,
+  "SeriesName": "Thin Lizzie"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697362"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 6,
+  "SeriesName": "Our Little World"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697363"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 7,
+  "SeriesName": "Plush"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697364"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 8,
+  "SeriesName": "Just My Imagination"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697365"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 9,
+  "SeriesName": "O Brother Where Art Thou?"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697366"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 10,
+  "SeriesName": "The Devil in the Details"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697367"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 11,
+  "SeriesName": "Into the Mystic"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697368"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 12,
+  "SeriesName": "Don't You Forget About Me"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697369"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 13,
+  "SeriesName": "Love Hurts"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 14,
+  "SeriesName": "The Vessel"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 15,
+  "SeriesName": "Beyond the Mat"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 16,
+  "SeriesName": "Safe House"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 17,
+  "SeriesName": "Red Meat"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 18,
+  "SeriesName": "Hell's Angel"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969736f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 19,
+  "SeriesName": "The Chitters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697370"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 20,
+  "SeriesName": "Don't Call Me Shurley"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697371"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 21,
+  "SeriesName": "All in the Family"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697372"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 22,
+  "SeriesName": "We Happy Few"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697373"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 11,
+  "SeriesNumber": 23,
+  "SeriesName": "Alpha and Omega"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697374"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 1,
+  "SeriesName": "Keep Calm and Carry On"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697375"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 2,
+  "SeriesName": "Mamma Mia"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697376"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 3,
+  "SeriesName": "The Foundry"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697377"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 4,
+  "SeriesName": "American Nightmare"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697378"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 5,
+  "SeriesName": "The One You've Been Waiting For"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697379"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 6,
+  "SeriesName": "Celebrating the Life of Asa Fox"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 7,
+  "SeriesName": "Rock Never Dies"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 8,
+  "SeriesName": "LOTUS"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 9,
+  "SeriesName": "First Blood"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 10,
+  "SeriesName": "Lily Sunder Has Some Regrets"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 11,
+  "SeriesName": "Regarding Dean"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969737f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 12,
+  "SeriesName": "Stuck in the Middle (With You)"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697380"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 13,
+  "SeriesName": "Family Feud"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697381"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 14,
+  "SeriesName": "The Raid"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697382"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 15,
+  "SeriesName": "Somewhere Between Heaven and Hell"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697383"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 16,
+  "SeriesName": "Ladies Drink Free"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697384"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 17,
+  "SeriesName": "The British Invasion"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697385"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 18,
+  "SeriesName": "The Memory Remains"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697386"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 19,
+  "SeriesName": "The Future"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697387"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 20,
+  "SeriesName": "Twigs & Twine & Tasha Banes"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697388"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 21,
+  "SeriesName": "There's Something About Mary"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697389"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 22,
+  "SeriesName": "Who We Are"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 12,
+  "SeriesNumber": 23,
+  "SeriesName": "All Along the Watchtower"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 1,
+  "SeriesName": "Lost and Found"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 2,
+  "SeriesName": "The Rising Son"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 3,
+  "SeriesName": "Patience"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 4,
+  "SeriesName": "The Big Empty"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969738f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 5,
+  "SeriesName": "Advanced Thanatology"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697390"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 6,
+  "SeriesName": "Tombstone"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697391"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 7,
+  "SeriesName": "War of the Worlds"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697392"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 8,
+  "SeriesName": "The Scorpion and the Frog"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697393"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 9,
+  "SeriesName": "The Bad Place"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697394"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 10,
+  "SeriesName": "Wayward Sisters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697395"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 11,
+  "SeriesName": "Breakdown"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697396"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 12,
+  "SeriesName": "Various & Sundry Villains"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697397"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 13,
+  "SeriesName": "Devil's Bargain"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697398"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 14,
+  "SeriesName": "Good Intentions"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f329697399"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 15,
+  "SeriesName": "A Most Holy Man"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739a"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 16,
+  "SeriesName": "Scoobynatural"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739b"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 17,
+  "SeriesName": "The Thing"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739c"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 18,
+  "SeriesName": "Bring 'em Back Alive"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739d"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 19,
+  "SeriesName": "Funeralia"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739e"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 20,
+  "SeriesName": "Unfinished Business"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f32969739f"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 21,
+  "SeriesName": "Beat the Devil"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 22,
+  "SeriesName": "Exodus"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 13,
+  "SeriesNumber": 23,
+  "SeriesName": "Let the Good Times Roll"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 1,
+  "SeriesName": "Stranger in a Strange Land"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 2,
+  "SeriesName": "Gods and Monsters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 3,
+  "SeriesName": "The Scar"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 4,
+  "SeriesName": "Mint Condition"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 5,
+  "SeriesName": "Nightmare Logic"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 6,
+  "SeriesName": "Optimism"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 7,
+  "SeriesName": "Unhuman Nature"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973a9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 8,
+  "SeriesName": "Byzantium"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973aa"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 9,
+  "SeriesName": "The Spear"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973ab"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 10,
+  "SeriesName": "Nihilism"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973ac"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 11,
+  "SeriesName": "Damaged Goods"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973ad"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 12,
+  "SeriesName": "Prophet and Loss"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973ae"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 13,
+  "SeriesName": "Lebanon"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973af"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 14,
+  "SeriesName": "Ouroboros"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 15,
+  "SeriesName": "Peace of Mind"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 16,
+  "SeriesName": "Don't Go in the Woods"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 17,
+  "SeriesName": "Game Night"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 18,
+  "SeriesName": "Absence"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 19,
+  "SeriesName": "Jack in the Box"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 14,
+  "SeriesNumber": 20,
+  "SeriesName": "Moriah"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 1,
+  "SeriesName": "Back and to the Future"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 2,
+  "SeriesName": "Raising Hell"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 3,
+  "SeriesName": "The Rupture"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973b9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 4,
+  "SeriesName": "Atomic Monsters"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973ba"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 5,
+  "SeriesName": "Proverbs 17:3"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973bb"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 6,
+  "SeriesName": "Golden Time"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973bc"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 7,
+  "SeriesName": "Last Call"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973bd"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 8,
+  "SeriesName": "Our Father, Who Aren't in Heaven"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973be"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 9,
+  "SeriesName": "The Trap"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973bf"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 10,
+  "SeriesName": "The Heroes' Journey"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c0"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 11,
+  "SeriesName": "The Gamblers"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c1"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 12,
+  "SeriesName": "Galaxy Brain"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c2"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 13,
+  "SeriesName": "Destiny's Child"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c3"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 14,
+  "SeriesName": "Last Holiday"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c4"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 15,
+  "SeriesName": "Gimme Shelter"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c5"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 16,
+  "SeriesName": "Drag Me Away (From You)"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c6"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 17,
+  "SeriesName": "Unity"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c7"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 18,
+  "SeriesName": "Despair"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c8"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 19,
+  "SeriesName": "Inherit the Earth"
+},{
+  "_id": {
+    "$oid": "61eede3acf2273f3296973c9"
+  },
+  "SerialName": "Сверхъестественное",
+  "SerialNameEng": "Supernatural",
+  "SerialSeason": 15,
+  "SeriesNumber": 20,
+  "SeriesName": "Carry On"
+}]

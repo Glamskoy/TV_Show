@@ -2,40 +2,21 @@
 
 @if (!IsTable)
 {
-    <div class="row text-center alert alert-info">
+    <div class="row text-center alert alert-info" style="margin-left:auto; margin-right: auto;">
         <div class="col">
             <p>@Serials.SerialName</p>
             <p>@Serials.ReleaseDate - @Serials.FinishDate</p>
-            <p>@Serials.SeriesTime</p>
-            <p>@Serials.Seasons</p>
             <p>@Serials.About</p>
         </div>
     </div>
-
-    @if (DisplayButtons)
-    {
-        <div class="row">
-            <div class="col offset-3">
-                <input type="checkbox" @onchange="FromBlazorToDB" />
-            </div>
-        </div>
-    }
 }
 else
 {
-<tr>
-    <td><a href="/@Serials.SerialNameEng.ToString().Replace(" ", "")">@Serials.SerialName</a></td>
-    <td>@Serials.ReleaseDate - @Serials.FinishDate</td>
-    <td>@Serials.SeriesTime</td>
-    <td>@Serials.Seasons</td>
-    <td>@Serials.About</td>
-    <td>
-        @if (DisplayButtons)
-        {
-            <input type="checkbox" @onchange="FromBlazorToDB" />
-        }
-    </td>
-</tr>
+    <tr style="margin-left:auto; margin-right: auto;">
+        <td><a href="/@Serials.SerialNameEng.ToString().Replace(" ", "")">@Serials.SerialName</a></td>
+        <td>@Serials.ReleaseDate - @Serials.FinishDate</td>
+        <td>@Serials.About</td>
+    </tr>
 }
 
 

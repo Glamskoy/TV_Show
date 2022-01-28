@@ -1,34 +1,34 @@
-﻿<div class="table-responsive">
-    <table class="table" table-striped>
-        <thead class="thead-light">
-            <tr>
-                <th>Название сериала:</th>
-                <th>Дата выхода:</th>
-                <th>Длительность серии:</th>
-                <th>Количество сезонов:</th>
-                <th>Информация:</th>
-                <th>Добать сериал в список<input type="checkbox" @bind="displayButtons" /></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Serials == null)
-            {
-                <tr>LOADING DATA...</tr>
-            }
-            else if (Serials.Count == 0)
-            {
-                <tr>No items in array</tr>
-            }
-            else
-            {
-                @foreach (var item in Serials)
+﻿<div class="container"  style="margin-left:auto; margin-right: auto; margin-top: 25px;">
+    <div class="table-responsive">
+        <table class="table" table-striped>
+            <thead class="thead-light">
+                <tr>
+                    <th>Название сериала:</th>
+                    <th>Дата выхода:</th>
+                    <th>Информация:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Serials == null)
                 {
-                    <AllSerials Serials="item" IsTable="true" DisplayButtons="displayButtons"/>
+                    <tr>LOADING DATA...</tr>
                 }
-            }
-        </tbody>
-    </table>
+                else if (Serials.Count == 0)
+                {
+                    <tr>No items in array</tr>
+                }
+                else
+                {
+                    @foreach (var item in Serials)
+                    {
+                        <AllSerials Serials="item" IsTable="true" DisplayButtons="displayButtons" />
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
 
 
 
